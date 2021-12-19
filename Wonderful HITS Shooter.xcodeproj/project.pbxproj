@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14439276FE32E00E33C79 /* Coordinator.swift */; };
+		A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443B276FE38800E33C79 /* AppCoordinator.swift */; };
+		A9A1443E276FE4A600E33C79 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443D276FE4A600E33C79 /* StartCoordinator.swift */; };
+		A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443F276FE71400E33C79 /* Dependencies.swift */; };
 		A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D2276F7459009CC78B /* AppDelegate.swift */; };
 		A9CA71D5276F7459009CC78B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D4276F7459009CC78B /* SceneDelegate.swift */; };
-		A9CA71D7276F7459009CC78B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D6276F7459009CC78B /* ViewController.swift */; };
+		A9CA71D7276F7459009CC78B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D6276F7459009CC78B /* StartViewController.swift */; };
 		A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DB276F745A009CC78B /* Assets.xcassets */; };
 		A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */; };
 		FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */; };
@@ -19,10 +23,14 @@
 		2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
 		A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
+		A9A14439276FE32E00E33C79 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A9A1443B276FE38800E33C79 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A9A1443D276FE4A600E33C79 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
+		A9A1443F276FE71400E33C79 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		A9CA71CF276F7459009CC78B /* Wonderful HITS Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wonderful HITS Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CA71D2276F7459009CC78B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9CA71D4276F7459009CC78B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A9CA71D6276F7459009CC78B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9CA71D6276F7459009CC78B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A9CA71DB276F745A009CC78B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CA71DE276F745A009CC78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9CA71E0276F745A009CC78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,10 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */,
-				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
-				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
-				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
-				A9CA71E0276F745A009CC78B /* Info.plist */,
 				A9CA71D0276F7459009CC78B /* Products */,
 				C59D94C0D61640D484475622 /* Pods */,
 				BD7A338F7B3C2903C2DD54DC /* Frameworks */,
@@ -68,6 +72,10 @@
 				A9CA71EA276F805F009CC78B /* Support */,
 				A9CA71E9276F8040009CC78B /* Scenes */,
 				A9CA71E8276F8038009CC78B /* Constants */,
+				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
+				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
+				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
+				A9CA71E0276F745A009CC78B /* Info.plist */,
 			);
 			path = "Wonderful HITS Shooter";
 			sourceTree = "<group>";
@@ -75,7 +83,8 @@
 		A9CA71E7276F7B72009CC78B /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				A9CA71D6276F7459009CC78B /* ViewController.swift */,
+				A9CA71D6276F7459009CC78B /* StartViewController.swift */,
+				A9A1443D276FE4A600E33C79 /* StartCoordinator.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -99,6 +108,9 @@
 		A9CA71EA276F805F009CC78B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A9A14439276FE32E00E33C79 /* Coordinator.swift */,
+				A9A1443B276FE38800E33C79 /* AppCoordinator.swift */,
+				A9A1443F276FE71400E33C79 /* Dependencies.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -234,7 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9CA71D7276F7459009CC78B /* ViewController.swift in Sources */,
+				A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */,
+				A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */,
+				A9A1443E276FE4A600E33C79 /* StartCoordinator.swift in Sources */,
+				A9CA71D7276F7459009CC78B /* StartViewController.swift in Sources */,
+				A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,
 				A9CA71D5276F7459009CC78B /* SceneDelegate.swift in Sources */,
 			);
