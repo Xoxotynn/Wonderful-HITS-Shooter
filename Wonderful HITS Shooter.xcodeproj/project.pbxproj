@@ -10,17 +10,19 @@
 		A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D2276F7459009CC78B /* AppDelegate.swift */; };
 		A9CA71D5276F7459009CC78B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D4276F7459009CC78B /* SceneDelegate.swift */; };
 		A9CA71D7276F7459009CC78B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D6276F7459009CC78B /* ViewController.swift */; };
-		A9CA71DA276F7459009CC78B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71D8276F7459009CC78B /* Main.storyboard */; };
 		A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DB276F745A009CC78B /* Assets.xcassets */; };
 		A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */; };
+		FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
+		A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
 		A9CA71CF276F7459009CC78B /* Wonderful HITS Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wonderful HITS Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CA71D2276F7459009CC78B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9CA71D4276F7459009CC78B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A9CA71D6276F7459009CC78B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A9CA71D9276F7459009CC78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9CA71DB276F745A009CC78B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CA71DE276F745A009CC78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9CA71E0276F745A009CC78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */,
 				A9CA71D0276F7459009CC78B /* Products */,
+				C59D94C0D61640D484475622 /* Pods */,
+				BD7A338F7B3C2903C2DD54DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,47 @@
 		A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */ = {
 			isa = PBXGroup;
 			children = (
+				A9CA71E7276F7B72009CC78B /* Start Screen */,
+				A9CA71E6276F7A7B009CC78B /* Common */,
+			);
+			path = "Wonderful HITS Shooter";
+			sourceTree = "<group>";
+		};
+		A9CA71E6276F7A7B009CC78B /* Common */ = {
+			isa = PBXGroup;
+			children = (
 				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
 				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
-				A9CA71D6276F7459009CC78B /* ViewController.swift */,
-				A9CA71D8276F7459009CC78B /* Main.storyboard */,
 				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
 				A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */,
 				A9CA71E0276F745A009CC78B /* Info.plist */,
 			);
-			path = "Wonderful HITS Shooter";
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A9CA71E7276F7B72009CC78B /* Start Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A9CA71D6276F7459009CC78B /* ViewController.swift */,
+			);
+			path = "Start Screen";
+			sourceTree = "<group>";
+		};
+		BD7A338F7B3C2903C2DD54DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C59D94C0D61640D484475622 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */,
+				2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9CA71E3276F745A009CC78B /* Build configuration list for PBXNativeTarget "Wonderful HITS Shooter" */;
 			buildPhases = (
+				67599A011D3C656DC5447CB1 /* [CP] Check Pods Manifest.lock */,
 				A9CA71CB276F7459009CC78B /* Sources */,
 				A9CA71CC276F7459009CC78B /* Frameworks */,
 				A9CA71CD276F7459009CC78B /* Resources */,
+				A43F696ED76F806BF2BD361F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,11 +166,52 @@
 			files = (
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
-				A9CA71DA276F7459009CC78B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67599A011D3C656DC5447CB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wonderful HITS Shooter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A43F696ED76F806BF2BD361F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A9CA71CB276F7459009CC78B /* Sources */ = {
@@ -147,14 +227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A9CA71D8276F7459009CC78B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9CA71D9276F7459009CC78B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -217,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,6 +356,7 @@
 		};
 		A9CA71E4276F745A009CC78B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -291,10 +364,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
+				INFOPLIST_FILE = "Wonderful HITS Shooter/Common/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +385,7 @@
 		};
 		A9CA71E5276F745A009CC78B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,10 +393,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
+				INFOPLIST_FILE = "Wonderful HITS Shooter/Common/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
