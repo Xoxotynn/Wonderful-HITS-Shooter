@@ -44,6 +44,10 @@
 			isa = PBXGroup;
 			children = (
 				A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */,
+				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
+				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
+				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
+				A9CA71E0276F745A009CC78B /* Info.plist */,
 				A9CA71D0276F7459009CC78B /* Products */,
 				C59D94C0D61640D484475622 /* Pods */,
 				BD7A338F7B3C2903C2DD54DC /* Frameworks */,
@@ -61,30 +65,42 @@
 		A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */ = {
 			isa = PBXGroup;
 			children = (
-				A9CA71E7276F7B72009CC78B /* Start Screen */,
-				A9CA71E6276F7A7B009CC78B /* Common */,
+				A9CA71EA276F805F009CC78B /* Support */,
+				A9CA71E9276F8040009CC78B /* Scenes */,
+				A9CA71E8276F8038009CC78B /* Constants */,
 			);
 			path = "Wonderful HITS Shooter";
 			sourceTree = "<group>";
 		};
-		A9CA71E6276F7A7B009CC78B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
-				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
-				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
-				A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */,
-				A9CA71E0276F745A009CC78B /* Info.plist */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		A9CA71E7276F7B72009CC78B /* Start Screen */ = {
+		A9CA71E7276F7B72009CC78B /* Start */ = {
 			isa = PBXGroup;
 			children = (
 				A9CA71D6276F7459009CC78B /* ViewController.swift */,
 			);
-			path = "Start Screen";
+			path = Start;
+			sourceTree = "<group>";
+		};
+		A9CA71E8276F8038009CC78B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A9CA71E9276F8040009CC78B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A9CA71E7276F7B72009CC78B /* Start */,
+				A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A9CA71EA276F805F009CC78B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		BD7A338F7B3C2903C2DD54DC /* Frameworks */ = {
@@ -364,7 +380,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wonderful HITS Shooter/Common/Info.plist";
+				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -393,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Wonderful HITS Shooter/Common/Info.plist";
+				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
