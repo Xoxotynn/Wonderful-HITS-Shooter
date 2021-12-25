@@ -11,23 +11,24 @@ import UIKit
 class StartCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator]
-    var rootNavgationController: UINavigationController
+    var rootNavigationController: UINavigationController
     
     private let dependencies: Dependencies
     
     init(rootViewController: UINavigationController, dependencies: Dependencies) {
         self.dependencies = dependencies
-        rootNavgationController = rootViewController
+        rootNavigationController = rootViewController
         childCoordinators = []
     }
     
     func start() {
+        rootNavigationController.navigationBar.isHidden = true
         let viewController = StartViewController()
-        rootNavgationController.setViewControllers([viewController], animated: true)
+        rootNavigationController.setViewControllers([viewController], animated: true)
     }
     
     func showNextScene() {
-        let coord = StartCoordinator(rootViewController: rootNavgationController, dependencies: dependencies)
+        let coord = StartCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
         childCoordinators.append(coord)
     }
 }

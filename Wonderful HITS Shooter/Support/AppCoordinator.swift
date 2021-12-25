@@ -11,7 +11,7 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator]
-    var rootNavgationController: UINavigationController
+    var rootNavigationController: UINavigationController
     
     private let window: UIWindow?
     private let dependencies: Dependencies
@@ -19,17 +19,17 @@ class AppCoordinator: Coordinator {
     init(window: UIWindow?) {
         self.window = window
         dependencies = Dependencies(dataTest: 1)
-        rootNavgationController = UINavigationController(rootViewController: UIViewController())
+        rootNavigationController = UINavigationController(rootViewController: UIViewController())
         childCoordinators = []
     }
     
     func start() {
         guard let window = window else { return }
         
-        window.rootViewController = rootNavgationController
+        window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = StartCoordinator(rootViewController: rootNavgationController,
+        let startCoordinator = StartCoordinator(rootViewController: rootNavigationController,
                                                 dependencies: dependencies)
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
