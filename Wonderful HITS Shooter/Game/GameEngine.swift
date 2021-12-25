@@ -8,21 +8,16 @@ protocol GameEngineProtocol: AnyObject {
     func upScore()
 }
 
-#warning("Level Logic")
-
 final class GameEngine {
     
-    var player: Player?
+    
     var enemies: [Enemy]
     
     init() {
         enemies = []
     }
     
-    func start() {
-        player = Player()
-        player?.delegate = self
-    }
+    
 }
 
 extension GameEngine: EntityDelegate {
@@ -39,8 +34,4 @@ extension GameEngine: EnemyDelegate {
     }
 }
 
-extension GameEngine: PlayerDelegate {
-    func gameOver() {
-        
-    }
-}
+

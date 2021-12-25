@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
     
     var childCoordinators: [Coordinator]
     var rootNavigationController: UINavigationController
@@ -29,7 +29,7 @@ class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = StartCoordinator(rootViewController: rootNavigationController,
+        let startCoordinator = GameCoordinator(rootViewController: rootNavigationController,
                                                 dependencies: dependencies)
         childCoordinators.append(startCoordinator)
         startCoordinator.start()

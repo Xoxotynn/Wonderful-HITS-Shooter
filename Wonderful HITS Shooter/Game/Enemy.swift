@@ -4,7 +4,7 @@ protocol EnemyDelegate: AnyObject {
     func didDie(enemy: Enemy)
 }
 
-class Enemy: Entity {
+final class Enemy: Entity {
     
     var weapon: Weapon?
     weak var enemyDelegate: EnemyDelegate?

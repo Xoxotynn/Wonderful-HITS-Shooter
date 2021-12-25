@@ -1,5 +1,5 @@
 import Foundation
 
-class Bullet {
+final class Bullet {
     
 }

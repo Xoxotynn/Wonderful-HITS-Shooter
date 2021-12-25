@@ -4,7 +4,7 @@ protocol BulletWeaponDelegate: AnyObject {
     func shoot()
 }
 
-class BulletWeapon: Weapon {
+final class BulletWeapon: Weapon {
     
     /// Bullets per second
     var shootRate: Float = 1

@@ -4,7 +4,7 @@ protocol SpaceshipDelegate: AnyObject {
     func didDie()
 }
 
-class Spaceship: Entity {
+final class Spaceship: Entity {
 
     weak var spaceshipDelegate: SpaceshipDelegate?
     

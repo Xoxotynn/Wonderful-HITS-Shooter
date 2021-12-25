@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class StartViewController: UIViewController {
+final class GameViewController: UIViewController {
 
     let spaceshipImageView = UIImageView()
     let backgroundImageView = UIImageView()
