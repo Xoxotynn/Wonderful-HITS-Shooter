@@ -6,12 +6,12 @@ protocol PlayerDelegate: AnyObject {
 
 final class Player {
     
-    var spaceship: ShootingSpaceship
+    var spaceship: Spaceship
     weak var delegate: PlayerDelegate?
     
     init() {
-        spaceship = ShootingSpaceship(hp: 100)
-        spaceship.delegate = self
+        spaceship = Spaceship(hp: 100)
+        spaceship.spaceshipDelegate = self
     }
 }
 

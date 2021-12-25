@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746027779A9D00A62B47 /* BulletWeapon.swift */; };
+		A98774652777A09D00A62B47 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774642777A09D00A62B47 /* Weapon.swift */; };
 		A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14439276FE32E00E33C79 /* Coordinator.swift */; };
 		A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443B276FE38800E33C79 /* AppCoordinator.swift */; };
 		A9A1443E276FE4A600E33C79 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443D276FE4A600E33C79 /* StartCoordinator.swift */; };
@@ -19,12 +21,9 @@
 		CE7405292777701E00E386BF /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405282777701E00E386BF /* GameEngine.swift */; };
 		CE74052B2777710F00E386BF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052A2777710F00E386BF /* Entity.swift */; };
 		CE74052D277771D100E386BF /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052C277771D100E386BF /* Bullet.swift */; };
-		CE74052F2777726100E386BF /* ShootingSpaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052E2777726100E386BF /* ShootingSpaceship.swift */; };
 		CE7405312777732A00E386BF /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405302777732A00E386BF /* Enemy.swift */; };
 		CE7405332777736F00E386BF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405322777736F00E386BF /* Player.swift */; };
 		CE7405352777755300E386BF /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405342777755300E386BF /* Spaceship.swift */; };
-		CE74053B2777822E00E386BF /* EnemyShootingSpaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74053A2777822E00E386BF /* EnemyShootingSpaceship.swift */; };
-		CE74053D2777827100E386BF /* EnemySpaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74053C2777827100E386BF /* EnemySpaceship.swift */; };
 		FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +31,8 @@
 		2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
 		A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
+		A987746027779A9D00A62B47 /* BulletWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletWeapon.swift; sourceTree = "<group>"; };
+		A98774642777A09D00A62B47 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		A9A14439276FE32E00E33C79 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9A1443B276FE38800E33C79 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A9A1443D276FE4A600E33C79 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
@@ -46,12 +47,9 @@
 		CE7405282777701E00E386BF /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		CE74052A2777710F00E386BF /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE74052C277771D100E386BF /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-		CE74052E2777726100E386BF /* ShootingSpaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootingSpaceship.swift; sourceTree = "<group>"; };
 		CE7405302777732A00E386BF /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		CE7405322777736F00E386BF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		CE7405342777755300E386BF /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
-		CE74053A2777822E00E386BF /* EnemyShootingSpaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyShootingSpaceship.swift; sourceTree = "<group>"; };
-		CE74053C2777827100E386BF /* EnemySpaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySpaceship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,12 +155,11 @@
 				CE7405282777701E00E386BF /* GameEngine.swift */,
 				CE74052A2777710F00E386BF /* Entity.swift */,
 				CE74052C277771D100E386BF /* Bullet.swift */,
-				CE74052E2777726100E386BF /* ShootingSpaceship.swift */,
 				CE7405302777732A00E386BF /* Enemy.swift */,
 				CE7405322777736F00E386BF /* Player.swift */,
 				CE7405342777755300E386BF /* Spaceship.swift */,
-				CE74053A2777822E00E386BF /* EnemyShootingSpaceship.swift */,
-				CE74053C2777827100E386BF /* EnemySpaceship.swift */,
+				A987746027779A9D00A62B47 /* BulletWeapon.swift */,
+				A98774642777A09D00A62B47 /* Weapon.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -281,16 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE74053B2777822E00E386BF /* EnemyShootingSpaceship.swift in Sources */,
 				A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */,
 				A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* StartCoordinator.swift in Sources */,
 				CE7405292777701E00E386BF /* GameEngine.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* StartViewController.swift in Sources */,
+				A98774652777A09D00A62B47 /* Weapon.swift in Sources */,
+				A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				CE74052B2777710F00E386BF /* Entity.swift in Sources */,
-				CE74053D2777827100E386BF /* EnemySpaceship.swift in Sources */,
-				CE74052F2777726100E386BF /* ShootingSpaceship.swift in Sources */,
 				A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */,
 				CE7405312777732A00E386BF /* Enemy.swift in Sources */,
 				CE7405352777755300E386BF /* Spaceship.swift in Sources */,

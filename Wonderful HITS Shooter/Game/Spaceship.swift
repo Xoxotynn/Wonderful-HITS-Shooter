@@ -6,11 +6,11 @@ protocol SpaceshipDelegate: AnyObject {
 
 class Spaceship: Entity {
 
-    weak var delegate: SpaceshipDelegate?
+    weak var spaceshipDelegate: SpaceshipDelegate?
     
     override func die() {
         super.die()
         
-        delegate?.didDie()
+        spaceshipDelegate?.didDie()
     }
 }
