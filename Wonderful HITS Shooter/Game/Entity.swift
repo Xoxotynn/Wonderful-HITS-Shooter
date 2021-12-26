@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol EntityDelegate: AnyObject {
     func didDie(entity: Entity)
@@ -6,11 +6,13 @@ protocol EntityDelegate: AnyObject {
 
 class Entity {
     var hp: Int
+    var frame: CGRect
     
     weak var entityDelegate: EntityDelegate?
     
-    init(hp: Int) {
+    init(hp: Int, frame: CGRect) {
         self.hp = hp
+        self.frame = frame
     }
     
     func die() {

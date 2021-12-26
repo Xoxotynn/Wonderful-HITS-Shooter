@@ -13,7 +13,7 @@ final class Enemy: Entity {
     
     init(id: Int, hp: Int, weapon: Weapon? = nil) {
         self.id = id
-        super.init(hp: hp)
+        super.init(hp: hp, frame: .zero)
         self.weapon = weapon
         configureWeapon()
     }

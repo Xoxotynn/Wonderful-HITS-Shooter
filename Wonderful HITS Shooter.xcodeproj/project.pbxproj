@@ -12,6 +12,10 @@
 		A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774682777C6BF00A62B47 /* GameViewModel.swift */; };
 		A987746C2777C93500A62B47 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746B2777C93500A62B47 /* Level.swift */; };
 		A987746E2777C95000A62B47 /* FirstLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746D2777C95000A62B47 /* FirstLevel.swift */; };
+		A98774712778E49700A62B47 /* WaveSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774702778E49700A62B47 /* WaveSpawner.swift */; };
+		A9877476277916F900A62B47 /* RouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9877475277916F900A62B47 /* RouteCreator.swift */; };
+		A98774792779178E00A62B47 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774782779178E00A62B47 /* Wave.swift */; };
+		A987747C2779259400A62B47 /* PositionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987747B2779259400A62B47 /* PositionCreator.swift */; };
 		A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A14439276FE32E00E33C79 /* Coordinator.swift */; };
 		A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443B276FE38800E33C79 /* AppCoordinator.swift */; };
 		A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1443D276FE4A600E33C79 /* GameCoordinator.swift */; };
@@ -21,7 +25,6 @@
 		A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D6276F7459009CC78B /* GameViewController.swift */; };
 		A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DB276F745A009CC78B /* Assets.xcassets */; };
 		A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */; };
-		CE7405292777701E00E386BF /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405282777701E00E386BF /* GameEngine.swift */; };
 		CE74052B2777710F00E386BF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052A2777710F00E386BF /* Entity.swift */; };
 		CE74052D277771D100E386BF /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052C277771D100E386BF /* Bullet.swift */; };
 		CE7405312777732A00E386BF /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405302777732A00E386BF /* Enemy.swift */; };
@@ -39,6 +42,10 @@
 		A98774682777C6BF00A62B47 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		A987746B2777C93500A62B47 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		A987746D2777C95000A62B47 /* FirstLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLevel.swift; sourceTree = "<group>"; };
+		A98774702778E49700A62B47 /* WaveSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveSpawner.swift; sourceTree = "<group>"; };
+		A9877475277916F900A62B47 /* RouteCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCreator.swift; sourceTree = "<group>"; };
+		A98774782779178E00A62B47 /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		A987747B2779259400A62B47 /* PositionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCreator.swift; sourceTree = "<group>"; };
 		A9A14439276FE32E00E33C79 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9A1443B276FE38800E33C79 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A9A1443D276FE4A600E33C79 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
@@ -50,7 +57,6 @@
 		A9CA71DB276F745A009CC78B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CA71DE276F745A009CC78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9CA71E0276F745A009CC78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE7405282777701E00E386BF /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		CE74052A2777710F00E386BF /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE74052C277771D100E386BF /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		CE7405302777732A00E386BF /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -93,6 +99,38 @@
 				A987746D2777C95000A62B47 /* FirstLevel.swift */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		A987746F2778E48700A62B47 /* Wave Spawners */ = {
+			isa = PBXGroup;
+			children = (
+				A98774702778E49700A62B47 /* WaveSpawner.swift */,
+			);
+			path = "Wave Spawners";
+			sourceTree = "<group>";
+		};
+		A9877474277916C000A62B47 /* Route Creators */ = {
+			isa = PBXGroup;
+			children = (
+				A9877475277916F900A62B47 /* RouteCreator.swift */,
+			);
+			path = "Route Creators";
+			sourceTree = "<group>";
+		};
+		A98774772779178500A62B47 /* Waves */ = {
+			isa = PBXGroup;
+			children = (
+				A98774782779178E00A62B47 /* Wave.swift */,
+			);
+			path = Waves;
+			sourceTree = "<group>";
+		};
+		A987747A2779256A00A62B47 /* Position Creators */ = {
+			isa = PBXGroup;
+			children = (
+				A987747B2779259400A62B47 /* PositionCreator.swift */,
+			);
+			path = "Position Creators";
 			sourceTree = "<group>";
 		};
 		A9CA71C6276F7459009CC78B = {
@@ -184,8 +222,11 @@
 		CE74052727776FE700E386BF /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A98774772779178500A62B47 /* Waves */,
+				A987747A2779256A00A62B47 /* Position Creators */,
+				A9877474277916C000A62B47 /* Route Creators */,
+				A987746F2778E48700A62B47 /* Wave Spawners */,
 				A987746A2777C92200A62B47 /* Levels */,
-				CE7405282777701E00E386BF /* GameEngine.swift */,
 				CE74052A2777710F00E386BF /* Entity.swift */,
 				CE74052C277771D100E386BF /* Bullet.swift */,
 				CE7405302777732A00E386BF /* Enemy.swift */,
@@ -315,20 +356,23 @@
 				A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */,
 				A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
-				CE7405292777701E00E386BF /* GameEngine.swift in Sources */,
 				A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
+				A98774712778E49700A62B47 /* WaveSpawner.swift in Sources */,
 				A98774652777A09D00A62B47 /* Weapon.swift in Sources */,
 				A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				CE74052B2777710F00E386BF /* Entity.swift in Sources */,
 				A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */,
+				A9877476277916F900A62B47 /* RouteCreator.swift in Sources */,
 				CE7405312777732A00E386BF /* Enemy.swift in Sources */,
 				A987746E2777C95000A62B47 /* FirstLevel.swift in Sources */,
 				CE7405352777755300E386BF /* Spaceship.swift in Sources */,
 				CE74052D277771D100E386BF /* Bullet.swift in Sources */,
+				A98774792779178E00A62B47 /* Wave.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,
 				A9CA71D5276F7459009CC78B /* SceneDelegate.swift in Sources */,
+				A987747C2779259400A62B47 /* PositionCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

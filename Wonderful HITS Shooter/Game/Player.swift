@@ -10,7 +10,7 @@ final class Player {
     weak var delegate: PlayerDelegate?
     
     init() {
-        spaceship = Spaceship(hp: 100)
+        spaceship = Spaceship(hp: 100, frame: .zero)
         spaceship.spaceshipDelegate = self
     }
 }
