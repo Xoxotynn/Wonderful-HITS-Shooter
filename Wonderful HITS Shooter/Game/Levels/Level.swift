@@ -9,20 +9,20 @@ import Foundation
 
 protocol LevelDelegate: AnyObject {
     func setupUI(forPlayer player: Player)
-    func setupUI(forEnemies enemies: [Enemy])
+    func setupUI(forEnemies enemies: [EnemyGroup])
 }
 
 class Level {
     
     var player: Player
-    var waveSpawners: [WaveSpawner]
+    var waves: [Wave]
     var enemies: [Enemy]
     
     weak var delegate: LevelDelegate?
     
-    init(player: Player, waveSpawners: [WaveSpawner]) {
+    init(player: Player, waves: [Wave]) {
         self.player = player
-        self.waveSpawners = waveSpawners
+        self.waves = waves
         self.enemies = []
         self.player.delegate = self
         
@@ -30,13 +30,9 @@ class Level {
     }
     
     func spawnNextWave() {
-        guard let waveSpawner = waveSpawners.popLast() else {
+        guard let wave = waves.popLast() else {
             return
         }
-        
-        let newEnemies = waveSpawner.spawnWave()
-        enemies.append(contentsOf: newEnemies)
-        delegate?.setupUI(forEnemies: newEnemies)
     }
 }
 

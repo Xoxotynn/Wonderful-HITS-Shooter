@@ -9,12 +9,10 @@ import Foundation
 
 final class Wave {
     
-    private let waveSpawner: WaveSpawner
-    private let routeCreator: RouteCreator
+    private let enemyGroups: [EnemyGroup]
     
-    init(waveSpawner: WaveSpawner, routeCreator: RouteCreator) {
-        self.waveSpawner = waveSpawner
-        self.routeCreator = routeCreator
+    init() {
+        enemyGroups = []
     }
     
     func createWave() -> [Enemy] {

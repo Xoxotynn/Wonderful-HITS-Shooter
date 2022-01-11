@@ -5,8 +5,8 @@
 //  Created by Эдуард Логинов on 27.12.2021.
 //
 
-import Foundation
+import UIKit
 
-class PositionCreator {
-    
+protocol PositionCreator {
+    func setupInitialPosition(enemiesCount: Int) -> [CGPoint]
 }
