@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02837FD3D7AD4FD5EB7E6176 /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */; };
 		A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746027779A9D00A62B47 /* BulletWeapon.swift */; };
 		A98774652777A09D00A62B47 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774642777A09D00A62B47 /* Weapon.swift */; };
 		A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774682777C6BF00A62B47 /* GameViewModel.swift */; };
@@ -27,18 +28,23 @@
 		A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA71D6276F7459009CC78B /* GameViewController.swift */; };
 		A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DB276F745A009CC78B /* Assets.xcassets */; };
 		A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */; };
+		CE4074F8278D575F002D406A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE4074F7278D575F002D406A /* GoogleService-Info.plist */; };
 		CE74052B2777710F00E386BF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052A2777710F00E386BF /* Entity.swift */; };
 		CE74052D277771D100E386BF /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052C277771D100E386BF /* Bullet.swift */; };
 		CE7405312777732A00E386BF /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405302777732A00E386BF /* Enemy.swift */; };
 		CE7405332777736F00E386BF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405322777736F00E386BF /* Player.swift */; };
 		CE7405352777755300E386BF /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405342777755300E386BF /* Spaceship.swift */; };
-		FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */; };
+		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
+		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
+		CEE042E1278D530100C0B6CE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E0278D530100C0B6CE /* FirebaseCrashlytics */; };
+		CEE042E3278D530100C0B6CE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E2278D530100C0B6CE /* FirebaseDatabase */; };
+		CEE042E5278D530100C0B6CE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E4278D530100C0B6CE /* FirebaseFirestore */; };
+		CEE042E7278D530100C0B6CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E6278D530100C0B6CE /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
-		A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
+		0509462A91ABC4E247A940ED /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
+		8E169BE93D5CF226AF55068C /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
 		A987746027779A9D00A62B47 /* BulletWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletWeapon.swift; sourceTree = "<group>"; };
 		A98774642777A09D00A62B47 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		A98774682777C6BF00A62B47 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 		A9CA71DB276F745A009CC78B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9CA71DE276F745A009CC78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9CA71E0276F745A009CC78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4074F7278D575F002D406A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE74052A2777710F00E386BF /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE74052C277771D100E386BF /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		CE7405302777732A00E386BF /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -73,13 +81,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFE51AD74766EF6DB61D3AD /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */,
+				CEE042E3278D530100C0B6CE /* FirebaseDatabase in Frameworks */,
+				CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */,
+				CEE042E1278D530100C0B6CE /* FirebaseCrashlytics in Frameworks */,
+				CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */,
+				CEE042E7278D530100C0B6CE /* FirebaseStorage in Frameworks */,
+				CEE042E5278D530100C0B6CE /* FirebaseFirestore in Frameworks */,
+				02837FD3D7AD4FD5EB7E6176 /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AF6FEC9AC8DD73DB02E1395 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A98774662777C69D00A62B47 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +181,7 @@
 				A9CA71D1276F7459009CC78B /* Wonderful HITS Shooter */,
 				A9CA71D0276F7459009CC78B /* Products */,
 				C59D94C0D61640D484475622 /* Pods */,
-				BD7A338F7B3C2903C2DD54DC /* Frameworks */,
+				3AF6FEC9AC8DD73DB02E1395 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +203,7 @@
 				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
 				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
 				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
+				CE4074F7278D575F002D406A /* GoogleService-Info.plist */,
 				A9CA71E0276F745A009CC78B /* Info.plist */,
 			);
 			path = "Wonderful HITS Shooter";
@@ -222,19 +245,11 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		BD7A338F7B3C2903C2DD54DC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C59D94C0D61640D484475622 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */,
-				2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */,
+				0509462A91ABC4E247A940ED /* Pods-Wonderful HITS Shooter.debug.xcconfig */,
+				8E169BE93D5CF226AF55068C /* Pods-Wonderful HITS Shooter.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -267,17 +282,25 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9CA71E3276F745A009CC78B /* Build configuration list for PBXNativeTarget "Wonderful HITS Shooter" */;
 			buildPhases = (
-				67599A011D3C656DC5447CB1 /* [CP] Check Pods Manifest.lock */,
+				9ED960E06D694D010043AB9A /* [CP] Check Pods Manifest.lock */,
 				A9CA71CB276F7459009CC78B /* Sources */,
 				A9CA71CC276F7459009CC78B /* Frameworks */,
 				A9CA71CD276F7459009CC78B /* Resources */,
-				A43F696ED76F806BF2BD361F /* [CP] Embed Pods Frameworks */,
+				450DC00A0262B37EA70A68EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Wonderful HITS Shooter";
+			packageProductDependencies = (
+				CEE042DC278D530100C0B6CE /* FirebaseAnalytics */,
+				CEE042DE278D530100C0B6CE /* FirebaseAuth */,
+				CEE042E0278D530100C0B6CE /* FirebaseCrashlytics */,
+				CEE042E2278D530100C0B6CE /* FirebaseDatabase */,
+				CEE042E4278D530100C0B6CE /* FirebaseFirestore */,
+				CEE042E6278D530100C0B6CE /* FirebaseStorage */,
+			);
 			productName = "Wonderful HITS Shooter";
 			productReference = A9CA71CF276F7459009CC78B /* Wonderful HITS Shooter.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +329,9 @@
 				Base,
 			);
 			mainGroup = A9CA71C6276F7459009CC78B;
+			packageReferences = (
+				CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = A9CA71D0276F7459009CC78B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -322,13 +348,31 @@
 			files = (
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
+				CE4074F8278D575F002D406A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		67599A011D3C656DC5447CB1 /* [CP] Check Pods Manifest.lock */ = {
+		450DC00A0262B37EA70A68EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ED960E06D694D010043AB9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,23 +392,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A43F696ED76F806BF2BD361F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -532,7 +559,7 @@
 		};
 		A9CA71E4276F745A009CC78B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */;
+			baseConfigurationReference = 0509462A91ABC4E247A940ED /* Pods-Wonderful HITS Shooter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -561,7 +588,7 @@
 		};
 		A9CA71E5276F745A009CC78B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */;
+			baseConfigurationReference = 8E169BE93D5CF226AF55068C /* Pods-Wonderful HITS Shooter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -610,6 +637,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEE042DC278D530100C0B6CE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CEE042DE278D530100C0B6CE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CEE042E0278D530100C0B6CE /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		CEE042E2278D530100C0B6CE /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		CEE042E4278D530100C0B6CE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CEE042E6278D530100C0B6CE /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEE042DB278D530100C0B6CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A9CA71C7276F7459009CC78B /* Project object */;
 }
