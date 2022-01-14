@@ -30,12 +30,12 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        var startCoordinator: Coordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
+        var startCoordinator: Coordinator
         
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil {
-                startCoordinator = GameCoordinator(rootViewController: self.rootNavigationController, dependencies: self.dependencies)
-            }
+        if Auth.auth().currentUser != nil {
+            startCoordinator = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
+        } else {
+            startCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
         }
         
         childCoordinators.append(startCoordinator)

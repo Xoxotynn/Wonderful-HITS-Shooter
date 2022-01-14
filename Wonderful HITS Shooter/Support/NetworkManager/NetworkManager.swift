@@ -5,7 +5,9 @@ final class NetworkManager {
     
     let userDefaults = UserDefaultsManager()
     
-    func register(nickname: String, email: String, password: String,
+    func register(nickname: String,
+                  email: String,
+                  password: String,
                   _ onComplete: @escaping () -> Void,
                   onError: @escaping (Error) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
@@ -13,8 +15,8 @@ final class NetworkManager {
                 onError(error)
             } else if let result = result {
                 let ref = Database.database().reference().child(Strings.pathUsers)
-                ref.child(result.user.uid).updateChildValues([ "nickname" : nickname,
-                                                               "email" : email])
+                ref.child(result.user.uid).updateChildValues(["nickname" : nickname,
+                                                              "email" : email])
                 onComplete()
             } else {
                 print("Error")

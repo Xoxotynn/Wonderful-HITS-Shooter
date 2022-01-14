@@ -33,8 +33,8 @@ class SignInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.start()
         bindToViewModel()
+        viewModel.start()
     }
     
     // MARK: - Private Methods
@@ -86,6 +86,7 @@ class SignInViewController: BaseViewController {
         
         signInButton.setTitleColor(.black, for: .normal)
         signInButton.setTitle(Strings.signIn, for: .normal)
+        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
     
     private func bindToViewModel() {

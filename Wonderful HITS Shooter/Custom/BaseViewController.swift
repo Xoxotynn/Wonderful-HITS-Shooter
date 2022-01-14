@@ -49,6 +49,6 @@ class BaseViewController: UIViewController {
 }
 
 private extension Strings {
-    static let ok = "Ok"
+    static let ok = "Ок"
     static let alertKey = "attributedTitle"
 }
