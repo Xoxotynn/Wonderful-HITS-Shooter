@@ -108,6 +108,15 @@
           "revision": "7e2c5f3cbbeea68e004915e3a8961e20bd11d824",
           "version": "1.18.0"
         }
+      },
+      {
+        "package": "TPKeyboardAvoiding",
+        "repositoryURL": "https://github.com/michaeltyson/TPKeyboardAvoiding.git",
+        "state": {
+          "branch": "master",
+          "revision": "3217d6287a6b0ecb1db65a214a2e0fba9934e417",
+          "version": null
+        }
       }
     ]
   },

@@ -8,5 +8,5 @@
 import Foundation
 
 struct Dependencies {
-    let dataTest: Int
+    let networkManager: NetworkManager
 }

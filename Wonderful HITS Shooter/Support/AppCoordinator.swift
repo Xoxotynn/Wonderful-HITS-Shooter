@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 final class AppCoordinator: Coordinator {
     
@@ -18,7 +19,7 @@ final class AppCoordinator: Coordinator {
     
     init(window: UIWindow?) {
         self.window = window
-        dependencies = Dependencies(dataTest: 1)
+        dependencies = Dependencies(networkManager: NetworkManager())
         rootNavigationController = UINavigationController(rootViewController: UIViewController())
         childCoordinators = []
     }
@@ -29,8 +30,14 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
         
-        let startCoordinator = GameCoordinator(rootViewController: rootNavigationController,
-                                                dependencies: dependencies)
+        var startCoordinator: Coordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                startCoordinator = GameCoordinator(rootViewController: self.rootNavigationController, dependencies: self.dependencies)
+            }
+        }
+        
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
     }
