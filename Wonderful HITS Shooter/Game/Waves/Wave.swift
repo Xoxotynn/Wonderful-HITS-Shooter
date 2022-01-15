@@ -1,10 +1,3 @@
-//
-//  Wave.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Эдуард Логинов on 27.12.2021.
-//
-
 import Foundation
 
 final class Wave {
@@ -13,9 +6,5 @@ final class Wave {
     
     init() {
         enemyGroups = []
-    }
-    
-    func createWave() -> [Enemy] {
-        return []
     }
 }

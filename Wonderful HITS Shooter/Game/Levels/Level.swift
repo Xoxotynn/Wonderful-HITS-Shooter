@@ -1,13 +1,7 @@
-//
-//  Level.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Эдуард Логинов on 26.12.2021.
-//
-
-import Foundation
+import UIKit
 
 protocol LevelDelegate: AnyObject {
+    func gameFieldRatio(forLevel level: Level) -> CGFloat
     func setupUI(forPlayer player: Player)
     func setupUI(forEnemies enemies: [EnemyGroup])
 }
@@ -16,23 +10,21 @@ class Level {
     
     var player: Player
     var waves: [Wave]
-    var enemies: [Enemy]
+    var enemyGroups: [EnemyGroup]
     
     weak var delegate: LevelDelegate?
     
     init(player: Player, waves: [Wave]) {
         self.player = player
         self.waves = waves
-        self.enemies = []
+        self.enemyGroups = []
         self.player.delegate = self
-        
+        delegate?.setupUI(forPlayer: player)
         spawnNextWave()
     }
     
     func spawnNextWave() {
-        guard let wave = waves.popLast() else {
-            return
-        }
+        delegate?.setupUI(forEnemies: enemyGroups)
     }
 }
 
@@ -50,8 +42,8 @@ extension Level: EntityDelegate {
 
 extension Level: EnemyDelegate {
     func didDie(enemy: Enemy) {
-        if let index = enemies.firstIndex(of: enemy) {
-            enemies.remove(at: index)
+        enemyGroups.forEach { enemyGroup in
+            enemyGroup.remove(enemy: enemy)
         }
     }
 }

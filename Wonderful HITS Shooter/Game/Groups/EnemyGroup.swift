@@ -1,10 +1,3 @@
-//
-//  Group.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Эдуард Логинов on 10.01.2022.
-//
-
 import UIKit
 
 final class EnemyGroup {
@@ -12,21 +5,27 @@ final class EnemyGroup {
     private var enemies: [Enemy]
     private var route: [CGPoint]
     
-    private init(waveSpawner: WaveSpawner,
+    private init(waveSpawner: EnemyGroupCreator,
                  routeCreator: RouteCreator,
                  positionCreator: PositionCreator) {
-        enemies = waveSpawner.spawnWave()
+        enemies = waveSpawner.createEnemies()
         route = routeCreator.createRoute()
         setupPosition(positionCreator: positionCreator)
     }
     
+    func remove(enemy: Enemy) {
+        if let index = enemies.firstIndex(of: enemy) {
+            enemies.remove(at: index)
+        }
+    }
+    
     private func setupPosition(positionCreator: PositionCreator) {
         var positions = positionCreator
-            .setupInitialPosition(enemiesCount: enemies.count)
+            .createPositions(enemiesCount: enemies.count)
         
         enemies.forEach { enemy in
             guard let position = positions.popLast() else { return }
-            enemy.position = position
+            enemy.frame.origin = position
         }
     }
 }

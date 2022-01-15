@@ -6,15 +6,13 @@ protocol EnemyDelegate: AnyObject {
 
 final class Enemy: Entity {
     
-    var position: CGPoint
     var weapon: Weapon?
     weak var enemyDelegate: EnemyDelegate?
     
-    private let id: Int
+    private let id: UUID
     
-    init(id: Int, hp: Int, weapon: Weapon? = nil) {
-        position = .zero
-        self.id = id
+    init(hp: Int, weapon: Weapon? = nil) {
+        self.id = UUID()
         super.init(hp: hp, frame: .zero)
         self.weapon = weapon
         configureWeapon()

@@ -1,11 +1,3 @@
-//
-//  AppCoordinator.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Эдуард Логинов on 20.12.2021.
-//
-
-import Foundation
 import UIKit
 
 final class AppCoordinator: Coordinator {
