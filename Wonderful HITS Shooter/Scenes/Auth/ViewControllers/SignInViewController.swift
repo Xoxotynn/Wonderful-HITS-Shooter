@@ -14,7 +14,7 @@ class SignInViewController: BaseViewController {
     private let scrollView = TPKeyboardAvoidingScrollView()
     private let titleLabel = UILabel()
     private let authView = AuthView()
-    private let signInButton = UIButton()
+    private let signInButton = CustomButton()
     private let viewModel: SignInViewModel
     
     // MARK: - Actions
@@ -56,6 +56,7 @@ class SignInViewController: BaseViewController {
             make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
         }
         
+        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 1
@@ -65,7 +66,7 @@ class SignInViewController: BaseViewController {
     private func setupScrollView() {
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(Dimensions.standart)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Dimensions.medium)
             make.bottom.equalTo(signInButton.snp.top).offset(Dimensions.standart)
         }
     }
@@ -83,9 +84,8 @@ class SignInViewController: BaseViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.medium)
             make.height.equalTo(Dimensions.standartHeight)
         }
-        
-        signInButton.setTitleColor(.black, for: .normal)
-        signInButton.setTitle(Strings.signIn, for: .normal)
+
+        signInButton.configure(with: Strings.signIn)
         signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
     
@@ -106,6 +106,5 @@ class SignInViewController: BaseViewController {
 
 // MARK: - Strings
 private extension Strings {
-    static let signIn = "Войти"
     static let authorization = "Авторизация"
 }

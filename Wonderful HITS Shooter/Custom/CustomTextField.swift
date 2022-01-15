@@ -13,10 +13,16 @@ final class CustomTextField: UITextField {
     // MARK: - Init
     init() {
         super.init(frame: .zero)
-        self.configure()
+        configure()
     }
     
     // MARK: - Public Methods
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.borderWidth = 2
+    }
+    
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let rect = super.textRect(forBounds: bounds)
         return rect.inset(by: textPadding)
@@ -33,9 +39,11 @@ final class CustomTextField: UITextField {
         self.textColor = .black
         self.borderStyle = .none
         self.backgroundColor = Colors.grayTextField
-        self.layer.cornerRadius = 28
-        self.font = UIFont.systemFont(ofSize: 16)
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: Colors.gray])
+        self.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.standart))
+        self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+                                                        attributes: [
+                                                            NSAttributedString.Key.foregroundColor: Colors.gray
+                                                        ])
     }
     
     required init?(coder: NSCoder) {

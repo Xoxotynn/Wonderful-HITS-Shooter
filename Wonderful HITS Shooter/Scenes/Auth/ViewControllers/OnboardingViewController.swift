@@ -10,8 +10,8 @@ import UIKit
 class OnboardingViewController: BaseViewController {
 
     // MARK: - Properties
-    private let signInButton = UIButton()
-    private let signUpButton = UIButton()
+    private let signInButton = CustomButton()
+    private let signUpButton = CustomButton()
     private let viewModel: OnboardingViewModel
     
     // MARK: - Actions
@@ -46,8 +46,7 @@ class OnboardingViewController: BaseViewController {
             make.height.equalTo(56)
         }
         
-        signInButton.setTitle("Войти", for: .normal)
-        signInButton.setTitleColor(.black, for: .normal)
+        signInButton.configure(with: Strings.signIn)
         signInButton.addTarget(self, action: #selector(showSignInScene), for: .touchUpInside)
     }
     
@@ -58,8 +57,7 @@ class OnboardingViewController: BaseViewController {
             make.height.equalTo(56)
         }
         
-        signUpButton.setTitleColor(.black, for: .normal)
-        signUpButton.setTitle("Зарегистрироваться", for: .normal)
+        signUpButton.configure(with: Strings.register)
         signUpButton.addTarget(self, action: #selector(showSignUpScene), for: .touchUpInside)
     }
     
@@ -67,3 +65,4 @@ class OnboardingViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

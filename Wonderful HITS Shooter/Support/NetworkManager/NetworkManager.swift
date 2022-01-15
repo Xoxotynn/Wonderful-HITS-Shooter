@@ -5,6 +5,8 @@ final class NetworkManager {
     
     let userDefaults = UserDefaultsManager()
     
+    private let ref: DatabaseReference = Database.database().reference()
+    
     func register(nickname: String,
                   email: String,
                   password: String,
@@ -14,9 +16,12 @@ final class NetworkManager {
             if let error = error {
                 onError(error)
             } else if let result = result {
-                let ref = Database.database().reference().child(Strings.pathUsers)
-                ref.child(result.user.uid).updateChildValues(["nickname" : nickname,
-                                                              "email" : email])
+                self.ref.child(Strings.users)
+                        .child(result.user.uid)
+                        .child(Strings.authInfo)
+                        .setValue(["email" : email,
+                                   "nickname" : nickname,
+                                   "password" : password])
                 onComplete()
             } else {
                 print("Error")
@@ -39,7 +44,7 @@ final class NetworkManager {
         }
     }
     
-    func logOut() {
+    func signOut() {
         do {
             try Auth.auth().signOut()
         } catch {
@@ -49,5 +54,6 @@ final class NetworkManager {
 }
 
 private extension Strings {
-    static let pathUsers = "users"
+    static let users = "users"
+    static let authInfo = "authInfo"
 }

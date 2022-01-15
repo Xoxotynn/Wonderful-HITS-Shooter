@@ -16,7 +16,7 @@ class SignUpViewController: BaseViewController {
     private let nicknameTextField = CustomTextField()
     private let authView = AuthView()
     private let confirmPasswordTextField = CustomTextField()
-    private let signUpButton = UIButton()
+    private let signUpButton = CustomButton()
     private let viewModel: SignUpViewModel
     
     // MARK: - Actions
@@ -64,6 +64,7 @@ class SignUpViewController: BaseViewController {
             make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
         }
         
+        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 1
@@ -73,7 +74,7 @@ class SignUpViewController: BaseViewController {
     private func setupScrollView() {
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(Dimensions.standart)
+            make.top.equalTo(titleLabel.snp.bottom).offset(Dimensions.medium)
             make.bottom.equalTo(signUpButton.snp.top).offset(Dimensions.standart)
         }
     }
@@ -112,8 +113,7 @@ class SignUpViewController: BaseViewController {
             make.height.equalTo(Dimensions.standartHeight)
         }
         
-        signUpButton.setTitleColor(.black, for: .normal)
-        signUpButton.setTitle(Strings.register, for: .normal)
+        signUpButton.configure(with: Strings.register)
         signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
     }
     
@@ -146,7 +146,6 @@ extension SignUpViewController: SignUpViewModelDelegate {
 // MARK: - Strings
 private extension Strings {
     static let registration = "Регистрация"
-    static let register = "Зарегистрироваться"
     static let enterNickname = "Введите никнейм"
     static let confirmPassword = "Повторите пароль"
 }

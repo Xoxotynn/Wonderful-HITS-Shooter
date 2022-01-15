@@ -33,7 +33,9 @@ final class AppCoordinator: Coordinator {
         var startCoordinator: Coordinator
         
         if Auth.auth().currentUser != nil {
-            startCoordinator = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
+            dependencies.networkManager.signOut()
+            startCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
+//            startCoordinator = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
         } else {
             startCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
         }
