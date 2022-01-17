@@ -3,8 +3,6 @@ import Firebase
 
 final class NetworkManager {
     
-    let userDefaults = UserDefaultsManager()
-    
     private let ref: DatabaseReference = Database.database().reference()
     
     func register(nickname: String,
