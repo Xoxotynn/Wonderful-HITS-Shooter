@@ -6,6 +6,11 @@ protocol SignUpViewModelDelegate: AnyObject {
     func getConfirmedPassword() -> String?
 }
 
+// MARK: - AuthorizationViewModelDelegate
+protocol AuthorizationViewModelDelegate: AnyObject {
+    func showGameScene()
+}
+
 final class SignUpViewModel {
     
     // MARK: - Priperties
@@ -13,6 +18,7 @@ final class SignUpViewModel {
     var didConfigureAuthView: ((AuthViewModel) -> Void)?
     
     weak var delegate: SignUpViewModelDelegate?
+    weak var authDelegate: AuthorizationViewModelDelegate?
     
     private let dependencies: Dependencies
     private let authViewModel: AuthViewModel
@@ -49,7 +55,7 @@ final class SignUpViewModel {
             dependencies.networkManager.register(nickname: nickname,
                                                  email: email,
                                                  password: password) { [weak self] in
-                print("Success")
+                self?.authDelegate?.showGameScene()
             } onError: { [weak self] error in
                 self?.didReceiveError?(error)
             }

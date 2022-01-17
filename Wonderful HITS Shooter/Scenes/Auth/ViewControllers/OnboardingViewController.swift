@@ -1,15 +1,9 @@
-//
-//  OnboardingViewController.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 12.01.2022.
-//
-
 import UIKit
 
 class OnboardingViewController: BaseViewController {
 
     // MARK: - Properties
+    private let titleLabel = UILabel()
     private let signInButton = CustomButton()
     private let signUpButton = CustomButton()
     private let viewModel: OnboardingViewModel
@@ -29,21 +23,34 @@ class OnboardingViewController: BaseViewController {
         super.init(nibName: nil, bundle: nil)
         setup()
     }
-    
     // MARK: - Private Methods
     private func setup() {
+        view.addSubview(titleLabel)
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
         
+        setupTitleLabel()
         setupSignInButton()
         setupSignUpButton()
     }
     
+    private func setupTitleLabel() {
+        titleLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.medium)
+        }
+        
+        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.large))
+        titleLabel.text = Strings.gameName
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+    }
+    
     private func setupSignInButton() {
         signInButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalTo(signUpButton.snp.top).offset(-16)
-            make.height.equalTo(56)
+            make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
+            make.bottom.equalTo(signUpButton.snp.top).offset(-Dimensions.standart)
+            make.height.equalTo(Dimensions.standartHeight)
         }
         
         signInButton.configure(with: Strings.signIn)
@@ -52,9 +59,9 @@ class OnboardingViewController: BaseViewController {
     
     private func setupSignUpButton() {
         signUpButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
-            make.height.equalTo(56)
+            make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
+            make.height.equalTo(Dimensions.standartHeight)
         }
         
         signUpButton.configure(with: Strings.register)
@@ -66,3 +73,6 @@ class OnboardingViewController: BaseViewController {
     }
 }
 
+private extension Strings {
+    static let gameName = "Wonderful HITS Shooter"
+}

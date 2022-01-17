@@ -5,6 +5,9 @@ final class SignInViewModel {
     // MARK: - Properties
     var didConfigureAuthView: ((AuthViewModel) -> Void)?
     var didReceiveError: ((Error) -> Void)?
+    
+    weak var authDelegate: AuthorizationViewModelDelegate?
+    
     private let authViewModel: AuthViewModel
     private let dependencies: Dependencies
     
@@ -29,12 +32,11 @@ final class SignInViewModel {
             didReceiveError?(error)
         } else {
             dependencies.networkManager.auth(email: email,
-                                             password: password) {
-                print("Success")
+                                             password: password) { [weak self] in
+                self?.authDelegate?.showGameScene()
             } onError: { [weak self] error in
                 self?.didReceiveError?(error)
             }
-
         }
     }
 }
