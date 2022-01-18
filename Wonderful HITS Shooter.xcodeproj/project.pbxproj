@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02837FD3D7AD4FD5EB7E6176 /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */; };
+		A93278E827972FB4006AB2DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A93278E727972FB4006AB2DA /* GoogleService-Info.plist */; };
 		A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746027779A9D00A62B47 /* BulletWeapon.swift */; };
 		A98774652777A09D00A62B47 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774642777A09D00A62B47 /* Weapon.swift */; };
 		A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774682777C6BF00A62B47 /* GameViewModel.swift */; };
@@ -46,7 +47,6 @@
 		CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1049278F58B900AA3397 /* CustomTextField.swift */; };
 		CE5E104C278F676C00AA3397 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104B278F676C00AA3397 /* Validator.swift */; };
 		CE5E104E278F794C00AA3397 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104D278F794C00AA3397 /* Errors.swift */; };
-		CE5E105027930D9500AA3397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */; };
 		CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */; };
 		CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */; };
 		CE5E105A2793320400AA3397 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E10592793320400AA3397 /* Fonts.swift */; };
@@ -74,6 +74,7 @@
 /* Begin PBXFileReference section */
 		0509462A91ABC4E247A940ED /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
 		8E169BE93D5CF226AF55068C /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
+		A93278E727972FB4006AB2DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A987746027779A9D00A62B47 /* BulletWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletWeapon.swift; sourceTree = "<group>"; };
 		A98774642777A09D00A62B47 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		A98774682777C6BF00A62B47 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -114,7 +115,6 @@
 		CE5E1049278F58B900AA3397 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CE5E104B278F676C00AA3397 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		CE5E104D278F794C00AA3397 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = "Wonderful HITS Shooter/Support/Errors.swift"; sourceTree = SOURCE_ROOT; };
-		CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KellySlab-Regular.ttf"; sourceTree = "<group>"; };
 		CE5E10592793320400AA3397 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
 				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
 				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
-				CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */,
+				A93278E727972FB4006AB2DA /* GoogleService-Info.plist */,
 				A9CA71E0276F745A009CC78B /* Info.plist */,
 			);
 			path = "Wonderful HITS Shooter";
@@ -525,10 +525,10 @@
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
 				CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */,
 				CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */,
-				CE5E105027930D9500AA3397 /* GoogleService-Info.plist in Resources */,
 				CE5E1066279387E500AA3397 /* levelTheme.mp3 in Resources */,
 				CE5E1061279385B300AA3397 /* mainTheme.mp3 in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
+				A93278E827972FB4006AB2DA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
