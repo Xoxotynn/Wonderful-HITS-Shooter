@@ -25,6 +25,8 @@ final class GameCoordinator: Coordinator {
         rootNavigationController.navigationBar.isHidden = true
         let viewController = GameViewController()
         rootNavigationController.setViewControllers([viewController], animated: true)
+        
+        dependencies.audioManager.play(audio: "levelTheme", needToLoop: true)
     }
     
     func showNextScene() {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02837FD3D7AD4FD5EB7E6176 /* Pods_Wonderful_HITS_Shooter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */; };
-		A9135344279739720065E758 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9135343279739720065E758 /* GoogleService-Info.plist */; };
 		A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746027779A9D00A62B47 /* BulletWeapon.swift */; };
 		A98774652777A09D00A62B47 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774642777A09D00A62B47 /* Weapon.swift */; };
 		A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774682777C6BF00A62B47 /* GameViewModel.swift */; };
@@ -47,11 +46,17 @@
 		CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1049278F58B900AA3397 /* CustomTextField.swift */; };
 		CE5E104C278F676C00AA3397 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104B278F676C00AA3397 /* Validator.swift */; };
 		CE5E104E278F794C00AA3397 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104D278F794C00AA3397 /* Errors.swift */; };
+		CE5E105027930D9500AA3397 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */; };
 		CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */; };
 		CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */; };
 		CE5E105A2793320400AA3397 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E10592793320400AA3397 /* Fonts.swift */; };
 		CE5E105C2793366300AA3397 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E105B2793366300AA3397 /* CustomButton.swift */; };
-		CE5E105E27933AB000AA3397 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E105D27933AB000AA3397 /* AudioPlayer.swift */; };
+		CE5E105E27933AB000AA3397 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E105D27933AB000AA3397 /* AudioManager.swift */; };
+		CE5E1061279385B300AA3397 /* mainTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1060279385B300AA3397 /* mainTheme.mp3 */; };
+		CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E10632793865700AA3397 /* SettingsViewController.swift */; };
+		CE5E1066279387E500AA3397 /* levelTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1065279387E500AA3397 /* levelTheme.mp3 */; };
+		CE5E106A27938EBC00AA3397 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E106927938EBC00AA3397 /* SettingsViewModel.swift */; };
+		CE5E1071279454D500AA3397 /* VolumeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1070279454D500AA3397 /* VolumeSlider.swift */; };
 		CE74052B2777710F00E386BF /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052A2777710F00E386BF /* Entity.swift */; };
 		CE74052D277771D100E386BF /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74052C277771D100E386BF /* Bullet.swift */; };
 		CE7405312777732A00E386BF /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7405302777732A00E386BF /* Enemy.swift */; };
@@ -69,7 +74,6 @@
 /* Begin PBXFileReference section */
 		0509462A91ABC4E247A940ED /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
 		8E169BE93D5CF226AF55068C /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
-		A9135343279739720065E758 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A987746027779A9D00A62B47 /* BulletWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletWeapon.swift; sourceTree = "<group>"; };
 		A98774642777A09D00A62B47 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		A98774682777C6BF00A62B47 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -110,11 +114,17 @@
 		CE5E1049278F58B900AA3397 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CE5E104B278F676C00AA3397 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		CE5E104D278F794C00AA3397 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = "Wonderful HITS Shooter/Support/Errors.swift"; sourceTree = SOURCE_ROOT; };
+		CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KellySlab-Regular.ttf"; sourceTree = "<group>"; };
 		CE5E10592793320400AA3397 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CE5E105B2793366300AA3397 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		CE5E105D27933AB000AA3397 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		CE5E105D27933AB000AA3397 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		CE5E1060279385B300AA3397 /* mainTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme.mp3; sourceTree = "<group>"; };
+		CE5E10632793865700AA3397 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CE5E1065279387E500AA3397 /* levelTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelTheme.mp3; sourceTree = "<group>"; };
+		CE5E106927938EBC00AA3397 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		CE5E1070279454D500AA3397 /* VolumeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSlider.swift; sourceTree = "<group>"; };
 		CE74052A2777710F00E386BF /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CE74052C277771D100E386BF /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		CE7405302777732A00E386BF /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -244,7 +254,7 @@
 				A9CA71DB276F745A009CC78B /* Assets.xcassets */,
 				A9CA71D2276F7459009CC78B /* AppDelegate.swift */,
 				A9CA71D4276F7459009CC78B /* SceneDelegate.swift */,
-				A9135343279739720065E758 /* GoogleService-Info.plist */,
+				CE5E104F27930D9500AA3397 /* GoogleService-Info.plist */,
 				A9CA71E0276F745A009CC78B /* Info.plist */,
 			);
 			path = "Wonderful HITS Shooter";
@@ -276,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5E101C278E097400AA3397 /* Auth */,
+				CE5E10622793864600AA3397 /* Settings */,
 				A9CA71E7276F7B72009CC78B /* Game */,
 				A9CA71DD276F745A009CC78B /* LaunchScreen.storyboard */,
 			);
@@ -286,11 +297,12 @@
 			isa = PBXGroup;
 			children = (
 				CE5E1047278F387D00AA3397 /* NetworkManager */,
+				CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */,
+				CE5E105D27933AB000AA3397 /* AudioManager.swift */,
 				A9A14439276FE32E00E33C79 /* Coordinator.swift */,
 				A9A1443B276FE38800E33C79 /* AppCoordinator.swift */,
 				A9A1443F276FE71400E33C79 /* Dependencies.swift */,
 				CE5E104B278F676C00AA3397 /* Validator.swift */,
-				CE5E105D27933AB000AA3397 /* AudioPlayer.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -347,8 +359,8 @@
 		CE5E1047278F387D00AA3397 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E106B2793903000AA3397 /* Models */,
 				CE970AB8278DE734008B523B /* NetworkManager.swift */,
-				CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -362,6 +374,7 @@
 				CE5E1049278F58B900AA3397 /* CustomTextField.swift */,
 				CE5E1045278F369500AA3397 /* CustomActivityIndicator.swift */,
 				CE5E105B2793366300AA3397 /* CustomButton.swift */,
+				CE5E1070279454D500AA3397 /* VolumeSlider.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -378,8 +391,42 @@
 		CE5E105F27937FA200AA3397 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E1060279385B300AA3397 /* mainTheme.mp3 */,
+				CE5E1065279387E500AA3397 /* levelTheme.mp3 */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		CE5E10622793864600AA3397 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E106827938EB000AA3397 /* ViewModel */,
+				CE5E106727938E9C00AA3397 /* ViewController */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		CE5E106727938E9C00AA3397 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E10632793865700AA3397 /* SettingsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE5E106827938EB000AA3397 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E106927938EBC00AA3397 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE5E106B2793903000AA3397 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CE74052727776FE700E386BF /* Game */ = {
@@ -477,8 +524,10 @@
 			files = (
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
 				CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */,
-				A9135344279739720065E758 /* GoogleService-Info.plist in Resources */,
 				CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */,
+				CE5E105027930D9500AA3397 /* GoogleService-Info.plist in Resources */,
+				CE5E1066279387E500AA3397 /* levelTheme.mp3 in Resources */,
+				CE5E1061279385B300AA3397 /* mainTheme.mp3 in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5E104C278F676C00AA3397 /* Validator.swift in Sources */,
+				CE5E106A27938EBC00AA3397 /* SettingsViewModel.swift in Sources */,
 				CE5E1040278F351E00AA3397 /* Strings.swift in Sources */,
 				A987746C2777C93500A62B47 /* Level.swift in Sources */,
 				A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */,
@@ -540,6 +590,7 @@
 				CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */,
 				CE5E103A278EF3FC00AA3397 /* OnboardingViewController.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
+				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
 				CE5E103C278EF46200AA3397 /* OnboardingViewModel.swift in Sources */,
 				CE5E1034278EED8500AA3397 /* SignInViewModel.swift in Sources */,
@@ -551,6 +602,7 @@
 				A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
+				CE5E1071279454D500AA3397 /* VolumeSlider.swift in Sources */,
 				CE74052B2777710F00E386BF /* Entity.swift in Sources */,
 				CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */,
 				A98FC5FD278C99B500F0850E /* EnemyGroup.swift in Sources */,
@@ -567,7 +619,7 @@
 				CE5E102D278EE5AC00AA3397 /* SignUpViewController.swift in Sources */,
 				A98774792779178E00A62B47 /* Wave.swift in Sources */,
 				CE5E1025278E21C300AA3397 /* AuthViewModel.swift in Sources */,
-				CE5E105E27933AB000AA3397 /* AudioPlayer.swift in Sources */,
+				CE5E105E27933AB000AA3397 /* AudioManager.swift in Sources */,
 				CE5E104E278F794C00AA3397 /* Errors.swift in Sources */,
 				CE5E1042278F356100AA3397 /* Dimensions.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
