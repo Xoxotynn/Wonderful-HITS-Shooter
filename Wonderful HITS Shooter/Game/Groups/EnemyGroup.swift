@@ -1,68 +1,36 @@
+//
+//  Group.swift
+//  Wonderful HITS Shooter
+//
+//  Created by Эдуард Логинов on 10.01.2022.
+//
+
 import UIKit
 
 final class EnemyGroup {
     
-    private(set) var enemies: [Enemy]
+    private var enemies: [Enemy]
+    private var route: [CGPoint]
     
-    private init(enemyGroupCreator: EnemyGroupCreator,
+    private init(waveSpawner: WaveSpawner,
                  routeCreator: RouteCreator,
                  positionCreator: PositionCreator) {
-        enemies = enemyGroupCreator.createEnemies()
+        enemies = waveSpawner.spawnWave()
+        route = routeCreator.createRoute()
         setupPosition(positionCreator: positionCreator)
-        setupRoutes(routeCreator: routeCreator)
-    }
-    
-    func remove(enemy: Enemy) {
-        if let index = enemies.firstIndex(of: enemy) {
-            enemies.remove(at: index)
-        }
     }
     
     private func setupPosition(positionCreator: PositionCreator) {
         var positions = positionCreator
-            .createPositions(enemiesCount: enemies.count)
-        guard !positions.isEmpty else { return }
+            .setupInitialPosition(enemiesCount: enemies.count)
         
         enemies.forEach { enemy in
-            guard let position = positions.first else { return }
-            positions.remove(at: 0)
-            enemy.frame.origin = position
+            guard let position = positions.popLast() else { return }
+            enemy.position = position
         }
     }
-    
-    private func setupRoutes(routeCreator: RouteCreator) {
-        let route = routeCreator.createRoute()
-        guard !route.isEmpty else { return }
-        
-        enemies.forEach { enemy in
-            enemy.route = calculateEnemyRoute(forEnemy: enemy,
-                                              relativeRoute: route)
-        }
-    }
-    
-    private func calculateEnemyRoute(
-        forEnemy enemy: Enemy,
-        relativeRoute: [CGPoint]) -> [CGPoint] {
-            var route: [CGPoint] = [CGPoint(x: enemy.frame.origin.x,
-                                            y: enemy.frame.origin.y)]
-            
-            relativeRoute.forEach { nextPosition in
-                guard let previousPosition = route.last else { return }
-                route.append(CGPoint(
-                    x: previousPosition.x + nextPosition.x,
-                    y: previousPosition.y + nextPosition.y))
-            }
-            route.remove(at: 0)
-            
-            return route
-        }
 }
 
 extension EnemyGroup {
-    static let testGroup = EnemyGroup(
-        enemyGroupCreator: DefaultEnemyGroupCreator(),
-        routeCreator: LineRouteCreator(length: 0.5),
-        positionCreator: FilledRectPositionCreator(
-            rows: 4,
-            margins: CGPoint(x: 0.15, y: 0.2)))
+//    static let group1 = EnemyGroup(waveSpawner: WaveSpawner(), routeCreator: RouteCreator(), positionCreator: PositionsCreator())
 }

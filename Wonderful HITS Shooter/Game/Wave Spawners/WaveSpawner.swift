@@ -1,12 +1,12 @@
 //
-//  RouteCreator.swift
+//  Wave.swift
 //  Wonderful HITS Shooter
 //
 //  Created by Эдуард Логинов on 27.12.2021.
 //
 
-import UIKit
+import Foundation
 
-protocol RouteCreator {
-    func createRoute() -> [CGPoint]
+protocol WaveSpawner {
+    func spawnWave() -> [Enemy]
 }
