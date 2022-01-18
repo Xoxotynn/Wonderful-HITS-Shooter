@@ -15,9 +15,7 @@ final class GameCoordinator: Coordinator {
     
     func start() {
         rootNavigationController.navigationBar.isHidden = true
-        let viewModel = GameViewModel(level: FirstLevel(
-            player: Player(),
-            waves: []))
+        let viewModel = GameViewModel(level: FirstLevel())
         let viewController = GameViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController], animated: true)
     }

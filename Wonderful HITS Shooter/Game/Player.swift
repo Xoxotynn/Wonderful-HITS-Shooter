@@ -10,10 +10,11 @@ final class Player {
     weak var delegate: PlayerDelegate?
     
     init() {
+        let spaceshipSize = 0.3
         spaceship = Spaceship(
             hp: 100,
-            frame: CGRect(x: 0.5, y: 0.8,
-                          width: 0.25, height: 0.25))
+            frame: CGRect(x: 0.5 - spaceshipSize / 2, y: 0.75,
+                          width: spaceshipSize, height: spaceshipSize))
         spaceship.spaceshipDelegate = self
     }
 }

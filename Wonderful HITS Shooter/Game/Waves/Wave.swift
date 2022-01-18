@@ -2,9 +2,9 @@ import Foundation
 
 final class Wave {
     
-    private let enemyGroups: [EnemyGroup]
+    let enemyGroups: [EnemyGroup]
     
     init() {
-        enemyGroups = []
+        enemyGroups = [EnemyGroup.testGroup]
     }
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A93278DF2796561A006AB2DA /* DefaultEnemyGroupCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93278DE2796561A006AB2DA /* DefaultEnemyGroupCreator.swift */; };
+		A93278E12796579A006AB2DA /* FilledRectPositionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93278E02796579A006AB2DA /* FilledRectPositionCreator.swift */; };
+		A93278E327965B23006AB2DA /* LineRouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93278E227965B23006AB2DA /* LineRouteCreator.swift */; };
+		A93278E62797249E006AB2DA /* EnemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93278E52797249E006AB2DA /* EnemyView.swift */; };
 		A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987746027779A9D00A62B47 /* BulletWeapon.swift */; };
 		A98774652777A09D00A62B47 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774642777A09D00A62B47 /* Weapon.swift */; };
 		A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98774682777C6BF00A62B47 /* GameViewModel.swift */; };
@@ -38,6 +42,10 @@
 		2AB878125578DD40642BBD46 /* Pods-Wonderful HITS Shooter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.release.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.release.xcconfig"; sourceTree = "<group>"; };
 		A5C17E66635FA8B4EBAF680F /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A927A7BDF33A60BFA3190120 /* Pods-Wonderful HITS Shooter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wonderful HITS Shooter.debug.xcconfig"; path = "Target Support Files/Pods-Wonderful HITS Shooter/Pods-Wonderful HITS Shooter.debug.xcconfig"; sourceTree = "<group>"; };
+		A93278DE2796561A006AB2DA /* DefaultEnemyGroupCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEnemyGroupCreator.swift; sourceTree = "<group>"; };
+		A93278E02796579A006AB2DA /* FilledRectPositionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledRectPositionCreator.swift; sourceTree = "<group>"; };
+		A93278E227965B23006AB2DA /* LineRouteCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteCreator.swift; sourceTree = "<group>"; };
+		A93278E52797249E006AB2DA /* EnemyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyView.swift; sourceTree = "<group>"; };
 		A987746027779A9D00A62B47 /* BulletWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletWeapon.swift; sourceTree = "<group>"; };
 		A98774642777A09D00A62B47 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		A98774682777C6BF00A62B47 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +86,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A93278DC2796552F006AB2DA /* Game Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CE74052A2777710F00E386BF /* Entity.swift */,
+				CE7405302777732A00E386BF /* Enemy.swift */,
+				CE7405342777755300E386BF /* Spaceship.swift */,
+			);
+			path = "Game Entities";
+			sourceTree = "<group>";
+		};
+		A93278DD27965537006AB2DA /* Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				A987746027779A9D00A62B47 /* BulletWeapon.swift */,
+				A98774642777A09D00A62B47 /* Weapon.swift */,
+			);
+			path = Weapons;
+			sourceTree = "<group>";
+		};
+		A93278E427972402006AB2DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A93278E52797249E006AB2DA /* EnemyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A98774662777C69D00A62B47 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A98774702778E49700A62B47 /* EnemyGroupCreator.swift */,
+				A93278DE2796561A006AB2DA /* DefaultEnemyGroupCreator.swift */,
 			);
 			path = "Enemy Group Creators";
 			sourceTree = "<group>";
@@ -115,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				A9877475277916F900A62B47 /* RouteCreator.swift */,
+				A93278E227965B23006AB2DA /* LineRouteCreator.swift */,
 			);
 			path = "Route Creators";
 			sourceTree = "<group>";
@@ -131,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				A987747B2779259400A62B47 /* PositionCreator.swift */,
+				A93278E02796579A006AB2DA /* FilledRectPositionCreator.swift */,
 			);
 			path = "Position Creators";
 			sourceTree = "<group>";
@@ -179,6 +217,7 @@
 		A9CA71E7276F7B72009CC78B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A93278E427972402006AB2DA /* Views */,
 				A98774672777C6AD00A62B47 /* ViewControllers */,
 				A98774662777C69D00A62B47 /* ViewModels */,
 				A9A1443D276FE4A600E33C79 /* GameCoordinator.swift */,
@@ -232,19 +271,16 @@
 		CE74052727776FE700E386BF /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A93278DD27965537006AB2DA /* Weapons */,
+				A93278DC2796552F006AB2DA /* Game Entities */,
 				A98FC5FB278C986000F0850E /* Groups */,
 				A98774772779178500A62B47 /* Waves */,
 				A987747A2779256A00A62B47 /* Position Creators */,
 				A9877474277916C000A62B47 /* Route Creators */,
 				A987746F2778E48700A62B47 /* Enemy Group Creators */,
 				A987746A2777C92200A62B47 /* Levels */,
-				CE74052A2777710F00E386BF /* Entity.swift */,
 				CE74052C277771D100E386BF /* Bullet.swift */,
-				CE7405302777732A00E386BF /* Enemy.swift */,
 				CE7405322777736F00E386BF /* Player.swift */,
-				CE7405342777755300E386BF /* Spaceship.swift */,
-				A987746027779A9D00A62B47 /* BulletWeapon.swift */,
-				A98774642777A09D00A62B47 /* Weapon.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -368,7 +404,9 @@
 				A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
 				A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */,
+				A93278DF2796561A006AB2DA /* DefaultEnemyGroupCreator.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
+				A93278E327965B23006AB2DA /* LineRouteCreator.swift in Sources */,
 				A98774712778E49700A62B47 /* EnemyGroupCreator.swift in Sources */,
 				A98774652777A09D00A62B47 /* Weapon.swift in Sources */,
 				A987746127779A9D00A62B47 /* BulletWeapon.swift in Sources */,
@@ -380,9 +418,11 @@
 				CE7405312777732A00E386BF /* Enemy.swift in Sources */,
 				A987746E2777C95000A62B47 /* FirstLevel.swift in Sources */,
 				CE7405352777755300E386BF /* Spaceship.swift in Sources */,
+				A93278E62797249E006AB2DA /* EnemyView.swift in Sources */,
 				CE74052D277771D100E386BF /* Bullet.swift in Sources */,
 				A98774792779178E00A62B47 /* Wave.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,
+				A93278E12796579A006AB2DA /* FilledRectPositionCreator.swift in Sources */,
 				A9CA71D5276F7459009CC78B /* SceneDelegate.swift in Sources */,
 				A987747C2779259400A62B47 /* PositionCreator.swift in Sources */,
 			);

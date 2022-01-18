@@ -1,36 +1,53 @@
 import UIKit
 
 protocol LevelDelegate: AnyObject {
-    func gameFieldRatio(forLevel level: Level) -> CGFloat
+    func gameOver(withSuccess isSuccess: Bool)
     func setupUI(forPlayer player: Player)
-    func setupUI(forEnemies enemies: [EnemyGroup])
+    func setupUI(forEnemyGroup enemyGroup: EnemyGroup)
 }
 
 class Level {
     
-    var player: Player
-    var waves: [Wave]
-    var enemyGroups: [EnemyGroup]
-    
     weak var delegate: LevelDelegate?
+    
+    private var player: Player
+    private var waves: [Wave]
+    private var enemyGroups: [EnemyGroup]
     
     init(player: Player, waves: [Wave]) {
         self.player = player
         self.waves = waves
         self.enemyGroups = []
         self.player.delegate = self
+    }
+    
+    func startLevel() {
         delegate?.setupUI(forPlayer: player)
         spawnNextWave()
     }
     
     func spawnNextWave() {
-        delegate?.setupUI(forEnemies: enemyGroups)
+        guard let wave = waves.first else {
+            delegate?.gameOver(withSuccess: true)
+            return
+        }
+        
+        waves.remove(at: 0)
+        enemyGroups = wave.enemyGroups
+        enemyGroups.forEach { enemyGroup in
+            delegate?.setupUI(forEnemyGroup: enemyGroup)
+        }
+//        delegate?.setupUI(
+//            forEnemies: wave.enemyGroups.reduce(into: [])
+//            { enemies, enemyGroup in
+//                enemies.append(contentsOf: enemyGroup.enemies)
+//            })
     }
 }
 
 extension Level: PlayerDelegate {
     func gameOver() {
-        
+        delegate?.gameOver(withSuccess: false)
     }
 }
 
