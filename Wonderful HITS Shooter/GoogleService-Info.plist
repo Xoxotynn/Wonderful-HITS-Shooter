@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1098858957307-c81r8omc854rvrlg1f86lem44lo119t6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1098858957307-c81r8omc854rvrlg1f86lem44lo119t6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVKI-Y8RJ-r-AvthnqJ1ZnTvlHE2G5IAk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1098858957307</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Xoxo.Wonderful-HITS-Shooter</string>
+	<key>PROJECT_ID</key>
+	<string>wonderful-hits-shooter-17760</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wonderful-hits-shooter-17760.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1098858957307:ios:aa03314e785b4ee9fe235e</string>
+	<key>DATABASE_URL</key>
+	<string>https://wonderful-hits-shooter-17760-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
