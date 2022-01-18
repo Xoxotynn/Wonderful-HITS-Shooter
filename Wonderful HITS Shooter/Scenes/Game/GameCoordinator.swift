@@ -19,6 +19,7 @@ final class GameCoordinator: Coordinator {
         let viewController = GameViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController], animated: true)
         
+        #warning("Move to constants")
         dependencies.audioManager.play(audio: "levelTheme", needToLoop: true)
     }
     
