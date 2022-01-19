@@ -35,6 +35,7 @@ final class AuthView: UIView {
             make.height.equalTo(Dimensions.standartHeight)
         }
         
+        emailTextField.autocapitalizationType = .none
         emailTextField.keyboardType = .emailAddress
         emailTextField.placeholder = Strings.enterEmail
     }

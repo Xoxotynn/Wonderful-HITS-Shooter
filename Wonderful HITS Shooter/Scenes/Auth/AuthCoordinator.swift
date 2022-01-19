@@ -53,6 +53,6 @@ extension AuthCoordinator: AuthorizationViewModelDelegate {
         let settingsViewModel = SettingsViewModel(dependencies: dependencies)
         let settingsVC = SettingsViewController(viewModel: settingsViewModel)
         rootNavigationController.pushViewController(settingsVC, animated: true)
-        //delegate?.removeAuthCoordinatorAndStartGame(authCoordinator: self)
+//        delegate?.removeAuthCoordinatorAndStartGame(authCoordinator: self)
     }
 }

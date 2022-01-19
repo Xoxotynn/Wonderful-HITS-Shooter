@@ -5,6 +5,7 @@ protocol EntityDelegate: AnyObject {
 }
 
 class Entity {
+    
     var hp: Int
     var frame: CGRect
     

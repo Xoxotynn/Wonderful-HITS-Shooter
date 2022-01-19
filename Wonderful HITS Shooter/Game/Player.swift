@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol PlayerDelegate: AnyObject {
     func gameOver()
@@ -10,7 +10,11 @@ final class Player {
     weak var delegate: PlayerDelegate?
     
     init() {
-        spaceship = Spaceship(hp: 100, frame: .zero)
+        let spaceshipSize = 0.3
+        spaceship = Spaceship(
+            hp: 100,
+            frame: CGRect(x: 0.5 - spaceshipSize / 2, y: 0.75,
+                          width: spaceshipSize, height: spaceshipSize))
         spaceship.spaceshipDelegate = self
     }
 }
