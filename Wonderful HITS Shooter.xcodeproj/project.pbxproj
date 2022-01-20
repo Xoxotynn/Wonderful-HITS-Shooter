@@ -34,6 +34,10 @@
 		A9FD8DDE2797497D00128654 /* PositionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DD92797497D00128654 /* PositionCreator.swift */; };
 		A9FD8DDF2797497D00128654 /* LineRouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DDB2797497D00128654 /* LineRouteCreator.swift */; };
 		A9FD8DE02797497D00128654 /* RouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DDC2797497D00128654 /* RouteCreator.swift */; };
+		A9FD8DE427995D7700128654 /* EnemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE327995D7700128654 /* EnemyView.swift */; };
+		A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE627995E1800128654 /* EnemyViewModel.swift */; };
+		A9FD8DE927995E8400128654 /* PlayerSpaceshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */; };
+		A9FD8DEB27995EA600128654 /* PlayerSpaceshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */; };
 		CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */; };
 		CE5E1021278E09A400AA3397 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1020278E09A400AA3397 /* AuthView.swift */; };
 		CE5E1025278E21C300AA3397 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1024278E21C300AA3397 /* AuthViewModel.swift */; };
@@ -105,6 +109,10 @@
 		A9FD8DD92797497D00128654 /* PositionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionCreator.swift; sourceTree = "<group>"; };
 		A9FD8DDB2797497D00128654 /* LineRouteCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineRouteCreator.swift; sourceTree = "<group>"; };
 		A9FD8DDC2797497D00128654 /* RouteCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCreator.swift; sourceTree = "<group>"; };
+		A9FD8DE327995D7700128654 /* EnemyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyView.swift; sourceTree = "<group>"; };
+		A9FD8DE627995E1800128654 /* EnemyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyViewModel.swift; sourceTree = "<group>"; };
+		A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpaceshipView.swift; sourceTree = "<group>"; };
+		A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpaceshipViewModel.swift; sourceTree = "<group>"; };
 		AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		CE5E1020278E09A400AA3397 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -170,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				A98774682777C6BF00A62B47 /* GameViewModel.swift */,
+				A9FD8DE627995E1800128654 /* EnemyViewModel.swift */,
+				A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 		A9CA71E7276F7B72009CC78B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A9FD8DE227995D7700128654 /* Views */,
 				A98774672777C6AD00A62B47 /* ViewControllers */,
 				A98774662777C69D00A62B47 /* ViewModels */,
 				A9A1443D276FE4A600E33C79 /* GameCoordinator.swift */,
@@ -333,6 +344,15 @@
 				A9FD8DDC2797497D00128654 /* RouteCreator.swift */,
 			);
 			path = "Route Creators";
+			sourceTree = "<group>";
+		};
+		A9FD8DE227995D7700128654 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD8DE327995D7700128654 /* EnemyView.swift */,
+				A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C59D94C0D61640D484475622 /* Pods */ = {
@@ -611,6 +631,7 @@
 				CE5E1040278F351E00AA3397 /* Strings.swift in Sources */,
 				A987746C2777C93500A62B47 /* Level.swift in Sources */,
 				A9FD8DD02797485A00128654 /* Spaceship.swift in Sources */,
+				A9FD8DE427995D7700128654 /* EnemyView.swift in Sources */,
 				A9FD8DDE2797497D00128654 /* PositionCreator.swift in Sources */,
 				A9A14440276FE71400E33C79 /* Dependencies.swift in Sources */,
 				A9FD8DDD2797497D00128654 /* FilledRectPositionCreator.swift in Sources */,
@@ -618,12 +639,14 @@
 				CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */,
 				A9FD8DCF2797485A00128654 /* Enemy.swift in Sources */,
 				CE5E103A278EF3FC00AA3397 /* OnboardingViewController.swift in Sources */,
+				A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
 				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
 				CE5E103C278EF46200AA3397 /* OnboardingViewModel.swift in Sources */,
 				CE5E1034278EED8500AA3397 /* SignInViewModel.swift in Sources */,
 				A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */,
+				A9FD8DEB27995EA600128654 /* PlayerSpaceshipViewModel.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
 				A9FD8DD22797485A00128654 /* Weapon.swift in Sources */,
 				CE5E1046278F369500AA3397 /* CustomActivityIndicator.swift in Sources */,
@@ -632,6 +655,7 @@
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
 				CE5E1071279454D500AA3397 /* VolumeSlider.swift in Sources */,
 				CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */,
+				A9FD8DE927995E8400128654 /* PlayerSpaceshipView.swift in Sources */,
 				A98FC5FD278C99B500F0850E /* EnemyGroup.swift in Sources */,
 				CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */,
 				A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */,

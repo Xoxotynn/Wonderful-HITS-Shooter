@@ -3,9 +3,9 @@ import SnapKit
 
 final class GameViewController: UIViewController {
 
-    private let spaceshipImageView = UIImageView()
+    private let playerSpaceshipView = PlayerSpaceshipView()
     private let backgroundImageView = UIImageView()
-    private var enemyViews: [UIView] = []
+    private var enemyViews: [EnemyView] = []
     
     private let viewModel: GameViewModel
     
@@ -22,16 +22,18 @@ final class GameViewController: UIViewController {
         super.viewDidLoad()
         setup()
         bindToViewModel()
-        viewModel.startLevel()
+        viewModel.startLevel(withScreen: view.frame.size)
     }
     
     private func bindToViewModel() {
+        playerSpaceshipView.configure(with: viewModel.playerSpaceshipViewModel)
+        
         viewModel.didPreparePlayer = { [weak self] frame in
             self?.setupSpaceshipImageView(withFrame: frame)
         }
         
-        viewModel.didPrepareEnemy = { [weak self] frame, route in
-            self?.setupEnemyView(withFrame: frame, route: route)
+        viewModel.didPrepareEnemy = { [weak self] enemyViewModel in
+            self?.setupEnemyView(withViewModel: enemyViewModel)
         }
     }
     
@@ -49,34 +51,17 @@ final class GameViewController: UIViewController {
     }
     
     private func setupSpaceshipImageView(withFrame frame: CGRect) {
-        view.addSubview(spaceshipImageView)
-        spaceshipImageView.frame = viewModel.calculateAbsoluteFrame(
-            from: frame,
-            forScreen: view.frame.size)
-        spaceshipImageView.image = UIImage(named: "spaceship")
+        view.addSubview(playerSpaceshipView)
+        playerSpaceshipView.frame = viewModel
+            .calculateAbsoluteFrame(from: frame)
+        playerSpaceshipView.image = UIImage(named: "spaceship")
     }
     
-    private func setupEnemyView(withFrame frame: CGRect, route: [CGPoint]) {
-        let enemyView = UIView()
-        
-        enemyView.backgroundColor = .black
-        enemyView.frame = viewModel.calculateAbsoluteFrame(
-            from: frame,
-            forScreen: view.frame.size)
+    private func setupEnemyView(withViewModel viewModel: EnemyViewModel) {
+        let enemyView = EnemyView()
+        enemyView.configure(with: viewModel)
         enemyViews.append(enemyView)
         view.addSubview(enemyView)
-        
-        UIView.animateKeyframes(withDuration: 4, delay: 0, options: []) {
-            route.forEach { point in
-                UIView.addKeyframe(withRelativeStartTime: 0,
-                                   relativeDuration: 1) {
-                    enemyView.frame.origin = self.viewModel
-                        .calculateAbsoluteCoordinates(
-                            from: point,
-                            forScreen: self.view.frame.size)
-                }
-            }
-        }
     }
     
     private func setupBackgroundImageView() {
@@ -88,7 +73,7 @@ final class GameViewController: UIViewController {
     }
     
     @objc private func didPan(_ sender: UIPanGestureRecognizer) {
-        spaceshipImageView.center = sender.location(in: view)
+        playerSpaceshipView.center = sender.location(in: view)
     }
 }
 

@@ -50,9 +50,9 @@ extension AuthCoordinator: OnboardingViewModelDelegate {
 
 extension AuthCoordinator: AuthorizationViewModelDelegate {
     func showGameScene() {
-        let settingsViewModel = SettingsViewModel(dependencies: dependencies)
-        let settingsVC = SettingsViewController(viewModel: settingsViewModel)
-        rootNavigationController.pushViewController(settingsVC, animated: true)
-//        delegate?.removeAuthCoordinatorAndStartGame(authCoordinator: self)
+//        let settingsViewModel = SettingsViewModel(dependencies: dependencies)
+//        let settingsVC = SettingsViewController(viewModel: settingsViewModel)
+//        rootNavigationController.pushViewController(settingsVC, animated: true)
+        delegate?.removeAuthCoordinatorAndStartGame(authCoordinator: self)
     }
 }

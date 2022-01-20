@@ -10,7 +10,6 @@ final class Spaceship: Entity {
     
     override func die() {
         super.die()
-        
         spaceshipDelegate?.didDie()
     }
 }

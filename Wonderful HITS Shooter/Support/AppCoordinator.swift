@@ -30,8 +30,8 @@ final class AppCoordinator: Coordinator {
         
         var startCoordinator: Coordinator
         
-        #warning("Permanent SignOut")
-        dependencies.networkManager.signOut()
+//        #warning("Permanent SignOut")
+//        dependencies.networkManager.signOut()
         setMusicVolume()
         
         if Auth.auth().currentUser != nil {

@@ -22,6 +22,12 @@ class Level {
     }
     
     func startLevel() {
+        Timer.scheduledTimer(
+            timeInterval: 0.05,
+            target: self,
+            selector: #selector(checkPlayerCollision),
+            userInfo: nil,
+            repeats: true)
         delegate?.setupUI(forPlayer: player)
         spawnNextWave()
     }
@@ -37,11 +43,20 @@ class Level {
         enemyGroups.forEach { enemyGroup in
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
-//        delegate?.setupUI(
-//            forEnemies: wave.enemyGroups.reduce(into: [])
-//            { enemies, enemyGroup in
-//                enemies.append(contentsOf: enemyGroup.enemies)
-//            })
+    }
+    
+    func changePlayerSpaceshipFrame(with frame: CGRect) {
+        player.spaceshipFrame = frame
+    }
+    
+    @objc private func checkPlayerCollision() {
+        enemyGroups.forEach { enemyGroup in
+            enemyGroup.enemies.forEach { enemy in
+                if enemy.frame.intersects(player.spaceshipFrame) {
+                    player.die()
+                }
+            }
+        }
     }
 }
 
