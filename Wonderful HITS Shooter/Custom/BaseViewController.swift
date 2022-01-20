@@ -14,10 +14,16 @@ class BaseViewController: UIViewController {
         CustomActivityIndicator(setOn: view)
     }()
     
+    // MARK: - Actions
+    @objc private func popToPrevious() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
         view.backgroundColor = .white
     }
     
@@ -45,6 +51,16 @@ class BaseViewController: UIViewController {
     
     func showError(_ error: Error) {
         showAlert(text: error.localizedDescription)
+    }
+    
+    // MARK: - Private Methods
+    private func setup() {
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(named: Images.back),
+                                                style: .plain,
+                                                target: self,
+                                                action: #selector(popToPrevious))
+        backBarButtonItem.tintColor = .black
+        navigationItem.leftBarButtonItem = backBarButtonItem
     }
 }
 

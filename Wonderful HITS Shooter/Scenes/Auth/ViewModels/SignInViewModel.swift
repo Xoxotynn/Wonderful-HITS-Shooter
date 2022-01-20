@@ -33,7 +33,7 @@ final class SignInViewModel {
         } else {
             dependencies.networkManager.auth(email: email,
                                              password: password) { [weak self] in
-                self?.authDelegate?.showGameScene()
+                self?.authDelegate?.showMenuScene()
             } onError: { [weak self] error in
                 self?.didReceiveError?(error)
             }

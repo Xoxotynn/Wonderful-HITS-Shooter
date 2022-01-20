@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 import Firebase
 
@@ -17,7 +16,7 @@ final class AppCoordinator: Coordinator {
         dependencies = Dependencies(networkManager: NetworkManager(),
                                     userDefaultsManager: UserDefaultsManager(),
                                     audioManager: AudioManager())
-        rootNavigationController = UINavigationController(rootViewController: UIViewController())
+        rootNavigationController = UINavigationController()
         childCoordinators = []
     }
     
@@ -30,14 +29,12 @@ final class AppCoordinator: Coordinator {
         
         var startCoordinator: Coordinator
         
-        #warning("Permanent SignOut")
-        dependencies.networkManager.signOut()
         setMusicVolume()
         
         if Auth.auth().currentUser != nil {
-            let gameCoordinator = GameCoordinator(rootViewController: rootNavigationController,
-                                                  dependencies: dependencies)
-            startCoordinator = gameCoordinator
+            let menuCoordinator = MenuCoordinator(dependencies: dependencies, rootNavigationController: rootNavigationController)
+            menuCoordinator.delegate = self
+            startCoordinator = menuCoordinator
         } else {
             let authCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController,
                                                   dependencies: dependencies)
@@ -47,6 +44,8 @@ final class AppCoordinator: Coordinator {
         
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
+        
+        dependencies.audioManager.play(audio: Strings.mainTheme, needToLoop: true)
     }
     
     // MARK: - Private Methods
@@ -60,11 +59,28 @@ final class AppCoordinator: Coordinator {
 
 // MARK: - AuthCoordinatorDelegate
 extension AppCoordinator: AuthCoordinatorDelegate {
-    func removeAuthCoordinatorAndStartGame(authCoordinator: AuthCoordinator) {
+    func removeAuthCoordinatorAndShowMenuScene(authCoordinator: AuthCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: authCoordinator))
-        let gameCoordinator = GameCoordinator(rootViewController: rootNavigationController,
-                                              dependencies: dependencies)
-        childCoordinators.append(gameCoordinator)
-        gameCoordinator.start()
+        let menuCoordinator = MenuCoordinator(dependencies: dependencies,
+                                              rootNavigationController: rootNavigationController)
+        menuCoordinator.delegate = self
+        childCoordinators.append(menuCoordinator)
+        menuCoordinator.start()
     }
+}
+
+// MARK: - MenuCoordinatorDelegate
+extension AppCoordinator: MenuCoordinatorDelegate {
+    func removeMenuCoordinatorAndShowAuthScene(menuCoordinator: MenuCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: menuCoordinator))
+        let authCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
+        authCoordinator.delegate = self
+        childCoordinators.append(authCoordinator)
+        authCoordinator.start()
+    }
+}
+
+// MARK: - Strings
+private extension Strings {
+    static let mainTheme = "mainTheme"
 }

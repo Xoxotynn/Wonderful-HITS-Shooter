@@ -8,7 +8,7 @@ protocol SignUpViewModelDelegate: AnyObject {
 
 // MARK: - AuthorizationViewModelDelegate
 protocol AuthorizationViewModelDelegate: AnyObject {
-    func showGameScene()
+    func showMenuScene()
 }
 
 final class SignUpViewModel {
@@ -37,7 +37,6 @@ final class SignUpViewModel {
     }
     
     func signUp() {
-        
         authViewModel.updateAuthInformation()
         updateAuthInformation()
         
@@ -55,7 +54,7 @@ final class SignUpViewModel {
             dependencies.networkManager.register(nickname: nickname,
                                                  email: email,
                                                  password: password) { [weak self] in
-                self?.authDelegate?.showGameScene()
+                self?.authDelegate?.showMenuScene()
             } onError: { [weak self] error in
                 self?.didReceiveError?(error)
             }

@@ -113,7 +113,7 @@ class SignUpViewController: BaseViewController {
             make.height.equalTo(Dimensions.standartHeight)
         }
         
-        signUpButton.configure(with: Strings.register)
+        signUpButton.configure(withTitle: Strings.register)
         signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
     }
     

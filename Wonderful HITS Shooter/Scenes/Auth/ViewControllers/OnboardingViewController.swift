@@ -53,7 +53,7 @@ class OnboardingViewController: BaseViewController {
             make.height.equalTo(Dimensions.standartHeight)
         }
         
-        signInButton.configure(with: Strings.signIn)
+        signInButton.configure(withTitle: Strings.signIn)
         signInButton.addTarget(self, action: #selector(showSignInScene), for: .touchUpInside)
     }
     
@@ -64,7 +64,7 @@ class OnboardingViewController: BaseViewController {
             make.height.equalTo(Dimensions.standartHeight)
         }
         
-        signUpButton.configure(with: Strings.register)
+        signUpButton.configure(withTitle: Strings.register)
         signUpButton.addTarget(self, action: #selector(showSignUpScene), for: .touchUpInside)
     }
     

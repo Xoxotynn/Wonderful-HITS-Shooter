@@ -73,6 +73,10 @@
 		CEE042E5278D530100C0B6CE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E4278D530100C0B6CE /* FirebaseFirestore */; };
 		CEE042E7278D530100C0B6CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E6278D530100C0B6CE /* FirebaseStorage */; };
 		CEF4332D27994335002EC368 /* LevelNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4332C27994335002EC368 /* LevelNumber.swift */; };
+		CEF433322799448F002EC368 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF433312799448F002EC368 /* MenuCoordinator.swift */; };
+		CEF433342799463D002EC368 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF433332799463D002EC368 /* MenuViewController.swift */; };
+		CEF43336279946CB002EC368 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF43335279946CB002EC368 /* MenuViewModel.swift */; };
+		CEF4333927996370002EC368 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4333827996370002EC368 /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +143,10 @@
 		CE7405322777736F00E386BF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
+		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		CEF433332799463D002EC368 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CEF43335279946CB002EC368 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		CEF4333827996370002EC368 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +270,7 @@
 				CE5E1043278F35EC00AA3397 /* Colors.swift */,
 				CE5E104D278F794C00AA3397 /* Errors.swift */,
 				CE5E10592793320400AA3397 /* Fonts.swift */,
+				CEF4333827996370002EC368 /* Images.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -269,6 +278,7 @@
 		A9CA71E9276F8040009CC78B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CEF4332E2799444F002EC368 /* Menu */,
 				CE5E101C278E097400AA3397 /* Auth */,
 				CE5E10622793864600AA3397 /* Settings */,
 				A9CA71E7276F7B72009CC78B /* Game */,
@@ -477,6 +487,32 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		CEF4332E2799444F002EC368 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4333027994480002EC368 /* ViewModel */,
+				CEF4332F27994479002EC368 /* ViewController */,
+				CEF433312799448F002EC368 /* MenuCoordinator.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		CEF4332F27994479002EC368 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CEF433332799463D002EC368 /* MenuViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CEF4333027994480002EC368 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEF43335279946CB002EC368 /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,6 +648,7 @@
 				CE5E104C278F676C00AA3397 /* Validator.swift in Sources */,
 				CE5E106A27938EBC00AA3397 /* SettingsViewModel.swift in Sources */,
 				CE5E1040278F351E00AA3397 /* Strings.swift in Sources */,
+				CEF43336279946CB002EC368 /* MenuViewModel.swift in Sources */,
 				A987746C2777C93500A62B47 /* Level.swift in Sources */,
 				A9FD8DD02797485A00128654 /* Spaceship.swift in Sources */,
 				A9FD8DDE2797497D00128654 /* PositionCreator.swift in Sources */,
@@ -630,6 +667,7 @@
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
 				A9FD8DD22797485A00128654 /* Weapon.swift in Sources */,
 				CE5E1046278F369500AA3397 /* CustomActivityIndicator.swift in Sources */,
+				CEF433322799448F002EC368 /* MenuCoordinator.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				A9FD8DCE2797485A00128654 /* Entity.swift in Sources */,
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
@@ -642,6 +680,7 @@
 				CE5E105C2793366300AA3397 /* CustomButton.swift in Sources */,
 				A987746E2777C95000A62B47 /* FirstLevel.swift in Sources */,
 				CE5E105A2793320400AA3397 /* Fonts.swift in Sources */,
+				CEF433342799463D002EC368 /* MenuViewController.swift in Sources */,
 				A9FD8DD12797485A00128654 /* BulletWeapon.swift in Sources */,
 				CE74052D277771D100E386BF /* Bullet.swift in Sources */,
 				CE5E102D278EE5AC00AA3397 /* SignUpViewController.swift in Sources */,
@@ -653,6 +692,7 @@
 				CE5E1042278F356100AA3397 /* Dimensions.swift in Sources */,
 				A9FD8DE02797497D00128654 /* RouteCreator.swift in Sources */,
 				CEF4332D27994335002EC368 /* LevelNumber.swift in Sources */,
+				CEF4333927996370002EC368 /* Images.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
 				CE5E1044278F35EC00AA3397 /* Colors.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,

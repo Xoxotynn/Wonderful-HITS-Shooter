@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 protocol AuthCoordinatorDelegate: AnyObject {
-    func removeAuthCoordinatorAndStartGame(authCoordinator: AuthCoordinator)
+    func removeAuthCoordinatorAndShowMenuScene(authCoordinator: AuthCoordinator)
 }
 
 final class AuthCoordinator: Coordinator {
@@ -26,8 +26,6 @@ final class AuthCoordinator: Coordinator {
         onboardingViewModel.delegate = self
         let onboardingVC = OnboardingViewController(viewModel: onboardingViewModel)
         rootNavigationController.setViewControllers([onboardingVC], animated: true)
-        
-        dependencies.audioManager.play(audio: "mainTheme", needToLoop: true)
     }
 }
 
@@ -48,11 +46,9 @@ extension AuthCoordinator: OnboardingViewModelDelegate {
     }
 }
 
+// MARK: - AuthorizationViewModelDelegate
 extension AuthCoordinator: AuthorizationViewModelDelegate {
-    func showGameScene() {
-        let settingsViewModel = SettingsViewModel(dependencies: dependencies)
-        let settingsVC = SettingsViewController(viewModel: settingsViewModel)
-        rootNavigationController.pushViewController(settingsVC, animated: true)
-//        delegate?.removeAuthCoordinatorAndStartGame(authCoordinator: self)
+    func showMenuScene() {
+        delegate?.removeAuthCoordinatorAndShowMenuScene(authCoordinator: self)
     }
 }

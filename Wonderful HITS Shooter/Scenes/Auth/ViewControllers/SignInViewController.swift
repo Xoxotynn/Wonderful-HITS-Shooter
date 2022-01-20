@@ -85,7 +85,7 @@ class SignInViewController: BaseViewController {
             make.height.equalTo(Dimensions.standartHeight)
         }
 
-        signInButton.configure(with: Strings.signIn)
+        signInButton.configure(withTitle: Strings.signIn)
         signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
     

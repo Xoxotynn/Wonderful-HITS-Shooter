@@ -34,7 +34,6 @@ final class SettingsViewModel {
     
     func saveMusicVolumeToUserDefaults(value: Float) {
         dependencies.userDefaultsManager.setMusicVolume(value: value)
-        print(dependencies.userDefaultsManager.getMusicVolume())
     }
     
     func saveSoundEffectsVolumeToUserDefaults(value: Float) {

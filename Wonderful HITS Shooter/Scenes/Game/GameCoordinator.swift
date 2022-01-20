@@ -18,13 +18,16 @@ final class GameCoordinator: Coordinator {
         let viewModel = GameViewModel(level: FirstLevel())
         let viewController = GameViewController(viewModel: viewModel)
         rootNavigationController.setViewControllers([viewController], animated: true)
-        
-        #warning("Move to constants")
-        dependencies.audioManager.play(audio: "levelTheme", needToLoop: true)
+    
+        dependencies.audioManager.play(audio: Strings.levelTheme, needToLoop: true)
     }
     
     func showNextScene() {
         let coord = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
         childCoordinators.append(coord)
     }
+}
+
+private extension Strings {
+    static let levelTheme = "levelTheme"
 }
