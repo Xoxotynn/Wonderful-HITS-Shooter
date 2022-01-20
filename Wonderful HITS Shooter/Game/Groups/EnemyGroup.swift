@@ -73,15 +73,15 @@ final class EnemyGroup {
 }
 
 extension EnemyGroup: EntityDelegate {
-    func didDie(entity: Entity) {
-        delegate?.didDie(enemyGroup: self, entity: entity)
+    func entity(didDie deadEntity: Entity) {
+        delegate?.didDie(enemyGroup: self, entity: deadEntity)
     }
 }
 
 extension EnemyGroup: EnemyDelegate {
-    func didDie(enemy: Enemy) {
-        remove(enemy: enemy)
-        delegate?.didDie(enemyGroup: self, enemy: enemy)
+    func enemy(didDie deadEnemy: Enemy) {
+        remove(enemy: deadEnemy)
+        delegate?.didDie(enemyGroup: self, enemy: deadEnemy)
     }
 }
 

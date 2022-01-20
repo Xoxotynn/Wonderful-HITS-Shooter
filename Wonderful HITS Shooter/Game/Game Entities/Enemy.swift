@@ -1,7 +1,7 @@
 import UIKit
 
 protocol EnemyDelegate: AnyObject {
-    func didDie(enemy: Enemy)
+    func enemy(didDie deadEnemy: Enemy)
 }
 
 final class Enemy: Entity {
@@ -28,7 +28,7 @@ final class Enemy: Entity {
     
     override func die() {
         super.die()
-        enemyDelegate?.didDie(enemy: self)
+        enemyDelegate?.enemy(didDie: self)
     }
     
     private func configureWeapon() {

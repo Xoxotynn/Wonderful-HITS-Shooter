@@ -63,6 +63,10 @@ final class GameViewController: BaseViewController {
             self?.setupEnemyView(withViewModel: enemyViewModel)
         }
         
+        viewModel.didPrepareBullet = { [weak self] frame, endPoint in
+            self?.setupBulletView(withFrame: frame, endPoint: endPoint)
+        }
+        
         viewModel.didGameOver = { [weak self] isSuccess in
             self?.animateSpaceshipExplosion()
             self?.playerSpaceshipView.removeFromSuperview()
@@ -102,6 +106,23 @@ final class GameViewController: BaseViewController {
         enemyView.configure(with: viewModel)
         enemyViews.append(enemyView)
         view.addSubview(enemyView)
+    }
+    
+    private func setupBulletView(withFrame frame: CGRect, endPoint: CGPoint) {
+        let bulletView = UIView(frame: frame)
+        bulletView.layer.cornerRadius = frame.height / 2
+        bulletView.backgroundColor = .systemPink
+        bulletView.layer.masksToBounds = true
+        
+        UIView.animate(withDuration: 1,
+                                delay: 0,
+                                options: [.curveLinear]) {
+            UIView.addKeyframe(withRelativeStartTime: 0,
+                               relativeDuration: 1) {
+                bulletView.frame.origin = endPoint
+            }
+        }
+        view.addSubview(bulletView)
     }
     
     private func setupBackgroundImageView() {

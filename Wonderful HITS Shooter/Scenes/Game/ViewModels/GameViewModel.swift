@@ -6,6 +6,7 @@ final class GameViewModel {
     
     var didPreparePlayer: ((CGRect) -> Void)?
     var didPrepareEnemy: ((EnemyViewModel) -> Void)?
+    var didPrepareBullet: ((CGRect, CGPoint) -> Void)?
     var didGameOver: ((Bool) -> Void)?
     
     private let level: Level
@@ -97,5 +98,10 @@ extension GameViewModel: LevelDelegate {
             enemyViewModels.append(enemyViewModel)
             didPrepareEnemy?(enemyViewModel)
         }
+    }
+    
+    func setupUI(forBullet bullet: Bullet) {
+        didPrepareBullet?(calculateAbsoluteFrame(from: bullet.frame),
+                          calculateAbsoluteCoordinates(from: bullet.endPoint))
     }
 }

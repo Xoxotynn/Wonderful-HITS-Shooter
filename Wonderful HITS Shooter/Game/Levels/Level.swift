@@ -4,6 +4,7 @@ protocol LevelDelegate: AnyObject {
     func gameOver(withSuccess isSuccess: Bool)
     func setupUI(forPlayer player: Player)
     func setupUI(forEnemyGroup enemyGroup: EnemyGroup)
+    func setupUI(forBullet bullet: Bullet)
 }
 
 class Level {
@@ -68,13 +69,17 @@ class Level {
 }
 
 extension Level: PlayerDelegate {
+    func player(didShootBullet bullet: Bullet) {
+        delegate?.setupUI(forBullet: bullet)
+    }
+    
     func gameOver() {
         delegate?.gameOver(withSuccess: false)
     }
 }
 
 extension Level: EntityDelegate {
-    func didDie(entity: Entity) {
+    func entity(didDie deadEntity: Entity) {
         
     }
 }

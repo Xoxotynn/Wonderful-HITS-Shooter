@@ -1,6 +1,7 @@
 import UIKit
 
 protocol PlayerDelegate: AnyObject {
+    func player(didShootBullet bullet: Bullet)
     func gameOver()
 }
 
@@ -38,7 +39,11 @@ final class Player {
 }
 
 extension Player: SpaceshipDelegate {
-    func didDie() {
+    func spaceship(didShootBullet bullet: Bullet) {
+        delegate?.player(didShootBullet: bullet)
+    }
+    
+    func spaceship(didDie deadSpaceship: Spaceship) {
         delegate?.gameOver()
     }
 }

@@ -306,6 +306,7 @@
 				A9FD8DC52797485A00128654 /* Entity.swift */,
 				A9FD8DC62797485A00128654 /* Enemy.swift */,
 				A9FD8DC72797485A00128654 /* Spaceship.swift */,
+				CE74052C277771D100E386BF /* Bullet.swift */,
 			);
 			path = "Game Entities";
 			sourceTree = "<group>";
@@ -488,7 +489,6 @@
 				A9FD8DDA2797497D00128654 /* Route Creators */,
 				A9FD8DCB2797485A00128654 /* Enemy Group Creators */,
 				A987746A2777C92200A62B47 /* Levels */,
-				CE74052C277771D100E386BF /* Bullet.swift */,
 				CE7405322777736F00E386BF /* Player.swift */,
 			);
 			path = Game;

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol EntityDelegate: AnyObject {
-    func didDie(entity: Entity)
+    func entity(didDie deadEntity: Entity)
 }
 
 class Entity {
@@ -17,6 +17,6 @@ class Entity {
     }
     
     func die() {
-        entityDelegate?.didDie(entity: self)
+        entityDelegate?.entity(didDie: self)
     }
 }
