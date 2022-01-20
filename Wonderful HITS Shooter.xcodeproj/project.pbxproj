@@ -72,6 +72,7 @@
 		CEE042E3278D530100C0B6CE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E2278D530100C0B6CE /* FirebaseDatabase */; };
 		CEE042E5278D530100C0B6CE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E4278D530100C0B6CE /* FirebaseFirestore */; };
 		CEE042E7278D530100C0B6CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042E6278D530100C0B6CE /* FirebaseStorage */; };
+		CEF4332D27994335002EC368 /* LevelNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4332C27994335002EC368 /* LevelNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,7 @@
 		CE74052C277771D100E386BF /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		CE7405322777736F00E386BF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 				A9A1443B276FE38800E33C79 /* AppCoordinator.swift */,
 				A9A1443F276FE71400E33C79 /* Dependencies.swift */,
 				CE5E104B278F676C00AA3397 /* Validator.swift */,
+				CEF4332C27994335002EC368 /* LevelNumber.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				CE5E104E278F794C00AA3397 /* Errors.swift in Sources */,
 				CE5E1042278F356100AA3397 /* Dimensions.swift in Sources */,
 				A9FD8DE02797497D00128654 /* RouteCreator.swift in Sources */,
+				CEF4332D27994335002EC368 /* LevelNumber.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
 				CE5E1044278F35EC00AA3397 /* Colors.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,

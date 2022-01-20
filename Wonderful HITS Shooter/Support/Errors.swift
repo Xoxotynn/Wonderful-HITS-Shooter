@@ -26,3 +26,14 @@ enum ValidationError: LocalizedError {
         }
     }
 }
+
+enum NetworkError: LocalizedError {
+    case notAuthorized
+    
+    var errorDescription: String? {
+        switch self {
+        case .notAuthorized:
+            return "Пользователь не авторизован"
+        }
+    }
+}

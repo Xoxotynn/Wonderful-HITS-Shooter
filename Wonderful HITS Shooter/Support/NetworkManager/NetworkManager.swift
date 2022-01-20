@@ -1,4 +1,3 @@
-import Foundation
 import Firebase
 
 final class NetworkManager {
@@ -54,9 +53,9 @@ final class NetworkManager {
         }
     }
     
-    func setPlayerMoney(toValue value: Int) {
+    func setPlayerMoney(toValue value: Int) throws {
         guard let uid = uid else {
-            return
+            throw NetworkError.notAuthorized
         }
 
         ref.child(Strings.users)
@@ -66,22 +65,54 @@ final class NetworkManager {
     }
     
     func getPlayerMoney(_ onComplete: @escaping ((Int) -> Void),
-                        onError: @escaping () -> Void) {
+                        onError: @escaping (Error) -> Void) {
         guard let uid = uid else {
+            onError(NetworkError.notAuthorized)
             return
         }
         
-        var moneyValue: Int = 0
         ref.child(Strings.users)
            .child(uid)
            .child(Strings.money)
-           .getData { error, data in
+           .getData { error, snapshot in
                if let error = error {
-                   print(error.localizedDescription)
-                   onError()
+                   onError(error)
                } else {
-                   moneyValue = data.value as? Int ?? 0
+                   let moneyValue = snapshot.value as? Int ?? 0
                    onComplete(moneyValue)
+               }
+        }
+    }
+    
+    func setLevelMaxPoints(forLevel level: LevelNumber, points: Int) throws {
+        guard let uid = uid else {
+            throw NetworkError.notAuthorized
+        }
+
+        ref.child(Strings.users)
+           .child(uid)
+           .child(Strings.levels)
+           .child(level.rawValue)
+           .setValue([ Strings.points: points ])
+    }
+    
+    func getMaxPoints(forLevel level: LevelNumber,
+                      _ onComplete: @escaping (Int) -> Void,
+                      onError: @escaping (Error) -> Void) {
+        guard let uid = uid else {
+            onError(NetworkError.notAuthorized)
+            return
+        }
+        
+        ref.child(Strings.users)
+           .child(uid)
+           .child(level.rawValue)
+           .getData { error, snapshot in
+               if let error = error {
+                   onError(error)
+               } else {
+                   let pointsValue = snapshot.value as? Int ?? 0
+                   onComplete(pointsValue)
                }
         }
     }
@@ -92,4 +123,6 @@ private extension Strings {
     static let users = "users"
     static let authInfo = "authInfo"
     static let money = "money"
+    static let levels = "levels"
+    static let points = "points"
 }
