@@ -14,11 +14,6 @@ class BaseViewController: UIViewController {
         CustomActivityIndicator(setOn: view)
     }()
     
-    // MARK: - Actions
-    @objc private func popToPrevious() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +52,10 @@ class BaseViewController: UIViewController {
     private func setup() {
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: Images.back),
                                                 style: .plain,
-                                                target: self,
-                                                action: #selector(popToPrevious))
+                                                target: nil,
+                                                action: nil)
         backBarButtonItem.tintColor = .black
-        navigationItem.leftBarButtonItem = backBarButtonItem
+        navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
 

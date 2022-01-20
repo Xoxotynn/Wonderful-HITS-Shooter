@@ -9,6 +9,9 @@ final class AppCoordinator: Coordinator {
     
     private let window: UIWindow?
     private let dependencies: Dependencies
+    private var viewControllersCount: Int {
+        rootNavigationController.viewControllers.count
+    }
     
     // MARK: - Init
     init(window: UIWindow?) {
@@ -18,6 +21,8 @@ final class AppCoordinator: Coordinator {
                                     audioManager: AudioManager())
         rootNavigationController = UINavigationController()
         childCoordinators = []
+        UINavigationBar.appearance().backIndicatorImage = UIImage()
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage()
     }
     
     // MARK: - Public Methods
