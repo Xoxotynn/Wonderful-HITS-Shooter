@@ -1,6 +1,13 @@
 import UIKit
 
+protocol EnemyGroupDelegate: AnyObject {
+    func didDie(enemyGroup: EnemyGroup, enemy: Enemy)
+    func didDie(enemyGroup: EnemyGroup, entity: Entity)
+}
+
 final class EnemyGroup {
+    
+    weak var delegate: EnemyGroupDelegate?
     
     private(set) var enemies: [Enemy]
     
@@ -15,6 +22,13 @@ final class EnemyGroup {
     func remove(enemy: Enemy) {
         if let index = enemies.firstIndex(of: enemy) {
             enemies.remove(at: index)
+        }
+    }
+    
+    private func setupDelegates() {
+        enemies.forEach { enemy in
+            enemy.entityDelegate = self
+            enemy.enemyDelegate = self
         }
     }
     
@@ -56,6 +70,19 @@ final class EnemyGroup {
             
             return route
         }
+}
+
+extension EnemyGroup: EntityDelegate {
+    func didDie(entity: Entity) {
+        delegate?.didDie(enemyGroup: self, entity: entity)
+    }
+}
+
+extension EnemyGroup: EnemyDelegate {
+    func didDie(enemy: Enemy) {
+        remove(enemy: enemy)
+        delegate?.didDie(enemyGroup: self, enemy: enemy)
+    }
 }
 
 extension EnemyGroup {

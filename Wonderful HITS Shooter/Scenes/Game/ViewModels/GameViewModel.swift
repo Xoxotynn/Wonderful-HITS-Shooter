@@ -6,6 +6,7 @@ final class GameViewModel {
     
     var didPreparePlayer: ((CGRect) -> Void)?
     var didPrepareEnemy: ((EnemyViewModel) -> Void)?
+    var didGameOver: ((Bool) -> Void)?
     
     private let level: Level
     private var enemyViewModels: [EnemyViewModel]
@@ -75,7 +76,7 @@ extension GameViewModel: EnemyViewModelDelegate {
 
 extension GameViewModel: LevelDelegate {
     func gameOver(withSuccess isSuccess: Bool) {
-        
+        didGameOver?(isSuccess)
     }
     
     func setupUI(forPlayer player: Player) {

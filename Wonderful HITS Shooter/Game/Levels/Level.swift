@@ -13,8 +13,11 @@ class Level {
     private var player: Player
     private var waves: [Wave]
     private var enemyGroups: [EnemyGroup]
+    private var playerTimer: Timer?
+    private var isGameFinished: Bool
     
     init(player: Player, waves: [Wave]) {
+        isGameFinished = false
         self.player = player
         self.waves = waves
         self.enemyGroups = []
@@ -22,7 +25,7 @@ class Level {
     }
     
     func startLevel() {
-        Timer.scheduledTimer(
+        playerTimer = Timer.scheduledTimer(
             timeInterval: 0.05,
             target: self,
             selector: #selector(checkPlayerCollision),
@@ -41,6 +44,7 @@ class Level {
         waves.remove(at: 0)
         enemyGroups = wave.enemyGroups
         enemyGroups.forEach { enemyGroup in
+            
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
     }
@@ -52,7 +56,10 @@ class Level {
     @objc private func checkPlayerCollision() {
         enemyGroups.forEach { enemyGroup in
             enemyGroup.enemies.forEach { enemy in
-                if enemy.frame.intersects(player.spaceshipFrame) {
+                if enemy.frame.intersects(player.spaceshipFrame)
+                   && !isGameFinished {
+                    isGameFinished = true
+                    playerTimer?.invalidate()
                     player.die()
                 }
             }
@@ -62,7 +69,6 @@ class Level {
 
 extension Level: PlayerDelegate {
     func gameOver() {
-        print(player.spaceshipFrame)
         delegate?.gameOver(withSuccess: false)
     }
 }
@@ -73,10 +79,12 @@ extension Level: EntityDelegate {
     }
 }
 
-extension Level: EnemyDelegate {
-    func didDie(enemy: Enemy) {
-        enemyGroups.forEach { enemyGroup in
-            enemyGroup.remove(enemy: enemy)
-        }
+extension Level: EnemyGroupDelegate {
+    func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
+        
+    }
+    
+    func didDie(enemyGroup: EnemyGroup, entity: Entity) {
+        
     }
 }
