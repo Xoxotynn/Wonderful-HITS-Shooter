@@ -18,12 +18,28 @@ class SettingsViewController: BaseViewController {
     private let viewModel: SettingsViewModel
     
     // MARK: - Actions
-    @objc private func musicVolumeSliderDidChangeValue() {
-        viewModel.changeMusicVolume(toValue: musicVolumeSlider.value)
+    @objc private func musicVolumeSliderDidChangeValue(slider: UISlider, event: UIEvent) {
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .ended:
+                viewModel.changeMusicVolume(toValue: musicVolumeSlider.value,
+                                            needToSave: true)
+            default:
+                viewModel.changeMusicVolume(toValue: musicVolumeSlider.value)
+            }
+        }
     }
     
-    @objc private func soundEffectsVolumeSliderDidChangeValue() {
-        viewModel.changeSoundEffectsVolume(toValue: soundEffectsVolumeSlider.value)
+    @objc private func soundEffectsVolumeSliderDidChangeValue(slider: UISlider, event: UIEvent) {
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .ended:
+                viewModel.changeSoundEffectsVolume(toValue: soundEffectsVolumeSlider.value,
+                                                   needToSave: true)
+            default:
+                viewModel.changeSoundEffectsVolume(toValue: soundEffectsVolumeSlider.value)
+            }
+        }
     }
     
     // MARK: - Init
@@ -40,13 +56,6 @@ class SettingsViewController: BaseViewController {
         
         bindToViewModel()
         viewModel.start()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        viewModel.saveMusicVolumeToUserDefaults(value: musicVolumeSlider.value)
-        viewModel.saveSoundEffectsVolumeToUserDefaults(value: soundEffectsVolumeSlider.value)
     }
     
     // MARK: - Private Methods
@@ -94,7 +103,7 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(musicSliderTitleLabel.snp.bottom).offset(Dimensions.standart)
         }
         
-        musicVolumeSlider.addTarget(self, action: #selector(musicVolumeSliderDidChangeValue), for: .valueChanged)
+        musicVolumeSlider.addTarget(self, action: #selector(musicVolumeSliderDidChangeValue(slider:event:)), for: .valueChanged)
     }
     
     private func setupSoundEffectsTitleLabel() {
@@ -115,7 +124,7 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(soundEffectsTitleLabel.snp.bottom).offset(Dimensions.standart)
         }
         
-        soundEffectsVolumeSlider.addTarget(self, action: #selector(soundEffectsVolumeSliderDidChangeValue), for: .valueChanged)
+        soundEffectsVolumeSlider.addTarget(self, action: #selector(soundEffectsVolumeSliderDidChangeValue(slider:event:)), for: .valueChanged)
     }
     
     private func bindToViewModel() {

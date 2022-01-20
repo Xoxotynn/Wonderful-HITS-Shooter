@@ -1,23 +1,17 @@
-//
-//  VolumeSlider.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 16.01.2022.
-//
-
 import UIKit
 
 class VolumeSlider: UISlider {
+    // MARK: - Init
     init() {
         super.init(frame: .zero)
         
         tintColor = .black
         
         let largeConfig = UIImage.SymbolConfiguration(pointSize: CGFloat(Dimensions.medium), weight: .bold, scale: .large)
-        minimumValueImage = UIImage.init(systemName: "speaker", withConfiguration: largeConfig)
-        maximumValueImage = UIImage.init(systemName: "speaker.wave.2", withConfiguration: largeConfig)
+        minimumValueImage = UIImage.init(systemName: Images.minValueSpeaker, withConfiguration: largeConfig)
+        maximumValueImage = UIImage.init(systemName: Images.maxValueSpeaker, withConfiguration: largeConfig)
     
-        let thumbImage = UIImage(named: Strings.thumbImage) ?? UIImage()
+        let thumbImage = UIImage(named: Images.thumbImage) ?? UIImage()
         let rotatedThumbImage = UIImage(cgImage: thumbImage.cgImage!, scale: 10.0, orientation: .right)
         setThumbImage(rotatedThumbImage, for: .normal)
     }
@@ -27,6 +21,9 @@ class VolumeSlider: UISlider {
     }
 }
 
-private extension Strings {
+// MARK: - Images
+private extension Images {
     static let thumbImage = "spaceship"
+    static let minValueSpeaker = "speaker"
+    static let maxValueSpeaker = "speaker.wave.2"
 }

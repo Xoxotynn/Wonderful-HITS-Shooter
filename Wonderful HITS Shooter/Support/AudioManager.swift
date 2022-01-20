@@ -11,17 +11,22 @@ import AVFoundation
 final class AudioManager {
     // MARK: - Properties
     private var backgroundAudioPlayer: AVAudioPlayer = AVAudioPlayer()
+    private var nowPlaying: String = ""
+    private var soundEffectsVolume: Float = 1.0
     private var musicVolume: Float = 1.0 {
         didSet {
             backgroundAudioPlayer.volume = musicVolume
         }
     }
     
-    private var soundEffectsVolume: Float = 1.0
-    
     // MARK: - Public Methods
     func play(audio: String, needToLoop: Bool = false) {
+        
+        guard audio != nowPlaying else { return }
+        
         do {
+            nowPlaying = audio
+            
             backgroundAudioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audio, ofType: Strings.audioType) ?? ""))
             
             if needToLoop {

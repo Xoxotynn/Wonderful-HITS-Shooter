@@ -1,12 +1,3 @@
-//
-//  SettingsViewModel.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 16.01.2022.
-//
-
-import Foundation
-
 final class SettingsViewModel {
     // MARK: - Properties
     var didSetMusicVolume: ((Float) -> Void)?
@@ -24,19 +15,19 @@ final class SettingsViewModel {
         didSetSoundEffectsVolume?(dependencies.userDefaultsManager.getSoundEffectsVolume() ?? 1.0)
     }
     
-    func changeMusicVolume(toValue value: Float) {
+    func changeMusicVolume(toValue value: Float, needToSave: Bool = false) {
         dependencies.audioManager.setMusicVolume(toValue: value)
+        
+        if needToSave {
+            dependencies.userDefaultsManager.setMusicVolume(value: value)
+        }
     }
     
-    func changeSoundEffectsVolume(toValue value: Float) {
+    func changeSoundEffectsVolume(toValue value: Float, needToSave: Bool = false) {
         dependencies.audioManager.setSoundEffectsVolume(toValue: value)
-    }
-    
-    func saveMusicVolumeToUserDefaults(value: Float) {
-        dependencies.userDefaultsManager.setMusicVolume(value: value)
-    }
-    
-    func saveSoundEffectsVolumeToUserDefaults(value: Float) {
-        dependencies.userDefaultsManager.setSoundEffectsVolume(value: value)
+        
+        if needToSave {
+            dependencies.userDefaultsManager.setSoundEffectsVolume(value: value)
+        }
     }
 }
