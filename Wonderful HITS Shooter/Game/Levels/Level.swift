@@ -62,6 +62,7 @@ class Level {
 
 extension Level: PlayerDelegate {
     func gameOver() {
+        print(player.spaceshipFrame)
         delegate?.gameOver(withSuccess: false)
     }
 }
