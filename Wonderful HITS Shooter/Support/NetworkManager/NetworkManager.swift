@@ -18,22 +18,22 @@ final class NetworkManager {
             } else if let result = result {
                 self.uid = result.user.uid
                 let ref = self.ref.child(Strings.users).child(result.user.uid)
-                ref.child(Strings.authInfo).setValue([ "email" : email,
-                                                       "nickname" : nickname,
-                                                       "password" : password ])
+                ref.child(Strings.authInfo).setValue([ Strings.email : email,
+                                                       Strings.nickname : nickname,
+                                                       Strings.password : password ])
                 ref.child(Strings.levels)
                     .child(LevelNumber.first.rawValue)
                     .setValue([ Strings.points: 0 ])
-                
+
                 ref.child(Strings.levels)
                     .child(LevelNumber.second.rawValue)
                     .setValue([ Strings.points: 0 ])
-                
+
                 ref.child(Strings.levels)
                     .child(LevelNumber.third.rawValue)
                     .setValue([ Strings.points: 0 ])
                 
-                ref.setValue([ Strings.money: 0 ])
+                ref.child(Strings.money).setValue([ Strings.moneyValue: 0 ])
                 
                 onComplete()
             } else {
@@ -184,8 +184,12 @@ final class NetworkManager {
 
 // MARK: - Strings
 private extension Strings {
+    static let email = "email"
+    static let nickname = "nickname"
+    static let password = "password"
     static let users = "users"
     static let authInfo = "authInfo"
+    static let moneyValue = "moneyValue"
     static let money = "money"
     static let levels = "levels"
     static let points = "points"
