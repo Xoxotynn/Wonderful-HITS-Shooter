@@ -31,6 +31,8 @@ final class AppCoordinator: Coordinator {
         
         var startCoordinator: Coordinator
         
+//        #warning("Permanent SignOut")
+//        dependencies.networkManager.signOut()
         setMusicVolume()
         
         if let user = Auth.auth().currentUser {

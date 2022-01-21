@@ -4,17 +4,24 @@ protocol LevelDelegate: AnyObject {
     func gameOver(withSuccess isSuccess: Bool)
     func setupUI(forPlayer player: Player)
     func setupUI(forEnemyGroup enemyGroup: EnemyGroup)
+    func setupUI(forBullet bullet: Bullet)
+    func setupUI(forDeadEnemy enemy: Enemy)
+    func setupUI(forExplodedBullet bullet: Bullet)
 }
 
 class Level {
     
     weak var delegate: LevelDelegate?
     
+    private(set) var currentScore: Int
     private var player: Player
     private var waves: [Wave]
     private var enemyGroups: [EnemyGroup]
+    private var isGameFinished: Bool
     
     init(player: Player, waves: [Wave]) {
+        isGameFinished = false
+        currentScore = 0
         self.player = player
         self.waves = waves
         self.enemyGroups = []
@@ -35,32 +42,63 @@ class Level {
         waves.remove(at: 0)
         enemyGroups = wave.enemyGroups
         enemyGroups.forEach { enemyGroup in
+            enemyGroup.delegate = self
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
-//        delegate?.setupUI(
-//            forEnemies: wave.enemyGroups.reduce(into: [])
-//            { enemies, enemyGroup in
-//                enemies.append(contentsOf: enemyGroup.enemies)
-//            })
     }
 }
 
 extension Level: PlayerDelegate {
+    func isCollidingWithEnemy(player: Player) -> Enemy? {
+        var collidingEnemy: Enemy?
+        enemyGroups.forEach { enemyGroup in
+            enemyGroup.enemies.forEach { enemy in
+                if enemy.frame.intersects(player.spaceshipFrame)
+                   && !isGameFinished {
+                    isGameFinished = true
+                    collidingEnemy = enemy
+                    return
+                }
+            }
+        }
+        
+        return collidingEnemy
+    }
+    
+    func player(didShootBullet bullet: Bullet) {
+        bullet.bulletDelegate = self
+        delegate?.setupUI(forBullet: bullet)
+    }
+    
     func gameOver() {
         delegate?.gameOver(withSuccess: false)
     }
 }
 
-extension Level: EntityDelegate {
-    func didDie(entity: Entity) {
-        
+extension Level: EnemyGroupDelegate {
+    func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
+        currentScore += 100
+        delegate?.setupUI(forDeadEnemy: enemy)
     }
 }
 
-extension Level: EnemyDelegate {
-    func didDie(enemy: Enemy) {
+extension Level: BulletDelegate {
+    func isCollidingWithEnemy(bullet: Bullet) -> Enemy? {
+        var collidingEnemy: Enemy?
         enemyGroups.forEach { enemyGroup in
-            enemyGroup.remove(enemy: enemy)
+            enemyGroup.enemies.forEach { enemy in
+                if enemy.frame.intersects(bullet.frame)
+                   && !isGameFinished {
+                    collidingEnemy = enemy
+                    return
+                }
+            }
         }
+        
+        return collidingEnemy
+    }
+    
+    func didDie(bullet: Bullet) {
+        delegate?.setupUI(forExplodedBullet: bullet)
     }
 }

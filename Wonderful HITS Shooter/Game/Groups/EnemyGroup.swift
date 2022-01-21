@@ -1,6 +1,12 @@
 import UIKit
 
+protocol EnemyGroupDelegate: AnyObject {
+    func didDie(enemyGroup: EnemyGroup, enemy: Enemy)
+}
+
 final class EnemyGroup {
+    
+    weak var delegate: EnemyGroupDelegate?
     
     private(set) var enemies: [Enemy]
     
@@ -10,11 +16,18 @@ final class EnemyGroup {
         enemies = enemyGroupCreator.createEnemies()
         setupPosition(positionCreator: positionCreator)
         setupRoutes(routeCreator: routeCreator)
+        setupDelegates()
     }
     
     func remove(enemy: Enemy) {
         if let index = enemies.firstIndex(of: enemy) {
             enemies.remove(at: index)
+        }
+    }
+    
+    private func setupDelegates() {
+        enemies.forEach { enemy in
+            enemy.enemyDelegate = self
         }
     }
     
@@ -58,11 +71,19 @@ final class EnemyGroup {
         }
 }
 
+extension EnemyGroup: EnemyDelegate {
+    func enemy(didDie deadEnemy: Enemy) {
+        remove(enemy: deadEnemy)
+        delegate?.didDie(enemyGroup: self, enemy: deadEnemy)
+    }
+}
+
 extension EnemyGroup {
     static let testGroup = EnemyGroup(
         enemyGroupCreator: DefaultEnemyGroupCreator(),
-        routeCreator: LineRouteCreator(length: 0.5),
+        routeCreator: LineRouteCreator(length: 0.7),
         positionCreator: FilledRectPositionCreator(
             rows: 4,
-            margins: CGPoint(x: 0.15, y: 0.2)))
+            margins: CGPoint(x: 0.15, y: 0.1),
+            origin: CGPoint(x: 0.05, y: -0.4)))
 }

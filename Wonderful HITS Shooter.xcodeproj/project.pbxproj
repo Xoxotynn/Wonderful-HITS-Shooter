@@ -34,6 +34,12 @@
 		A9FD8DDE2797497D00128654 /* PositionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DD92797497D00128654 /* PositionCreator.swift */; };
 		A9FD8DDF2797497D00128654 /* LineRouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DDB2797497D00128654 /* LineRouteCreator.swift */; };
 		A9FD8DE02797497D00128654 /* RouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DDC2797497D00128654 /* RouteCreator.swift */; };
+		A9FD8DE427995D7700128654 /* EnemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE327995D7700128654 /* EnemyView.swift */; };
+		A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE627995E1800128654 /* EnemyViewModel.swift */; };
+		A9FD8DE927995E8400128654 /* PlayerSpaceshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */; };
+		A9FD8DEB27995EA600128654 /* PlayerSpaceshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */; };
+		A9FD8DED279AB40200128654 /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DEC279AB40200128654 /* BulletView.swift */; };
+		A9FD8DEF279AB41700128654 /* BulletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DEE279AB41700128654 /* BulletViewModel.swift */; };
 		CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */; };
 		CE5E1021278E09A400AA3397 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1020278E09A400AA3397 /* AuthView.swift */; };
 		CE5E1025278E21C300AA3397 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E1024278E21C300AA3397 /* AuthViewModel.swift */; };
@@ -128,6 +134,12 @@
 		A9FD8DD92797497D00128654 /* PositionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionCreator.swift; sourceTree = "<group>"; };
 		A9FD8DDB2797497D00128654 /* LineRouteCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineRouteCreator.swift; sourceTree = "<group>"; };
 		A9FD8DDC2797497D00128654 /* RouteCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCreator.swift; sourceTree = "<group>"; };
+		A9FD8DE327995D7700128654 /* EnemyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyView.swift; sourceTree = "<group>"; };
+		A9FD8DE627995E1800128654 /* EnemyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyViewModel.swift; sourceTree = "<group>"; };
+		A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpaceshipView.swift; sourceTree = "<group>"; };
+		A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpaceshipViewModel.swift; sourceTree = "<group>"; };
+		A9FD8DEC279AB40200128654 /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
+		A9FD8DEE279AB41700128654 /* BulletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletViewModel.swift; sourceTree = "<group>"; };
 		AA39FCDA1FE88544AD501376 /* Pods_Wonderful_HITS_Shooter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wonderful_HITS_Shooter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		CE5E1020278E09A400AA3397 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -216,6 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				A98774682777C6BF00A62B47 /* GameViewModel.swift */,
+				A9FD8DE627995E1800128654 /* EnemyViewModel.swift */,
+				A9FD8DEA27995EA600128654 /* PlayerSpaceshipViewModel.swift */,
+				A9FD8DEE279AB41700128654 /* BulletViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -291,6 +306,7 @@
 		A9CA71E7276F7B72009CC78B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A9FD8DE227995D7700128654 /* Views */,
 				A98774672777C6AD00A62B47 /* ViewControllers */,
 				A98774662777C69D00A62B47 /* ViewModels */,
 				A9A1443D276FE4A600E33C79 /* GameCoordinator.swift */,
@@ -352,6 +368,7 @@
 				A9FD8DC52797485A00128654 /* Entity.swift */,
 				A9FD8DC62797485A00128654 /* Enemy.swift */,
 				A9FD8DC72797485A00128654 /* Spaceship.swift */,
+				CE74052C277771D100E386BF /* Bullet.swift */,
 			);
 			path = "Game Entities";
 			sourceTree = "<group>";
@@ -390,6 +407,16 @@
 				A9FD8DDC2797497D00128654 /* RouteCreator.swift */,
 			);
 			path = "Route Creators";
+			sourceTree = "<group>";
+		};
+		A9FD8DE227995D7700128654 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD8DE327995D7700128654 /* EnemyView.swift */,
+				A9FD8DE827995E8400128654 /* PlayerSpaceshipView.swift */,
+				A9FD8DEC279AB40200128654 /* BulletView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C59D94C0D61640D484475622 /* Pods */ = {
@@ -526,7 +553,6 @@
 				A9FD8DDA2797497D00128654 /* Route Creators */,
 				A9FD8DCB2797485A00128654 /* Enemy Group Creators */,
 				A987746A2777C92200A62B47 /* Levels */,
-				CE74052C277771D100E386BF /* Bullet.swift */,
 				CE7405322777736F00E386BF /* Player.swift */,
 			);
 			path = Game;
@@ -827,6 +853,7 @@
 				CEF43336279946CB002EC368 /* MenuViewModel.swift in Sources */,
 				A987746C2777C93500A62B47 /* Level.swift in Sources */,
 				A9FD8DD02797485A00128654 /* Spaceship.swift in Sources */,
+				A9FD8DE427995D7700128654 /* EnemyView.swift in Sources */,
 				A9FD8DDE2797497D00128654 /* PositionCreator.swift in Sources */,
 				CE7D5445279AA7C7005BD8A1 /* Resources.swift in Sources */,
 				CE7D544E279AE6FA005BD8A1 /* TabCoordinator.swift in Sources */,
@@ -837,7 +864,9 @@
 				CE7D5450279AED95005BD8A1 /* TabBarController.swift in Sources */,
 				CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */,
 				A9FD8DCF2797485A00128654 /* Enemy.swift in Sources */,
+				A9FD8DEF279AB41700128654 /* BulletViewModel.swift in Sources */,
 				CE5E103A278EF3FC00AA3397 /* OnboardingViewController.swift in Sources */,
+				A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
 				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
@@ -846,6 +875,7 @@
 				CE7D54342799B637005BD8A1 /* LevelModel.swift in Sources */,
 				CE7D5438279A881B005BD8A1 /* UpgradingCoordinator.swift in Sources */,
 				A98774692777C6BF00A62B47 /* GameViewModel.swift in Sources */,
+				A9FD8DEB27995EA600128654 /* PlayerSpaceshipViewModel.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
 				CE7D5441279AA76B005BD8A1 /* TitleViewModel.swift in Sources */,
 				A9FD8DD22797485A00128654 /* Weapon.swift in Sources */,
@@ -858,6 +888,7 @@
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
 				CE5E1071279454D500AA3397 /* VolumeSlider.swift in Sources */,
 				CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */,
+				A9FD8DE927995E8400128654 /* PlayerSpaceshipView.swift in Sources */,
 				A98FC5FD278C99B500F0850E /* EnemyGroup.swift in Sources */,
 				CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */,
 				A9A1443C276FE38800E33C79 /* AppCoordinator.swift in Sources */,
@@ -884,6 +915,7 @@
 				CE7D542E2799B11E005BD8A1 /* LevelCellViewModel.swift in Sources */,
 				CE7D54312799B528005BD8A1 /* StarView.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
+				A9FD8DED279AB40200128654 /* BulletView.swift in Sources */,
 				CE5E1044278F35EC00AA3397 /* Colors.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,
 				CE7D5448279AD778005BD8A1 /* Authorization.swift in Sources */,
@@ -1034,7 +1066,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1065,7 +1097,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LC826B8LG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wonderful HITS Shooter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

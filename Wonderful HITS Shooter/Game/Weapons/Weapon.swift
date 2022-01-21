@@ -1,8 +1,5 @@
 import Foundation
 
-class Weapon {
-    
-    var damage: Float = 1
-    
-    func attack() { }
+protocol Weapon {
+    func attack()
 }
