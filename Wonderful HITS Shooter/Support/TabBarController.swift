@@ -29,7 +29,6 @@ class TabBarController: UITabBarController {
         tabBar.backgroundColor = .clear
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
-        tabBar.isTranslucent = false
         
         tabBar.addSubview(backgroundImageView)
         
