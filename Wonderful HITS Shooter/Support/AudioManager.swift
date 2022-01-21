@@ -7,6 +7,7 @@ final class AudioManager {
     }
     
     private var backgroundAudioPlayer: AVAudioPlayer = AVAudioPlayer()
+    private var soundEffectsAudioPlayer: AVAudioPlayer = AVAudioPlayer()
     private var nowPlaying: String = ""
     private var soundEffectsVolume: Float = 1.0
     private var musicVolume: Float = 1.0 {
@@ -40,10 +41,10 @@ final class AudioManager {
     
     func playSoundEffect(audio: String) {
         do {
-            let player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audio, ofType: Strings.audioType) ?? ""))
-            player.volume = soundEffectsVolume
-            player.prepareToPlay()
-            player.play()
+            soundEffectsAudioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: audio, ofType: Strings.wav) ?? ""))
+            soundEffectsAudioPlayer.volume = soundEffectsVolume
+            soundEffectsAudioPlayer.prepareToPlay()
+            soundEffectsAudioPlayer.play()
             
         } catch {
             print(error)
@@ -70,4 +71,5 @@ final class AudioManager {
 // MARK: - Strings
 private extension Strings {
     static let audioType = "mp3"
+    static let wav = "wav"
 }

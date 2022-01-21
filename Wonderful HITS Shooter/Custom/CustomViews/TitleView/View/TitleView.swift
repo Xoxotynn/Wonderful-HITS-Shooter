@@ -93,10 +93,10 @@ class TitleView: UIView {
         viewModel?.didUpdateData = { [weak self] in
             self?.moneyLabel.attributedText = NSAttributedString(
                 string: ": " + String(describing: self?.viewModel?.money ?? 0),
-                attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.standart))
+                attributes: StringAttributes.getStringAttributes(fontSize: 12))
             self?.pointsLabel.attributedText = NSAttributedString(
                 string: ": " + String(describing: self?.viewModel?.points ?? 0),
-                attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.standart))
+                attributes: StringAttributes.getStringAttributes(fontSize: 12))
         }
     }
     

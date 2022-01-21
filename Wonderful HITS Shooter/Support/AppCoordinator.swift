@@ -31,9 +31,6 @@ final class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
         
         var startCoordinator: Coordinator
-        
-//        #warning("Permanent SignOut")
-//        dependencies.networkManager.signOut()
         setMusicVolume()
         
         if let user = Auth.auth().currentUser {

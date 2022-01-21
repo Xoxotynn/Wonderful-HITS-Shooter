@@ -22,8 +22,10 @@ final class GameViewModel {
     private var enemyViewModels: [EnemyViewModel]
     private var bulletViewModels: [BulletViewModel]
     private var screenSize: CGSize
+    private let dependencies: Dependencies
     
-    init(level: Level) {
+    init(level: Level, dependencies: Dependencies) {
+        self.dependencies = dependencies
         score = String(describing: level.currentScore)
         enemyViewModels = []
         bulletViewModels = []
@@ -121,8 +123,10 @@ extension GameViewModel: LevelDelegate {
     func gameOver(withSuccess isSuccess: Bool) {
         if isSuccess {
             didLevelFinished?()
+            dependencies.audioManager.playSoundEffect(audio: "terminator")
         } else {
             didGameOver?()
+            dependencies.audioManager.playSoundEffect(audio: "bigShotSound")
         }
     }
     
@@ -160,6 +164,8 @@ extension GameViewModel: LevelDelegate {
         bulletViewModel.delegate = self
         bulletViewModels.append(bulletViewModel)
         didPrepareBullet?(bulletViewModel)
+        dependencies.audioManager.playSoundEffect(audio: Strings.shotSound)
+        
     }
     
     func setupUI(forDeadEnemy enemy: Enemy) {
@@ -181,4 +187,8 @@ extension GameViewModel: LevelDelegate {
         bulletViewModels[viewModelIndex].removeBullet()
         bulletViewModels.remove(at: viewModelIndex)
     }
+}
+
+private extension Strings {
+    static let shotSound = "shotSound"
 }

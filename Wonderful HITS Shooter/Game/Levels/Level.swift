@@ -41,6 +41,7 @@ class Level {
     
     func spawnNextWave() {
         guard let wave = waves.first else {
+            player.die()
             delegate?.gameOver(withSuccess: true)
             return
         }

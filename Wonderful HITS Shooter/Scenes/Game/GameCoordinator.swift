@@ -21,7 +21,7 @@ final class GameCoordinator: Coordinator {
     
     func start() {
         rootNavigationController.navigationBar.isHidden = true
-        let viewModel = GameViewModel(level: FirstLevel())
+        let viewModel = GameViewModel(level: FirstLevel(), dependencies: dependencies)
         let viewController = GameViewController(viewModel: viewModel)
         viewModel.delegate = self
         gameViewModel = viewModel

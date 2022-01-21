@@ -88,6 +88,7 @@ class VideoPlayerViewController: BaseViewController {
             make.top.equalTo(playButton.snp.bottom).offset(Dimensions.standart)
         }
         
+        videoSlider.tintColor = .white
         videoSlider.minimumValue = 0
         videoSlider.addTarget(self, action: #selector(sliderValueDidChange(slider:)), for: .valueChanged)
     }
