@@ -11,6 +11,9 @@ final class PlayerSpaceshipView: UIImageView {
                              selector: #selector(sendCurrentFrame),
                              userInfo: nil,
                              repeats: true)
+        
+        frame = viewModel.frame
+        image = UIImage(named: "spaceship")
     }
     
     @objc private func sendCurrentFrame() {

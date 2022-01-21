@@ -11,7 +11,9 @@ final class EnemyViewModel {
     var frame: CGRect
     var route: [CGPoint]
     
-    let enemy: Enemy
+    var didRemoveEnemy: (() -> Void)?
+    
+    private let enemy: Enemy
     
     init(enemy: Enemy, frame: CGRect, route: [CGPoint]) {
         self.enemy = enemy
@@ -22,5 +24,17 @@ final class EnemyViewModel {
     func sendCurrentFrame(_ frame: CGRect) {
         delegate?.enemyView(enemyViewModel: self,
                             didChangeFrameWith: frame)
+    }
+    
+    func changeEnemyFrame(with frame: CGRect) {
+        enemy.frame = frame
+    }
+    
+    func removeEnemy() {
+        didRemoveEnemy?()
+    }
+    
+    func hasEnemy(equalTo enemy: Enemy) -> Bool {
+        self.enemy == enemy
     }
 }

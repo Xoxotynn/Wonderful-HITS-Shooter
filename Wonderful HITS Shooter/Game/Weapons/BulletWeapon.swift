@@ -8,11 +8,11 @@ protocol BulletWeaponDelegate: AnyObject {
 final class BulletWeapon: Weapon {
     
     /// Bullets per second
-    var shootRate: CGFloat
+    private(set) var shootRate: CGFloat
     /// How much of the screen bullet will move per second
-    var bulletSpeed: CGFloat
+    private(set) var bulletSpeed: CGFloat
     /// Count of bullets per shot
-    var bulletCount: Int
+    private(set) var bulletCount: Int
     
     weak var delegate: BulletWeaponDelegate?
     

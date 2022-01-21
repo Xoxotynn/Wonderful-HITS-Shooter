@@ -1,34 +1,30 @@
 import UIKit
 
-final class EnemyView: UIImageView {
+final class BulletView: UIImageView {
     
-    private var viewModel: EnemyViewModel?
+    private var viewModel: BulletViewModel?
     
-    func configure(with viewModel: EnemyViewModel) {
+    func configure(with viewModel: BulletViewModel) {
         self.viewModel = viewModel
-        setupView(with: viewModel)
         Timer.scheduledTimer(timeInterval: 0.05,
                              target: self,
                              selector: #selector(sendCurrentFrame),
                              userInfo: nil,
                              repeats: true)
         
-        viewModel.didRemoveEnemy = { [weak self] in
-            self?.removeFromSuperview()
-        }
-    }
-    
-    private func setupView(with viewModel: EnemyViewModel) {
-        backgroundColor = .black
         frame = viewModel.frame
-        UIView.animateKeyframes(withDuration: 4, delay: 0, options: []) {
-            viewModel.route.forEach { point in
+        layer.cornerRadius = frame.height / 2
+        backgroundColor = .systemPink
+        layer.masksToBounds = true
+        UIView.animate(
+            withDuration: 1,
+            delay: 0,
+            options: .curveLinear) {
                 UIView.addKeyframe(withRelativeStartTime: 0,
                                    relativeDuration: 1) {
-                    self.frame.origin = point
+                    self.frame.origin = viewModel.endPoint
                 }
             }
-        }
     }
     
     @objc private func sendCurrentFrame() {

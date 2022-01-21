@@ -53,18 +53,17 @@ final class GameViewController: BaseViewController {
     }
     
     private func bindToViewModel() {
-        playerSpaceshipView.configure(with: viewModel.playerSpaceshipViewModel)
         
-        viewModel.didPreparePlayer = { [weak self] frame in
-            self?.setupSpaceshipImageView(withFrame: frame)
+        viewModel.didPreparePlayer = { [weak self] playerViewModel in
+            self?.setupSpaceshipImageView(withViewModel: playerViewModel)
         }
         
         viewModel.didPrepareEnemy = { [weak self] enemyViewModel in
             self?.setupEnemyView(withViewModel: enemyViewModel)
         }
         
-        viewModel.didPrepareBullet = { [weak self] frame, endPoint in
-            self?.setupBulletView(withFrame: frame, endPoint: endPoint)
+        viewModel.didPrepareBullet = { [weak self] bulletViewModel in
+            self?.setupBulletView(withViewModel: bulletViewModel)
         }
         
         viewModel.didGameOver = { [weak self] isSuccess in
@@ -94,11 +93,10 @@ final class GameViewController: BaseViewController {
         layer.beginTime = CACurrentMediaTime()
     }
     
-    private func setupSpaceshipImageView(withFrame frame: CGRect) {
-        view.addSubview(playerSpaceshipView)
-        playerSpaceshipView.frame = viewModel
-            .calculateAbsoluteFrame(from: frame)
-        playerSpaceshipView.image = UIImage(named: "spaceship")
+    private func setupSpaceshipImageView(
+        withViewModel viewModel: PlayerSpaceshipViewModel) {
+            playerSpaceshipView.configure(with: viewModel)
+            view.addSubview(playerSpaceshipView)
     }
     
     private func setupEnemyView(withViewModel viewModel: EnemyViewModel) {
@@ -108,20 +106,9 @@ final class GameViewController: BaseViewController {
         view.addSubview(enemyView)
     }
     
-    private func setupBulletView(withFrame frame: CGRect, endPoint: CGPoint) {
-        let bulletView = UIView(frame: frame)
-        bulletView.layer.cornerRadius = frame.height / 2
-        bulletView.backgroundColor = .systemPink
-        bulletView.layer.masksToBounds = true
-        
-        UIView.animate(withDuration: 1,
-                                delay: 0,
-                                options: [.curveLinear]) {
-            UIView.addKeyframe(withRelativeStartTime: 0,
-                               relativeDuration: 1) {
-                bulletView.frame.origin = endPoint
-            }
-        }
+    private func setupBulletView(withViewModel viewModel: BulletViewModel) {
+        let bulletView = BulletView()
+        bulletView.configure(with: viewModel)
         view.addSubview(bulletView)
     }
     

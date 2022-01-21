@@ -5,6 +5,6 @@ final class Wave {
     let enemyGroups: [EnemyGroup]
     
     init() {
-        enemyGroups = []
+        enemyGroups = [EnemyGroup.testGroup]
     }
 }

@@ -5,6 +5,7 @@ protocol LevelDelegate: AnyObject {
     func setupUI(forPlayer player: Player)
     func setupUI(forEnemyGroup enemyGroup: EnemyGroup)
     func setupUI(forBullet bullet: Bullet)
+    func setupUI(forDeadEnemy enemy: Enemy)
 }
 
 class Level {
@@ -45,13 +46,9 @@ class Level {
         waves.remove(at: 0)
         enemyGroups = wave.enemyGroups
         enemyGroups.forEach { enemyGroup in
-            
+            enemyGroup.delegate = self
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
-    }
-    
-    func changePlayerSpaceshipFrame(with frame: CGRect) {
-        player.spaceshipFrame = frame
     }
     
     @objc private func checkPlayerCollision() {
@@ -70,6 +67,7 @@ class Level {
 
 extension Level: PlayerDelegate {
     func player(didShootBullet bullet: Bullet) {
+        bullet.bulletDelegate = self
         delegate?.setupUI(forBullet: bullet)
     }
     
@@ -86,10 +84,27 @@ extension Level: EntityDelegate {
 
 extension Level: EnemyGroupDelegate {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
-        
+        delegate?.setupUI(forDeadEnemy: enemy)
     }
     
     func didDie(enemyGroup: EnemyGroup, entity: Entity) {
         
+    }
+}
+
+extension Level: BulletDelegate {
+    func isCollidingWithEnemy(bullet: Bullet) -> Enemy? {
+        var collidingEnemy: Enemy?
+        enemyGroups.forEach { enemyGroup in
+            enemyGroup.enemies.forEach { enemy in
+                if enemy.frame.intersects(bullet.frame)
+                   && !isGameFinished {
+                    collidingEnemy = enemy
+                    return
+                }
+            }
+        }
+        
+        return collidingEnemy
     }
 }

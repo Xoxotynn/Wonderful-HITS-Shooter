@@ -27,7 +27,7 @@ final class Spaceship: Entity {
 
 extension Spaceship: BulletWeaponDelegate {
     func bulletPosition(bulletWeapon: BulletWeapon) -> CGPoint {
-        return CGPoint(x: frame.midX, y: frame.minY)
+        return CGPoint(x: frame.midX - 0.025, y: frame.minY)
     }
     
     func bulletWeapon(didShootBullet bullet: Bullet) {

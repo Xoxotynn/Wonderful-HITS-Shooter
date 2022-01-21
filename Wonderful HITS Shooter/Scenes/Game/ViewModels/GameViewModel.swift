@@ -2,24 +2,21 @@ import UIKit
 
 final class GameViewModel {
     
-    let playerSpaceshipViewModel: PlayerSpaceshipViewModel
-    
-    var didPreparePlayer: ((CGRect) -> Void)?
+    var didPreparePlayer: ((PlayerSpaceshipViewModel) -> Void)?
     var didPrepareEnemy: ((EnemyViewModel) -> Void)?
-    var didPrepareBullet: ((CGRect, CGPoint) -> Void)?
+    var didPrepareBullet: ((BulletViewModel) -> Void)?
     var didGameOver: ((Bool) -> Void)?
+    var didKillEnemy: (() -> Void)?
     
     private let level: Level
     private var enemyViewModels: [EnemyViewModel]
     private var screenSize: CGSize
     
     init(level: Level) {
-        playerSpaceshipViewModel = PlayerSpaceshipViewModel()
         enemyViewModels = []
         screenSize = .zero
         self.level = level
         self.level.delegate = self
-        playerSpaceshipViewModel.delegate = self
     }
     
     func startLevel(withScreen size: CGSize) {
@@ -63,7 +60,7 @@ final class GameViewModel {
 extension GameViewModel: PlayerSpaceshipViewModelDelegate {
     func playerSpaceshipView(spaceshipViewModel: PlayerSpaceshipViewModel,
                              didChangeFrameWith frame: CGRect) {
-        level.changePlayerSpaceshipFrame(
+        spaceshipViewModel.changePlayerFrame(
             with: calculateRelativeFrame(from: frame))
     }
 }
@@ -71,7 +68,15 @@ extension GameViewModel: PlayerSpaceshipViewModelDelegate {
 extension GameViewModel: EnemyViewModelDelegate {
     func enemyView(enemyViewModel: EnemyViewModel,
                    didChangeFrameWith frame: CGRect) {
-        enemyViewModel.enemy.frame = calculateRelativeFrame(from: frame)
+        enemyViewModel.changeEnemyFrame(with: calculateRelativeFrame(from: frame))
+    }
+}
+
+extension GameViewModel: BulletViewModelDelegate {
+    func bulletView(bulletViewModel: BulletViewModel,
+                    didChangeFrameWith frame: CGRect) {
+        bulletViewModel.changeBulletFrame(
+            with: calculateRelativeFrame(from: frame))
     }
 }
 
@@ -81,7 +86,11 @@ extension GameViewModel: LevelDelegate {
     }
     
     func setupUI(forPlayer player: Player) {
-        didPreparePlayer?(player.spaceshipFrame)
+        let playerSpaceshipViewModel = PlayerSpaceshipViewModel(
+            player: player,
+            frame: calculateAbsoluteFrame(from: player.spaceshipFrame))
+        playerSpaceshipViewModel.delegate = self
+        didPreparePlayer?(playerSpaceshipViewModel)
     }
     
     func setupUI(forEnemyGroup enemyGroup: EnemyGroup) {
@@ -101,7 +110,21 @@ extension GameViewModel: LevelDelegate {
     }
     
     func setupUI(forBullet bullet: Bullet) {
-        didPrepareBullet?(calculateAbsoluteFrame(from: bullet.frame),
-                          calculateAbsoluteCoordinates(from: bullet.endPoint))
+        let bulletFrame = calculateAbsoluteFrame(from: bullet.frame)
+        let bulletEndPoint = calculateAbsoluteCoordinates(from: bullet.endPoint)
+        let bulletViewModel = BulletViewModel(
+            bullet: bullet,
+            frame: bulletFrame,
+            endPoint: bulletEndPoint)
+        bulletViewModel.delegate = self
+        didPrepareBullet?(bulletViewModel)
+    }
+    
+    func setupUI(forDeadEnemy enemy: Enemy) {
+        guard let enemyViewModel = enemyViewModels
+                .first(where: { $0.hasEnemy(equalTo: enemy) }) else {
+                    return
+                }
+        enemyViewModel.removeEnemy()
     }
 }

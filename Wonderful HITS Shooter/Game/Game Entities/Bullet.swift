@@ -1,8 +1,16 @@
 import UIKit
 
+protocol BulletDelegate: AnyObject {
+    func isCollidingWithEnemy(bullet: Bullet) -> Enemy?
+}
+
 final class Bullet: Entity {
     
     let endPoint: CGPoint
+    
+    weak var bulletDelegate: BulletDelegate?
+    
+    private var collisionTimer: Timer?
     
     init(position: CGPoint, endPoint: CGPoint) {
         let screenSize = UIScreen.main.bounds.size
@@ -13,5 +21,23 @@ final class Bullet: Entity {
                     origin: position,
                     size: CGSize(width: 0.05,
                                  height: 0.05 * gameFieldRatio)))
+        
+        collisionTimer = Timer.scheduledTimer(
+            timeInterval: 0.05,
+            target: self,
+            selector: #selector(checkCollision),
+            userInfo: nil,
+            repeats: true)
+    }
+    
+    @objc private func checkCollision() {
+        guard let collidingEnemy = bulletDelegate?.isCollidingWithEnemy(
+            bullet: self) else {
+                return
+        }
+        
+        collisionTimer?.invalidate()
+        collidingEnemy.die()
+        self.die()
     }
 }

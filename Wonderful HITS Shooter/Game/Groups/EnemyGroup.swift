@@ -17,6 +17,7 @@ final class EnemyGroup {
         enemies = enemyGroupCreator.createEnemies()
         setupPosition(positionCreator: positionCreator)
         setupRoutes(routeCreator: routeCreator)
+        setupDelegates()
     }
     
     func remove(enemy: Enemy) {
