@@ -13,7 +13,7 @@ class MenuViewController: BaseViewController {
     
     // MARK: - Actions
     @objc private func showLevelsScene() {
-        viewModel.showLevelsScene()
+        viewModel.showTabBarScene()
     }
     
     @objc private func showSettings() {

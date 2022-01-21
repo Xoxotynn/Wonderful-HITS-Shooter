@@ -2,7 +2,7 @@ import Darwin
 
 // MARK: - MenuViewModelDelegate Protocol
 protocol MenuViewModelDelegate: AnyObject {
-    func showLevelsScene()
+    func showTabBarScene()
     func showSettings()
     func showAuthScene()
 }
@@ -12,8 +12,8 @@ final class MenuViewModel {
     weak var delegate: MenuViewModelDelegate?
     
     // MARK: - Public Methods
-    func showLevelsScene() {
-        delegate?.showLevelsScene()
+    func showTabBarScene() {
+        delegate?.showTabBarScene()
     }
     
     func showSetting() {

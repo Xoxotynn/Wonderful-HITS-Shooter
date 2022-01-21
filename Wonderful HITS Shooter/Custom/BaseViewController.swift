@@ -10,6 +10,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     // MARK: - Properties
+    private let backgroundImageView = UIImageView()
     private lazy var activityIndicator: CustomActivityIndicator = {
         CustomActivityIndicator(setOn: view)
     }()
@@ -38,9 +39,11 @@ class BaseViewController: UIViewController {
     func showAlert(text: String?) {
         let alert = UIAlertController(title: text, message: nil, preferredStyle: .alert)
         alert.setValue(NSAttributedString(string: text ?? "", attributes: [
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)
+            .font : UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.standart))
         ]), forKey: Strings.alertKey)
-        alert.addAction(UIAlertAction(title: Strings.ok, style: .default, handler: nil))
+        let okAction = UIAlertAction(title: Strings.ok, style: .default, handler: nil)
+        alert.view.tintColor = .black
+        alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
     
@@ -56,10 +59,24 @@ class BaseViewController: UIViewController {
                                                 action: nil)
         backBarButtonItem.tintColor = .black
         navigationItem.backBarButtonItem = backBarButtonItem
+        
+        view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        backgroundImageView.image = UIImage(named: Images.background)
+        backgroundImageView.contentMode = .scaleAspectFill
     }
 }
 
+// MARK: - Strings
 private extension Strings {
     static let ok = "Ок"
     static let alertKey = "attributedTitle"
+}
+
+// MARK: - Images
+private extension Images {
+    static let background = "spaceBackground"
 }

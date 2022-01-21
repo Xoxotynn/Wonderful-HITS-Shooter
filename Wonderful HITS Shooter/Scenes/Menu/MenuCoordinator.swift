@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 protocol MenuCoordinatorDelegate: AnyObject {
+    func removeMenuCoordinatorAndShowTabBarScene(menuCoordinator: MenuCoordinator)
     func removeMenuCoordinatorAndShowAuthScene(menuCoordinator: MenuCoordinator)
 }
 
@@ -32,8 +33,8 @@ final class MenuCoordinator: Coordinator {
 
 // MARK: - MenuViewModelDelegate
 extension MenuCoordinator: MenuViewModelDelegate {
-    func showLevelsScene() {
-        
+    func showTabBarScene() {
+        delegate?.removeMenuCoordinatorAndShowTabBarScene(menuCoordinator: self)
     }
     
     func showSettings() {

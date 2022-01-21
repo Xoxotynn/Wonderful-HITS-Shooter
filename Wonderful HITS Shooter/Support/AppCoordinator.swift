@@ -9,9 +9,6 @@ final class AppCoordinator: Coordinator {
     
     private let window: UIWindow?
     private let dependencies: Dependencies
-    private var viewControllersCount: Int {
-        rootNavigationController.viewControllers.count
-    }
     
     // MARK: - Init
     init(window: UIWindow?) {
@@ -36,7 +33,8 @@ final class AppCoordinator: Coordinator {
         
         setMusicVolume()
         
-        if Auth.auth().currentUser != nil {
+        if let user = Auth.auth().currentUser {
+            dependencies.networkManager.setUID(uid: user.uid)
             let menuCoordinator = MenuCoordinator(dependencies: dependencies, rootNavigationController: rootNavigationController)
             menuCoordinator.delegate = self
             startCoordinator = menuCoordinator
@@ -76,8 +74,18 @@ extension AppCoordinator: AuthCoordinatorDelegate {
 
 // MARK: - MenuCoordinatorDelegate
 extension AppCoordinator: MenuCoordinatorDelegate {
+    func removeMenuCoordinatorAndShowTabBarScene(menuCoordinator: MenuCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: menuCoordinator))
+        
+        let tabBarCoordinator = TabBarCoordinator(dependencies: dependencies,
+                                                  rootNavigationController: rootNavigationController)
+        childCoordinators.append(tabBarCoordinator)
+        tabBarCoordinator.start()
+    }
+    
     func removeMenuCoordinatorAndShowAuthScene(menuCoordinator: MenuCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: menuCoordinator))
+        
         let authCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
         authCoordinator.delegate = self
         childCoordinators.append(authCoordinator)

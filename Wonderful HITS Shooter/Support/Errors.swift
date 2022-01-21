@@ -1,10 +1,3 @@
-//
-//  Errors.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 13.01.2022.
-//
-
 import Foundation
 
 enum ValidationError: LocalizedError {
@@ -34,6 +27,17 @@ enum NetworkError: LocalizedError {
         switch self {
         case .notAuthorized:
             return "Пользователь не авторизован"
+        }
+    }
+}
+
+enum CustomError: LocalizedError {
+    case indexOutOfRange
+    
+    var errorDescription: String? {
+        switch self {
+        case .indexOutOfRange:
+            return "Ошибка"
         }
     }
 }

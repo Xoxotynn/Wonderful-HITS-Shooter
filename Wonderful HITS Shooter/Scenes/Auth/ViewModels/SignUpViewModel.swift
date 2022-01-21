@@ -6,11 +6,6 @@ protocol SignUpViewModelDelegate: AnyObject {
     func getConfirmedPassword() -> String?
 }
 
-// MARK: - AuthorizationViewModelDelegate
-protocol AuthorizationViewModelDelegate: AnyObject {
-    func showMenuScene()
-}
-
 final class SignUpViewModel {
     
     // MARK: - Priperties
@@ -18,7 +13,7 @@ final class SignUpViewModel {
     var didConfigureAuthView: ((AuthViewModel) -> Void)?
     
     weak var delegate: SignUpViewModelDelegate?
-    weak var authDelegate: AuthorizationViewModelDelegate?
+    weak var authDelegate: AuthorizationDelegate?
     
     private let dependencies: Dependencies
     private let authViewModel: AuthViewModel

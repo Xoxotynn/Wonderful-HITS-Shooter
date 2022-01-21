@@ -6,7 +6,7 @@ final class SignInViewModel {
     var didConfigureAuthView: ((AuthViewModel) -> Void)?
     var didReceiveError: ((Error) -> Void)?
     
-    weak var authDelegate: AuthorizationViewModelDelegate?
+    weak var authDelegate: AuthorizationDelegate?
     
     private let authViewModel: AuthViewModel
     private let dependencies: Dependencies

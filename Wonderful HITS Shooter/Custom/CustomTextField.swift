@@ -35,12 +35,12 @@ final class CustomTextField: UITextField {
     
     // MARK: - Private Methods
     private func configure() {
-        self.contentVerticalAlignment = .top
-        self.textColor = .black
-        self.borderStyle = .none
-        self.backgroundColor = Colors.grayTextField
-        self.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.standart))
-        self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+        contentVerticalAlignment = .top
+        textColor = .black
+        borderStyle = .none
+        backgroundColor = Colors.grayTextField
+        font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.standart))
+        attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
                                                         attributes: [
                                                             NSAttributedString.Key.foregroundColor: Colors.gray
                                                         ])

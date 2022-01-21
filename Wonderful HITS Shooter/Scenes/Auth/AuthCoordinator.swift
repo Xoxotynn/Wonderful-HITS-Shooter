@@ -47,7 +47,7 @@ extension AuthCoordinator: OnboardingViewModelDelegate {
 }
 
 // MARK: - AuthorizationViewModelDelegate
-extension AuthCoordinator: AuthorizationViewModelDelegate {
+extension AuthCoordinator: AuthorizationDelegate {
     func showMenuScene() {
         delegate?.removeAuthCoordinatorAndShowMenuScene(authCoordinator: self)
     }

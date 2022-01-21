@@ -17,12 +17,24 @@ final class NetworkManager {
                 onError(error)
             } else if let result = result {
                 self.uid = result.user.uid
-                self.ref.child(Strings.users)
-                        .child(result.user.uid)
-                        .child(Strings.authInfo)
-                        .setValue([ "email" : email,
-                                    "nickname" : nickname,
-                                    "password" : password ])
+                let ref = self.ref.child(Strings.users).child(result.user.uid)
+                ref.child(Strings.authInfo).setValue([ "email" : email,
+                                                       "nickname" : nickname,
+                                                       "password" : password ])
+                ref.child(Strings.levels)
+                    .child(LevelNumber.first.rawValue)
+                    .setValue([ Strings.points: 0 ])
+                
+                ref.child(Strings.levels)
+                    .child(LevelNumber.second.rawValue)
+                    .setValue([ Strings.points: 0 ])
+                
+                ref.child(Strings.levels)
+                    .child(LevelNumber.third.rawValue)
+                    .setValue([ Strings.points: 0 ])
+                
+                ref.setValue([ Strings.money: 0 ])
+                
                 onComplete()
             } else {
                 print("Error")
@@ -45,6 +57,10 @@ final class NetworkManager {
         }
     }
     
+    func setUID(uid: String) {
+        self.uid = uid
+    }
+    
     func signOut() {
         do {
             try Auth.auth().signOut()
@@ -60,7 +76,6 @@ final class NetworkManager {
 
         ref.child(Strings.users)
            .child(uid)
-           .child(Strings.money)
            .setValue([ Strings.money: value ])
     }
     
@@ -106,7 +121,9 @@ final class NetworkManager {
         
         ref.child(Strings.users)
            .child(uid)
+           .child(Strings.levels)
            .child(level.rawValue)
+           .child(Strings.points)
            .getData { error, snapshot in
                if let error = error {
                    onError(error)
@@ -114,6 +131,53 @@ final class NetworkManager {
                    let pointsValue = snapshot.value as? Int ?? 0
                    onComplete(pointsValue)
                }
+        }
+    }
+    
+    func getLevelsInfo(_ onComplete: @escaping ([LevelModel]) -> Void,
+                       onError: @escaping (Error) -> Void) {
+        guard let uid = uid else {
+            onError(NetworkError.notAuthorized)
+            return
+        }
+        
+        var levels: [LevelModel] = []
+        let levelsRef = ref.child(Strings.users).child(uid).child(Strings.levels)
+        
+        levelsRef.child(LevelNumber.first.rawValue).getData { error, snapshot in
+            if let error = error {
+                onError(error)
+            } else {
+                let pointsValue = snapshot.value as? Int ?? 0
+                levels.append(LevelModel(levelNumber: 1,
+                                         points: pointsValue,
+                                         maxPoints: 100))
+            }
+        }
+        
+        levelsRef.child(LevelNumber.second.rawValue).getData { error, snapshot in
+            if let error = error {
+                print(error.localizedDescription)
+                onComplete(levels)
+            } else {
+                let pointsValue = snapshot.value as? Int ?? 0
+                levels.append(LevelModel(levelNumber: 2,
+                                         points: pointsValue,
+                                         maxPoints: 100))
+            }
+        }
+        
+        levelsRef.child(LevelNumber.third.rawValue).getData { error, snapshot in
+            if let error = error {
+                print(error.localizedDescription)
+                onComplete(levels)
+            } else {
+                let pointsValue = snapshot.value as? Int ?? 0
+                levels.append(LevelModel(levelNumber: 3,
+                                         points: pointsValue,
+                                         maxPoints: 100))
+                onComplete(levels)
+            }
         }
     }
 }
