@@ -4,4 +4,5 @@ struct Dependencies {
     let networkManager: NetworkManager
     let userDefaultsManager: UserDefaultsManager
     let audioManager: AudioManager
+    let videoManager: VideoManager
 }
