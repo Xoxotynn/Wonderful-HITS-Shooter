@@ -18,8 +18,6 @@ class LevelCellView: UICollectionViewCell {
     
     // MARK: - Public Methods
     func configure(with viewModel: LevelCellViewModel) {
-        setup()
-        
         self.viewModel = viewModel
         bindToViewModel()
         self.viewModel?.setup()

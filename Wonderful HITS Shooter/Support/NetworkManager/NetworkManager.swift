@@ -144,18 +144,18 @@ final class NetworkManager {
         var levels: [LevelModel] = []
         let levelsRef = ref.child(Strings.users).child(uid).child(Strings.levels)
         
-        levelsRef.child(LevelNumber.first.rawValue).getData { error, snapshot in
+        levelsRef.child(LevelNumber.first.rawValue).child(Strings.points).getData { error, snapshot in
             if let error = error {
                 onError(error)
             } else {
                 let pointsValue = snapshot.value as? Int ?? 0
                 levels.append(LevelModel(levelNumber: 1,
                                          points: pointsValue,
-                                         maxPoints: 100))
+                                         maxPoints: Dimensions.LevelsMaxPoints.first))
             }
         }
         
-        levelsRef.child(LevelNumber.second.rawValue).getData { error, snapshot in
+        levelsRef.child(LevelNumber.second.rawValue).child(Strings.points).getData { error, snapshot in
             if let error = error {
                 print(error.localizedDescription)
                 onComplete(levels)
@@ -163,11 +163,11 @@ final class NetworkManager {
                 let pointsValue = snapshot.value as? Int ?? 0
                 levels.append(LevelModel(levelNumber: 2,
                                          points: pointsValue,
-                                         maxPoints: 100))
+                                         maxPoints: Dimensions.LevelsMaxPoints.second))
             }
         }
         
-        levelsRef.child(LevelNumber.third.rawValue).getData { error, snapshot in
+        levelsRef.child(LevelNumber.third.rawValue).child(Strings.points).getData { error, snapshot in
             if let error = error {
                 print(error.localizedDescription)
                 onComplete(levels)
@@ -175,7 +175,7 @@ final class NetworkManager {
                 let pointsValue = snapshot.value as? Int ?? 0
                 levels.append(LevelModel(levelNumber: 3,
                                          points: pointsValue,
-                                         maxPoints: 100))
+                                         maxPoints: Dimensions.LevelsMaxPoints.third))
                 onComplete(levels)
             }
         }

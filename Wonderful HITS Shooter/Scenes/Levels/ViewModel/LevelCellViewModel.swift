@@ -1,4 +1,5 @@
 import UIKit
+
 final class LevelCellViewModel {
     // MARK: - Properties
     var levelNumber: Int?
@@ -24,14 +25,14 @@ final class LevelCellViewModel {
         maxPoints = level.maxPoints
         
         let ratio: Float = Float(points ?? 0) / Float(maxPoints ?? 0)
-        if ratio >= 0.95 {
+        if ratio >= 0.9 {
             firstStarColor = Colors.winStarColor
             secondStarColor = Colors.winStarColor
             thirdStarColor = Colors.winStarColor
-        } else if ratio >= 0.66 {
+        } else if ratio >= 0.6 {
             firstStarColor = Colors.winStarColor
             secondStarColor = Colors.winStarColor
-        } else if ratio >= 0.33 {
+        } else if ratio >= 0.3 {
             firstStarColor = Colors.winStarColor
         }
         
