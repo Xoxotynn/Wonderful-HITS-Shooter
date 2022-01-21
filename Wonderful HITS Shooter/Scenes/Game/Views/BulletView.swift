@@ -29,10 +29,7 @@ final class BulletView: UIImageView {
             withDuration: 1,
             delay: 0,
             options: .curveLinear) {
-                UIView.addKeyframe(withRelativeStartTime: 0,
-                                   relativeDuration: 1) {
-                    self.frame.origin = viewModel.endPoint
-                }
+                self.frame.origin = viewModel.endPoint
             }
     }
     
