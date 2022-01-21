@@ -4,15 +4,20 @@ protocol EnemyGroupDelegate: AnyObject {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy)
 }
 
-final class EnemyGroup {
+class EnemyGroup {
     
     weak var delegate: EnemyGroupDelegate?
+    var isEmpty: Bool {
+        get {
+            enemies.isEmpty
+        }
+    }
     
     private(set) var enemies: [Enemy]
     
-    private init(enemyGroupCreator: EnemyGroupCreator,
-                 routeCreator: RouteCreator,
-                 positionCreator: PositionCreator) {
+    init(enemyGroupCreator: EnemyGroupCreator,
+         routeCreator: RouteCreator,
+         positionCreator: PositionCreator) {
         enemies = enemyGroupCreator.createEnemies()
         setupPosition(positionCreator: positionCreator)
         setupRoutes(routeCreator: routeCreator)
@@ -76,14 +81,4 @@ extension EnemyGroup: EnemyDelegate {
         remove(enemy: deadEnemy)
         delegate?.didDie(enemyGroup: self, enemy: deadEnemy)
     }
-}
-
-extension EnemyGroup {
-    static let testGroup = EnemyGroup(
-        enemyGroupCreator: DefaultEnemyGroupCreator(),
-        routeCreator: LineRouteCreator(length: 0.7),
-        positionCreator: FilledRectPositionCreator(
-            rows: 4,
-            margins: CGPoint(x: 0.15, y: 0.1),
-            origin: CGPoint(x: 0.05, y: -0.4)))
 }

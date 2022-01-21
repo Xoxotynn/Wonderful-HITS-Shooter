@@ -33,19 +33,27 @@ class Level {
         spawnNextWave()
     }
     
+    func spawnNextWaveIfNeeded() {
+        if enemyGroups.isEmpty {
+            spawnNextWave()
+        }
+    }
+    
     func spawnNextWave() {
         guard let wave = waves.first else {
             delegate?.gameOver(withSuccess: true)
             return
         }
         
-        waves.remove(at: 0)
         enemyGroups = wave.enemyGroups
         enemyGroups.forEach { enemyGroup in
             enemyGroup.delegate = self
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
+        waves.remove(at: 0)
     }
+    
+    func getStarsCount() -> Int { 0 }
 }
 
 extension Level: PlayerDelegate {
@@ -78,7 +86,9 @@ extension Level: PlayerDelegate {
 extension Level: EnemyGroupDelegate {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
         currentScore += 100
+        enemyGroups.removeAll(where: { $0.isEmpty })
         delegate?.setupUI(forDeadEnemy: enemy)
+        spawnNextWaveIfNeeded()
     }
 }
 
@@ -87,8 +97,8 @@ extension Level: BulletDelegate {
         var collidingEnemy: Enemy?
         enemyGroups.forEach { enemyGroup in
             enemyGroup.enemies.forEach { enemy in
-                if enemy.frame.intersects(bullet.frame)
-                   && !isGameFinished {
+                let intersection = enemy.frame.intersection(bullet.frame)
+                if !intersection.isNull && intersection.origin.y > 0 {
                     collidingEnemy = enemy
                     return
                 }

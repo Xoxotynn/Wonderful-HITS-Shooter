@@ -1,17 +1,24 @@
 import UIKit
 
+protocol GameViewModelDelegate: AnyObject {
+    func showGameOverScene(withResult result: LevelResult)
+}
+
 final class GameViewModel {
+    
+    weak var delegate: GameViewModelDelegate?
     
     var didPreparePlayer: ((PlayerSpaceshipViewModel) -> Void)?
     var didPrepareEnemy: ((EnemyViewModel) -> Void)?
     var didPrepareBullet: ((BulletViewModel) -> Void)?
-    var didGameOver: ((Bool) -> Void)?
+    var didGameOver: (() -> Void)?
+    var didLevelFinished: (() -> Void)?
     var didKillEnemy: (() -> Void)?
     var didUpdateScore: (() -> Void)?
     
     private(set) var score: String
     
-    private let level: Level
+    private var level: Level
     private var enemyViewModels: [EnemyViewModel]
     private var bulletViewModels: [BulletViewModel]
     private var screenSize: CGSize
@@ -31,11 +38,34 @@ final class GameViewModel {
         didUpdateScore?()
     }
     
-    func startNextWave() {
-        
+    func restartGame(withLevel level: Level) {
+        clearGameField()
+        self.level = level
+        self.level.delegate = self
+        self.level.startLevel()
+        score = String(describing: self.level.currentScore)
+        didUpdateScore?()
     }
     
-    func calculateAbsoluteFrame(from relativeFrame: CGRect) -> CGRect {
+    func showGameOverScene(isSuccess: Bool) {
+        delegate?.showGameOverScene(
+            withResult: LevelResult(isSuccess: isSuccess,
+                                    score: level.currentScore,
+                                    stars: level.getStarsCount()))
+    }
+    
+    private func clearGameField() {
+        enemyViewModels.forEach { enemyViewModel in
+            enemyViewModel.removeEnemy()
+        }
+        bulletViewModels.forEach { bulletViewModel in
+            bulletViewModel.removeBullet()
+        }
+        enemyViewModels = []
+        bulletViewModels = []
+    }
+    
+    private func calculateAbsoluteFrame(from relativeFrame: CGRect) -> CGRect {
         return CGRect(
             origin: calculateAbsoluteCoordinates(from: relativeFrame.origin),
             size: CGSize(
@@ -43,13 +73,13 @@ final class GameViewModel {
                 height: relativeFrame.size.height * screenSize.height))
     }
     
-    func calculateAbsoluteCoordinates(
+    private func calculateAbsoluteCoordinates(
         from relativeCoordinates: CGPoint) -> CGPoint {
             return CGPoint(x: relativeCoordinates.x * screenSize.width,
                            y: relativeCoordinates.y * screenSize.height)
         }
     
-    func calculateRelativeFrame(from absoluteFrame: CGRect) -> CGRect {
+    private func calculateRelativeFrame(from absoluteFrame: CGRect) -> CGRect {
         return CGRect(
             origin: calculateRelativeCoordinates(from: absoluteFrame.origin),
             size: CGSize(
@@ -57,7 +87,7 @@ final class GameViewModel {
                 height: absoluteFrame.size.height / screenSize.height))
     }
     
-    func calculateRelativeCoordinates(
+    private func calculateRelativeCoordinates(
         from absoluteCoordinates: CGPoint) -> CGPoint {
             return CGPoint(x: absoluteCoordinates.x / screenSize.width,
                            y: absoluteCoordinates.y / screenSize.height)
@@ -89,7 +119,11 @@ extension GameViewModel: BulletViewModelDelegate {
 
 extension GameViewModel: LevelDelegate {
     func gameOver(withSuccess isSuccess: Bool) {
-        didGameOver?(isSuccess)
+        if isSuccess {
+            didLevelFinished?()
+        } else {
+            didGameOver?()
+        }
     }
     
     func setupUI(forPlayer player: Player) {

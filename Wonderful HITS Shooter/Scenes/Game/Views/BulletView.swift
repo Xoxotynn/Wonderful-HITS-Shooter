@@ -3,17 +3,19 @@ import UIKit
 final class BulletView: UIImageView {
     
     private var viewModel: BulletViewModel?
+    private var bulletTimer: Timer?
     
     func configure(with viewModel: BulletViewModel) {
         self.viewModel = viewModel
         setupView(withViewModel: viewModel)
-        Timer.scheduledTimer(timeInterval: 0.05,
+        bulletTimer = Timer.scheduledTimer(timeInterval: 0.05,
                              target: self,
                              selector: #selector(sendCurrentFrame),
                              userInfo: nil,
                              repeats: true)
         
         viewModel.didRemoveBullet = { [weak self] in
+            self?.bulletTimer?.invalidate()
             self?.removeFromSuperview()
         }
     }

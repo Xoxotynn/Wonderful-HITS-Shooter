@@ -1,5 +1,9 @@
 import UIKit
 
+private extension Images {
+    static let enemySpaceship = "enemySpaceship"
+}
+
 final class EnemyView: UIImageView {
     
     private var viewModel: EnemyViewModel?
@@ -19,7 +23,7 @@ final class EnemyView: UIImageView {
     }
     
     private func setupView(with viewModel: EnemyViewModel) {
-        backgroundColor = .black
+        image = UIImage(named: Images.enemySpaceship)
         frame = viewModel.frame
         UIView.animateKeyframes(withDuration: 4, delay: 0, options: []) {
             viewModel.route.forEach { point in

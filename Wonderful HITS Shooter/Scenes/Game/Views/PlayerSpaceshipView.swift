@@ -1,5 +1,9 @@
 import UIKit
 
+private extension Images {
+    static let spaceship = "spaceship"
+}
+
 final class PlayerSpaceshipView: UIImageView {
     
     private var viewModel: PlayerSpaceshipViewModel?
@@ -13,7 +17,7 @@ final class PlayerSpaceshipView: UIImageView {
                              repeats: true)
         
         frame = viewModel.frame
-        image = UIImage(named: "spaceship")
+        image = UIImage(named: Images.spaceship)
     }
     
     @objc private func sendCurrentFrame() {
