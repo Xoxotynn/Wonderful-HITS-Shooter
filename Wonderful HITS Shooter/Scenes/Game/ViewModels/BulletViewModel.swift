@@ -11,6 +11,8 @@ final class BulletViewModel {
     var frame: CGRect
     var endPoint: CGPoint
     
+    var didRemoveBullet: (() -> Void)?
+    
     private let bullet: Bullet
     
     init(bullet: Bullet, frame: CGRect, endPoint: CGPoint) {
@@ -25,5 +27,13 @@ final class BulletViewModel {
     
     func changeBulletFrame(with frame: CGRect) {
         bullet.frame = frame
+    }
+    
+    func hasBullet(equalTo bullet: Bullet) -> Bool {
+        self.bullet == bullet
+    }
+    
+    func removeBullet() {
+        didRemoveBullet?()
     }
 }

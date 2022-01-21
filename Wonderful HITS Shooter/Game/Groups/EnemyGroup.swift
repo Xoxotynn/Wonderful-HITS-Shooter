@@ -2,7 +2,6 @@ import UIKit
 
 protocol EnemyGroupDelegate: AnyObject {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy)
-    func didDie(enemyGroup: EnemyGroup, entity: Entity)
 }
 
 final class EnemyGroup {
@@ -28,7 +27,6 @@ final class EnemyGroup {
     
     private func setupDelegates() {
         enemies.forEach { enemy in
-            enemy.entityDelegate = self
             enemy.enemyDelegate = self
         }
     }
@@ -71,12 +69,6 @@ final class EnemyGroup {
             
             return route
         }
-}
-
-extension EnemyGroup: EntityDelegate {
-    func entity(didDie deadEntity: Entity) {
-        delegate?.didDie(enemyGroup: self, entity: deadEntity)
-    }
 }
 
 extension EnemyGroup: EnemyDelegate {

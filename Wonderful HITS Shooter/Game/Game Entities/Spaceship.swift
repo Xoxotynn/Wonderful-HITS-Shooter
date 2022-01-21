@@ -10,6 +10,7 @@ final class Spaceship: Entity {
     weak var spaceshipDelegate: SpaceshipDelegate?
     
     private let weapon: BulletWeapon
+    private var collisionTimer: Timer?
     
     override init(hp: Int, frame: CGRect) {
         weapon = BulletWeapon(shootRate: 10,
@@ -21,6 +22,7 @@ final class Spaceship: Entity {
     
     override func die() {
         super.die()
+        weapon.stopAttacking()
         spaceshipDelegate?.spaceship(didDie: self)
     }
 }

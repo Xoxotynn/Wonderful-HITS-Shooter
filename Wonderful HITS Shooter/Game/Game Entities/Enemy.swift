@@ -10,12 +10,9 @@ final class Enemy: Entity {
     
     weak var enemyDelegate: EnemyDelegate?
     
-    private let id: UUID
-    
     init(hp: Int, weapon: Weapon? = nil) {
         let screenSize = UIScreen.main.bounds.size
         let gameFieldRatio = screenSize.width / screenSize.height
-        id = UUID()
         route = []
         super.init(
             hp: hp,
@@ -28,11 +25,5 @@ final class Enemy: Entity {
     override func die() {
         super.die()
         enemyDelegate?.enemy(didDie: self)
-    }
-}
-
-extension Enemy: Equatable {
-    static func == (lhs: Enemy, rhs: Enemy) -> Bool {
-        lhs.id == rhs.id
     }
 }

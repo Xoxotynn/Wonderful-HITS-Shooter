@@ -7,6 +7,8 @@ protocol BulletWeaponDelegate: AnyObject {
 
 final class BulletWeapon: Weapon {
     
+    weak var delegate: BulletWeaponDelegate?
+    
     /// Bullets per second
     private(set) var shootRate: CGFloat
     /// How much of the screen bullet will move per second
@@ -14,7 +16,7 @@ final class BulletWeapon: Weapon {
     /// Count of bullets per shot
     private(set) var bulletCount: Int
     
-    weak var delegate: BulletWeaponDelegate?
+    private var shootTimer: Timer?
     
     init(shootRate: CGFloat,
          bulletSpeed: CGFloat,
@@ -23,11 +25,15 @@ final class BulletWeapon: Weapon {
         self.bulletSpeed = bulletSpeed
         self.bulletCount = bulletCount
         
-        Timer.scheduledTimer(timeInterval: 1 / shootRate,
+        shootTimer = Timer.scheduledTimer(timeInterval: 1 / shootRate,
                              target: self,
                              selector: #selector(attack),
                              userInfo: nil,
                              repeats: true)
+    }
+    
+    func stopAttacking() {
+        shootTimer?.invalidate()
     }
     
     @objc func attack() {

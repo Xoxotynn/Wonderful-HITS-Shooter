@@ -10,10 +10,12 @@ final class GameViewModel {
     
     private let level: Level
     private var enemyViewModels: [EnemyViewModel]
+    private var bulletViewModels: [BulletViewModel]
     private var screenSize: CGSize
     
     init(level: Level) {
         enemyViewModels = []
+        bulletViewModels = []
         screenSize = .zero
         self.level = level
         self.level.delegate = self
@@ -117,14 +119,25 @@ extension GameViewModel: LevelDelegate {
             frame: bulletFrame,
             endPoint: bulletEndPoint)
         bulletViewModel.delegate = self
+        bulletViewModels.append(bulletViewModel)
         didPrepareBullet?(bulletViewModel)
     }
     
     func setupUI(forDeadEnemy enemy: Enemy) {
-        guard let enemyViewModel = enemyViewModels
-                .first(where: { $0.hasEnemy(equalTo: enemy) }) else {
+        guard let viewModelIndex = enemyViewModels
+                .firstIndex(where: { $0.hasEnemy(equalTo: enemy) }) else {
                     return
                 }
-        enemyViewModel.removeEnemy()
+        enemyViewModels[viewModelIndex].removeEnemy()
+        enemyViewModels.remove(at: viewModelIndex)
+    }
+    
+    func setupUI(forExplodedBullet bullet: Bullet) {
+        guard let viewModelIndex = bulletViewModels
+                .firstIndex(where: { $0.hasBullet(equalTo: bullet) }) else {
+                    return
+                }
+        bulletViewModels[viewModelIndex].removeBullet()
+        bulletViewModels.remove(at: viewModelIndex)
     }
 }

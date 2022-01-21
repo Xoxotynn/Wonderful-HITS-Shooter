@@ -6,6 +6,7 @@ protocol LevelDelegate: AnyObject {
     func setupUI(forEnemyGroup enemyGroup: EnemyGroup)
     func setupUI(forBullet bullet: Bullet)
     func setupUI(forDeadEnemy enemy: Enemy)
+    func setupUI(forExplodedBullet bullet: Bullet)
 }
 
 class Level {
@@ -15,7 +16,6 @@ class Level {
     private var player: Player
     private var waves: [Wave]
     private var enemyGroups: [EnemyGroup]
-    private var playerTimer: Timer?
     private var isGameFinished: Bool
     
     init(player: Player, waves: [Wave]) {
@@ -27,12 +27,6 @@ class Level {
     }
     
     func startLevel() {
-        playerTimer = Timer.scheduledTimer(
-            timeInterval: 0.05,
-            target: self,
-            selector: #selector(checkPlayerCollision),
-            userInfo: nil,
-            repeats: true)
         delegate?.setupUI(forPlayer: player)
         spawnNextWave()
     }
@@ -50,22 +44,25 @@ class Level {
             delegate?.setupUI(forEnemyGroup: enemyGroup)
         }
     }
-    
-    @objc private func checkPlayerCollision() {
+}
+
+extension Level: PlayerDelegate {
+    func isCollidingWithEnemy(player: Player) -> Enemy? {
+        var collidingEnemy: Enemy?
         enemyGroups.forEach { enemyGroup in
             enemyGroup.enemies.forEach { enemy in
                 if enemy.frame.intersects(player.spaceshipFrame)
                    && !isGameFinished {
                     isGameFinished = true
-                    playerTimer?.invalidate()
-                    player.die()
+                    collidingEnemy = enemy
+                    return
                 }
             }
         }
+        
+        return collidingEnemy
     }
-}
-
-extension Level: PlayerDelegate {
+    
     func player(didShootBullet bullet: Bullet) {
         bullet.bulletDelegate = self
         delegate?.setupUI(forBullet: bullet)
@@ -76,19 +73,9 @@ extension Level: PlayerDelegate {
     }
 }
 
-extension Level: EntityDelegate {
-    func entity(didDie deadEntity: Entity) {
-        
-    }
-}
-
 extension Level: EnemyGroupDelegate {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
         delegate?.setupUI(forDeadEnemy: enemy)
-    }
-    
-    func didDie(enemyGroup: EnemyGroup, entity: Entity) {
-        
     }
 }
 
@@ -106,5 +93,9 @@ extension Level: BulletDelegate {
         }
         
         return collidingEnemy
+    }
+    
+    func didDie(bullet: Bullet) {
+        delegate?.setupUI(forExplodedBullet: bullet)
     }
 }

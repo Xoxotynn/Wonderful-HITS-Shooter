@@ -2,6 +2,7 @@ import UIKit
 
 protocol BulletDelegate: AnyObject {
     func isCollidingWithEnemy(bullet: Bullet) -> Enemy?
+    func didDie(bullet: Bullet)
 }
 
 final class Bullet: Entity {
@@ -30,6 +31,10 @@ final class Bullet: Entity {
             repeats: true)
     }
     
+    override func die() {
+        bulletDelegate?.didDie(bullet: self)
+    }
+    
     @objc private func checkCollision() {
         guard let collidingEnemy = bulletDelegate?.isCollidingWithEnemy(
             bullet: self) else {
@@ -37,7 +42,7 @@ final class Bullet: Entity {
         }
         
         collisionTimer?.invalidate()
-        collidingEnemy.die()
+        collidingEnemy.takeDamage(withAmount: hp)
         self.die()
     }
 }

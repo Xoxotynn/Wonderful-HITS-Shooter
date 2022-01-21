@@ -1,6 +1,7 @@
 import UIKit
 
 protocol PlayerDelegate: AnyObject {
+    func isCollidingWithEnemy(player: Player) -> Enemy?
     func player(didShootBullet bullet: Bullet)
     func gameOver()
 }
@@ -19,6 +20,7 @@ final class Player {
     }
     
     private var spaceship: Spaceship
+    private var collisionTimer: Timer?
     
     init() {
         let screenSize = UIScreen.main.bounds.size
@@ -31,10 +33,25 @@ final class Player {
                           width: spaceshipWidth,
                           height: spaceshipWidth * gameFieldRatio))
         spaceship.spaceshipDelegate = self
+        collisionTimer = Timer.scheduledTimer(
+            timeInterval: 0.05,
+            target: self,
+            selector: #selector(checkCollision),
+            userInfo: nil,
+            repeats: true)
     }
     
     func die() {
+        collisionTimer?.invalidate()
         spaceship.die()
+    }
+    
+    @objc private func checkCollision() {
+        guard let _ = delegate?.isCollidingWithEnemy(player: self) else {
+            return
+        }
+        
+        self.die()
     }
 }
 
