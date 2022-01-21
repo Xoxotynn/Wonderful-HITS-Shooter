@@ -6,6 +6,6 @@ final class FirstLevel: Level {
     
     init() {
         maxScore = 2000
-        super.init(player: Player(), waves: [Wave()])
+        super.init(player: Player(), waves: [Wave(), Wave(), Wave()])
     }
 }

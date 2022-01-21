@@ -32,6 +32,7 @@ final class Bullet: Entity {
     }
     
     override func die() {
+        collisionTimer?.invalidate()
         bulletDelegate?.didDie(bullet: self)
     }
     
@@ -41,8 +42,7 @@ final class Bullet: Entity {
                 return
         }
         
-        collisionTimer?.invalidate()
+        die()
         collidingEnemy.takeDamage(withAmount: hp)
-        self.die()
     }
 }
