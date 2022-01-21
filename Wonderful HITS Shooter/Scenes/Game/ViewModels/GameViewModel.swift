@@ -1,11 +1,20 @@
 import UIKit
 
+protocol GameViewModelDelegate: AnyObject {
+    func showGameOverScene()
+//    func hideTabBar()
+//    func hideTitleView()
+}
+
 final class GameViewModel {
+    
+    weak var delegate: GameViewModelDelegate?
     
     var didPreparePlayer: ((PlayerSpaceshipViewModel) -> Void)?
     var didPrepareEnemy: ((EnemyViewModel) -> Void)?
     var didPrepareBullet: ((BulletViewModel) -> Void)?
-    var didGameOver: ((Bool) -> Void)?
+    var didGameOver: (() -> Void)?
+    var didLevelFinished: (() -> Void)?
     var didKillEnemy: (() -> Void)?
     var didUpdateScore: (() -> Void)?
     
@@ -27,12 +36,14 @@ final class GameViewModel {
     
     func startLevel(withScreen size: CGSize) {
         screenSize = size
+//        delegate?.hideTitleView()
+//        delegate?.hideTabBar()
         level.startLevel()
         didUpdateScore?()
     }
     
-    func startNextWave() {
-        
+    func showGameOverScene() {
+        delegate?.showGameOverScene()
     }
     
     func calculateAbsoluteFrame(from relativeFrame: CGRect) -> CGRect {
@@ -89,7 +100,11 @@ extension GameViewModel: BulletViewModelDelegate {
 
 extension GameViewModel: LevelDelegate {
     func gameOver(withSuccess isSuccess: Bool) {
-        didGameOver?(isSuccess)
+        if isSuccess {
+            didLevelFinished?()
+        } else {
+            didGameOver?()
+        }
     }
     
     func setupUI(forPlayer player: Player) {

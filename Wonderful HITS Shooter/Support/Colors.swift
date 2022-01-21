@@ -1,11 +1,3 @@
-//
-//  Colors.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 12.01.2022.
-//
-
-import Foundation
 import UIKit
 
 enum Colors {
@@ -16,4 +8,5 @@ enum Colors {
     static let lightGray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
     static let takePhotoButtonGray = UIColor(red: 0.954, green: 0.954, blue: 0.954, alpha: 1)
     static let gradientGray = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+    static let darkShadowBlack = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
 }

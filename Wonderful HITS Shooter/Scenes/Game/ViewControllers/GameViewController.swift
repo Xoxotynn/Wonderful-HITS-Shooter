@@ -4,7 +4,6 @@ import SnapKit
 final class GameViewController: BaseViewController {
 
     private let playerSpaceshipView = PlayerSpaceshipView()
-    private let backgroundImageView = UIImageView()
     private let scoreLabel = UILabel()
     private var enemyViews: [EnemyView] = []
     
@@ -48,9 +47,18 @@ final class GameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        bindToViewModel()
         viewModel.startLevel(withScreen: view.frame.size)
         view.layer.addSublayer(layer)
+    }
+    
+    private func showGameOverScene() {
+        viewModel.showGameOverScene()
+    }
+    
+    private func setup() {
+        bindToViewModel()
+        setupView()
+        setupScoreLabel()
     }
     
     private func bindToViewModel() {
@@ -66,11 +74,16 @@ final class GameViewController: BaseViewController {
             self?.setupBulletView(withViewModel: bulletViewModel)
         }
         
-        viewModel.didGameOver = { [weak self] isSuccess in
+        viewModel.didGameOver = { [weak self] in
             self?.animateSpaceshipExplosion()
             self?.playerSpaceshipView.removeFromSuperview()
+            self?.showGameOverScene()
 //            sleep(1)
 //            self?.showAlert(text: "You are dodik")
+        }
+        
+        viewModel.didLevelFinished = { [weak self] in
+            self?.showGameOverScene()
         }
         
         viewModel.didUpdateScore = { [weak self] in
@@ -78,23 +91,16 @@ final class GameViewController: BaseViewController {
         }
     }
     
-    private func setup() {
-        setupView()
-        setupBackgroundImageView()
-        setupScoreLabel()
-    }
-    
     private func setupView() {
         let panGestureRecognizer = UIPanGestureRecognizer(
             target: self,
             action: #selector(didPan(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
-        view.addSubview(backgroundImageView)
         view.addSubview(scoreLabel)
     }
     
     private func animateSpaceshipExplosion() {
-//        layer.emitterPosition = playerSpaceshipView.center
+        layer.emitterPosition = playerSpaceshipView.center
         emitterCell.beginTime = CACurrentMediaTime()
         layer.beginTime = CACurrentMediaTime()
     }
@@ -118,20 +124,13 @@ final class GameViewController: BaseViewController {
         view.addSubview(bulletView)
     }
     
-    private func setupBackgroundImageView() {
-        backgroundImageView.backgroundColor = .white
-//        backgroundImageView.image = UIImage(named: "background")
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-    
     private func setupScoreLabel() {
+        scoreLabel.textColor = .white
         scoreLabel.font = .pressStart2p(.regular,
                                         size: CGFloat(Dimensions.standart))
         scoreLabel.snp.makeConstraints { make in
-            make.leading.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.leading.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(50)
         }
     }
     
