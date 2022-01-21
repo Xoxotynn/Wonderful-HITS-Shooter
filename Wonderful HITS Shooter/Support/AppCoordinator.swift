@@ -15,7 +15,8 @@ final class AppCoordinator: Coordinator {
         self.window = window
         dependencies = Dependencies(networkManager: NetworkManager(),
                                     userDefaultsManager: UserDefaultsManager(),
-                                    audioManager: AudioManager())
+                                    audioManager: AudioManager(),
+                                    videoManager: VideoManager())
         rootNavigationController = UINavigationController()
         childCoordinators = []
         UINavigationBar.appearance().backIndicatorImage = UIImage()

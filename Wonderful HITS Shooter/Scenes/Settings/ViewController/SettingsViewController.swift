@@ -79,10 +79,11 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.medium)
         }
         
-        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.large))
-        titleLabel.text = Strings.settings
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
+        titleLabel.attributedText = NSAttributedString(
+            string: Strings.settings,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.large))
     }
     
     private func setupMusicSliderTitleLabel() {
@@ -91,10 +92,11 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(Dimensions.medium)
         }
         
-        musicSliderTitleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
-        musicSliderTitleLabel.text = Strings.musicVolume
         musicSliderTitleLabel.numberOfLines = 0
         musicSliderTitleLabel.textAlignment = .center
+        musicSliderTitleLabel.attributedText = NSAttributedString(
+            string: Strings.musicVolume,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.medium))
     }
     
     private func setupMusicVolumeSlider() {
@@ -112,10 +114,11 @@ class SettingsViewController: BaseViewController {
             make.top.equalTo(musicVolumeSlider.snp.bottom).offset(Dimensions.medium)
         }
         
-        soundEffectsTitleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
-        soundEffectsTitleLabel.text = Strings.soundEffectsVolume
         soundEffectsTitleLabel.numberOfLines = 0
         soundEffectsTitleLabel.textAlignment = .center
+        soundEffectsTitleLabel.attributedText = NSAttributedString(
+            string: Strings.soundEffectsVolume,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.medium))
     }
     
     private func setupSoundEffectsVolumeSlider() {

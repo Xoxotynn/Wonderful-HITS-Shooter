@@ -40,10 +40,11 @@ class OnboardingViewController: BaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.medium)
         }
         
-        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.large))
-        titleLabel.text = Strings.gameName
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
+        titleLabel.attributedText = NSAttributedString(
+            string: Strings.gameName,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.large))
     }
     
     private func setupSignInButton() {

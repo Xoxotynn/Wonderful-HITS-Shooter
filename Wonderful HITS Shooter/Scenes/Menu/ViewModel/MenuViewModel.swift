@@ -5,6 +5,7 @@ protocol MenuViewModelDelegate: AnyObject {
     func showTabBarScene()
     func showSettings()
     func showAuthScene()
+    func showVideoScene()
 }
 
 final class MenuViewModel {
@@ -26,5 +27,9 @@ final class MenuViewModel {
     
     func logOut() {
         delegate?.showAuthScene()
+    }
+    
+    func showVideo() {
+        delegate?.showVideoScene()
     }
 }

@@ -60,7 +60,6 @@
 		CE5E104C278F676C00AA3397 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104B278F676C00AA3397 /* Validator.swift */; };
 		CE5E104E278F794C00AA3397 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E104D278F794C00AA3397 /* Errors.swift */; };
 		CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */; };
-		CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */; };
 		CE5E105A2793320400AA3397 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E10592793320400AA3397 /* Fonts.swift */; };
 		CE5E105C2793366300AA3397 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E105B2793366300AA3397 /* CustomButton.swift */; };
 		CE5E105E27933AB000AA3397 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E105D27933AB000AA3397 /* AudioManager.swift */; };
@@ -88,6 +87,10 @@
 		CE7D544C279AE69E005BD8A1 /* TabBarItemViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D544B279AE69E005BD8A1 /* TabBarItemViewModelDelegate.swift */; };
 		CE7D544E279AE6FA005BD8A1 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D544D279AE6FA005BD8A1 /* TabCoordinator.swift */; };
 		CE7D5450279AED95005BD8A1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D544F279AED95005BD8A1 /* TabBarController.swift */; };
+		CE7D5452279AF8B8005BD8A1 /* StringAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5451279AF8B8005BD8A1 /* StringAttributes.swift */; };
+		CE7D5456279B0D80005BD8A1 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5455279B0D80005BD8A1 /* VideoManager.swift */; };
+		CE7D5459279B0E10005BD8A1 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5458279B0E10005BD8A1 /* VideoPlayerViewController.swift */; };
+		CE7D545B279B0E3D005BD8A1 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */; };
 		CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970AB8278DE734008B523B /* NetworkManager.swift */; };
 		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
 		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
@@ -160,7 +163,6 @@
 		CE5E104B278F676C00AA3397 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		CE5E104D278F794C00AA3397 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = "Wonderful HITS Shooter/Support/Errors.swift"; sourceTree = SOURCE_ROOT; };
 		CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
-		CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KellySlab-Regular.ttf"; sourceTree = "<group>"; };
 		CE5E10592793320400AA3397 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		CE5E105B2793366300AA3397 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CE5E105D27933AB000AA3397 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,10 @@
 		CE7D544B279AE69E005BD8A1 /* TabBarItemViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemViewModelDelegate.swift; sourceTree = "<group>"; };
 		CE7D544D279AE6FA005BD8A1 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		CE7D544F279AED95005BD8A1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CE7D5451279AF8B8005BD8A1 /* StringAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringAttributes.swift; sourceTree = "<group>"; };
+		CE7D5455279B0D80005BD8A1 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		CE7D5458279B0E10005BD8A1 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -323,6 +329,7 @@
 				CE5E104D278F794C00AA3397 /* Errors.swift */,
 				CE5E10592793320400AA3397 /* Fonts.swift */,
 				CEF4333827996370002EC368 /* Images.swift */,
+				CE7D5451279AF8B8005BD8A1 /* StringAttributes.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -330,7 +337,7 @@
 		A9CA71E9276F8040009CC78B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CEF4333D2799A4A0002EC368 /* TabBarCoordinator.swift */,
+				CE7D5457279B0DF4005BD8A1 /* VideoPlayer */,
 				CE7D54212799AA96005BD8A1 /* Levels */,
 				CE7D54232799AAA9005BD8A1 /* Upgrading */,
 				CE7D54222799AA9E005BD8A1 /* Records */,
@@ -350,11 +357,13 @@
 				CE5E1047278F387D00AA3397 /* NetworkManager */,
 				CE5E101A278DE87800AA3397 /* UserDefaultsManager.swift */,
 				CE5E105D27933AB000AA3397 /* AudioManager.swift */,
-				A9A14439276FE32E00E33C79 /* Coordinator.swift */,
-				A9A1443B276FE38800E33C79 /* AppCoordinator.swift */,
+				CE7D5455279B0D80005BD8A1 /* VideoManager.swift */,
 				A9A1443F276FE71400E33C79 /* Dependencies.swift */,
 				CE5E104B278F676C00AA3397 /* Validator.swift */,
 				CEF4332C27994335002EC368 /* LevelNumber.swift */,
+				A9A14439276FE32E00E33C79 /* Coordinator.swift */,
+				A9A1443B276FE38800E33C79 /* AppCoordinator.swift */,
+				CEF4333D2799A4A0002EC368 /* TabBarCoordinator.swift */,
 				CE7D544D279AE6FA005BD8A1 /* TabCoordinator.swift */,
 				CE7D544F279AED95005BD8A1 /* TabBarController.swift */,
 			);
@@ -494,7 +503,6 @@
 		CE5E10512793317100AA3397 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CE5E1056279331D400AA3397 /* KellySlab-Regular.ttf */,
 				CE5E1054279331C300AA3397 /* PressStart2P-Regular.ttf */,
 			);
 			path = Fonts;
@@ -679,6 +687,31 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		CE7D5457279B0DF4005BD8A1 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D545D279B0E9D005BD8A1 /* ViewModel */,
+				CE7D545C279B0E8C005BD8A1 /* ViewController */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		CE7D545C279B0E8C005BD8A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D5458279B0E10005BD8A1 /* VideoPlayerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE7D545D279B0E9D005BD8A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CEF4332E2799444F002EC368 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,7 +812,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
-				CE5E1057279331D400AA3397 /* KellySlab-Regular.ttf in Resources */,
 				CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */,
 				CE5E1066279387E500AA3397 /* levelTheme.mp3 in Resources */,
 				CE5E1061279385B300AA3397 /* mainTheme.mp3 in Resources */,
@@ -839,6 +871,7 @@
 			files = (
 				CE7D54362799F729005BD8A1 /* LevelsCoordinator.swift in Sources */,
 				CEF4333E2799A4A0002EC368 /* TabBarCoordinator.swift in Sources */,
+				CE7D5456279B0D80005BD8A1 /* VideoManager.swift in Sources */,
 				CE5E104C278F676C00AA3397 /* Validator.swift in Sources */,
 				CE5E106A27938EBC00AA3397 /* SettingsViewModel.swift in Sources */,
 				CE5E1040278F351E00AA3397 /* Strings.swift in Sources */,
@@ -860,6 +893,7 @@
 				CE5E103A278EF3FC00AA3397 /* OnboardingViewController.swift in Sources */,
 				A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
+				CE7D5459279B0E10005BD8A1 /* VideoPlayerViewController.swift in Sources */,
 				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
 				CE5E103C278EF46200AA3397 /* OnboardingViewModel.swift in Sources */,
@@ -874,6 +908,7 @@
 				CE5E1046278F369500AA3397 /* CustomActivityIndicator.swift in Sources */,
 				CE7D543C279AA6D9005BD8A1 /* TitleView.swift in Sources */,
 				CE7D543A279A8890005BD8A1 /* RecordsCoordinator.swift in Sources */,
+				CE7D545B279B0E3D005BD8A1 /* VideoPlayerViewModel.swift in Sources */,
 				CEF433322799448F002EC368 /* MenuCoordinator.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				A9FD8DCE2797485A00128654 /* Entity.swift in Sources */,
@@ -916,6 +951,7 @@
 				A9FD8DD32797485A00128654 /* EnemyGroupCreator.swift in Sources */,
 				CE5E1036278EED9800AA3397 /* SignUpViewModel.swift in Sources */,
 				CE7D54292799ACFC005BD8A1 /* LevelsViewModel.swift in Sources */,
+				CE7D5452279AF8B8005BD8A1 /* StringAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

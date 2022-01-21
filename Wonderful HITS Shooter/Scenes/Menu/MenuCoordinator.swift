@@ -47,4 +47,13 @@ extension MenuCoordinator: MenuViewModelDelegate {
         dependencies.networkManager.signOut()
         delegate?.removeMenuCoordinatorAndShowAuthScene(menuCoordinator: self)
     }
+    
+    #warning("Убери")
+    func showVideoScene() {
+        guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") else { return }
+        
+        let videoPlayerViewModel = VideoPlayerViewModel(dependencies: dependencies, url: url)
+        let videoPlayerVC = VideoPlayerViewController(viewModel: videoPlayerViewModel)
+        rootNavigationController.pushViewController(videoPlayerVC, animated: true)
+    }
 }

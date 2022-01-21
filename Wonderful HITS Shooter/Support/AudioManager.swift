@@ -1,15 +1,11 @@
-//
-//  AudioPlayer.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Илья Абросимов on 16.01.2022.
-//
-
-import Foundation
 import AVFoundation
 
 final class AudioManager {
     // MARK: - Properties
+    var isAudioPlaying: Bool {
+        backgroundAudioPlayer.isPlaying
+    }
+    
     private var backgroundAudioPlayer: AVAudioPlayer = AVAudioPlayer()
     private var nowPlaying: String = ""
     private var soundEffectsVolume: Float = 1.0
@@ -60,6 +56,14 @@ final class AudioManager {
     
     func setSoundEffectsVolume(toValue value: Float) {
         soundEffectsVolume = value
+    }
+    
+    func playBackgroundMusic() {
+        backgroundAudioPlayer.play()
+    }
+    
+    func pauseBackgroundMusic() {
+        backgroundAudioPlayer.pause()
     }
 }
 

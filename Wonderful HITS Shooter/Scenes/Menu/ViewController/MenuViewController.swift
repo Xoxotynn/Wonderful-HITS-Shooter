@@ -13,7 +13,8 @@ class MenuViewController: BaseViewController {
     
     // MARK: - Actions
     @objc private func showLevelsScene() {
-        viewModel.showTabBarScene()
+//        viewModel.showTabBarScene()
+        viewModel.showVideo()
     }
     
     @objc private func showSettings() {
@@ -59,10 +60,12 @@ class MenuViewController: BaseViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.medium)
         }
         
-        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.menuButtonHeight))
         titleLabel.text = Strings.menu
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center
+        titleLabel.attributedText = NSAttributedString(
+            string: Strings.menu,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.menuButtonHeight))
     }
     
     private func setupButtonsContainerView() {
