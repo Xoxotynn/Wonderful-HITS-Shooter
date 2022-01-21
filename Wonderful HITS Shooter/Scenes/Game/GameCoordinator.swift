@@ -1,10 +1,16 @@
 import UIKit
 
+protocol GameCoordinatorDelegate: AnyObject {
+    func removeGameCoordinator(gameCoordinator: GameCoordinator)
+}
+
 final class GameCoordinator: Coordinator {
     
+    weak var delegate: GameCoordinatorDelegate?
     var childCoordinators: [Coordinator]
     var rootNavigationController: UINavigationController
     
+    private var gameViewModel: GameViewModel?
     private let dependencies: Dependencies
     
     init(rootViewController: UINavigationController, dependencies: Dependencies) {
@@ -18,20 +24,32 @@ final class GameCoordinator: Coordinator {
         let viewModel = GameViewModel(level: FirstLevel())
         let viewController = GameViewController(viewModel: viewModel)
         viewModel.delegate = self
+        gameViewModel = viewModel
         rootNavigationController.pushViewController(viewController, animated: true)
-        viewController.tabBarController?.tabBar.isHidden = true
-        viewController.tabBarController?.navigationController?.navigationBar.isHidden = true
         dependencies.audioManager.play(audio: Strings.levelTheme, needToLoop: true)
     }
 }
 
 extension GameCoordinator: GameViewModelDelegate {
-    func showGameOverScene() {
-        let coordinator = GameOverCoordinator(
-            rootViewController: rootNavigationController,
-            dependencies: dependencies)
-        childCoordinators.append(coordinator)
-        coordinator.start()
+    func showGameOverScene(withResult result: LevelResult) {
+        let viewModel = GameOverViewModel(
+            result: result,
+            networkManager: dependencies.networkManager)
+        let viewController = GameOverViewController(viewModel: viewModel)
+        viewModel.delegate = self
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .crossDissolve
+        rootNavigationController.present(viewController, animated: true)
+    }
+}
+
+extension GameCoordinator: GameOverViewModelDelegate {
+    func backToLevelsScene() {
+        delegate?.removeGameCoordinator(gameCoordinator: self)
+    }
+    
+    func restartLevel() {
+        gameViewModel?.restartGame(withLevel: FirstLevel())
     }
 }
 

@@ -52,6 +52,8 @@ class Level {
         }
         waves.remove(at: 0)
     }
+    
+    func getStarsCount() -> Int { 0 }
 }
 
 extension Level: PlayerDelegate {

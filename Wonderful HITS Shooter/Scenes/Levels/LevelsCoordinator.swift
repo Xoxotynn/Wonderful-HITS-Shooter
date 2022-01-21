@@ -7,14 +7,26 @@ final class LevelsCoordinator: TabCoordinator {
         levelsViewModel.delegate = self
         levelsViewModel.levelsDelegate = self
         let levelsVC = LevelsViewController(viewModel: levelsViewModel)
-        rootNavigationController.pushViewController(levelsVC, animated: true)
+        rootNavigationController.setViewControllers([levelsVC], animated: false)
     }
 }
 
 extension LevelsCoordinator: LevelsViewModelDelegate {
     func startFirstLevel() {
+        rootNavigationController.tabBarController?.tabBar.isHidden = true
+        rootNavigationController.tabBarController?.navigationController?.navigationBar.isHidden = true
         let gameCoordinator = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
+        gameCoordinator.delegate = self
         childCoordinators.append(gameCoordinator)
         gameCoordinator.start()
+    }
+}
+
+extension LevelsCoordinator: GameCoordinatorDelegate {
+    func removeGameCoordinator(gameCoordinator: GameCoordinator) {
+        rootNavigationController.tabBarController?.tabBar.isHidden = false
+        rootNavigationController.tabBarController?.navigationController?.navigationBar.isHidden = false
+        removeAllChildCoordinatorsWithType(type(of: gameCoordinator))
+        start()
     }
 }

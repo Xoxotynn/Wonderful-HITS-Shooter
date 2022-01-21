@@ -51,8 +51,8 @@ final class GameViewController: BaseViewController {
         view.layer.addSublayer(layer)
     }
     
-    private func showGameOverScene() {
-        viewModel.showGameOverScene()
+    private func showGameOverScene(isSuccess: Bool) {
+        viewModel.showGameOverScene(isSuccess: isSuccess)
     }
     
     private func setup() {
@@ -77,13 +77,13 @@ final class GameViewController: BaseViewController {
         viewModel.didGameOver = { [weak self] in
             self?.animateSpaceshipExplosion()
             self?.playerSpaceshipView.removeFromSuperview()
-            self?.showGameOverScene()
+            self?.showGameOverScene(isSuccess: false)
 //            sleep(1)
 //            self?.showAlert(text: "You are dodik")
         }
         
         viewModel.didLevelFinished = { [weak self] in
-            self?.showGameOverScene()
+            self?.showGameOverScene(isSuccess: true)
         }
         
         viewModel.didUpdateScore = { [weak self] in
