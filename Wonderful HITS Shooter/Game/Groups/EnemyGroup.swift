@@ -81,8 +81,9 @@ extension EnemyGroup: EnemyDelegate {
 extension EnemyGroup {
     static let testGroup = EnemyGroup(
         enemyGroupCreator: DefaultEnemyGroupCreator(),
-        routeCreator: LineRouteCreator(length: 0.5),
+        routeCreator: LineRouteCreator(length: 0.7),
         positionCreator: FilledRectPositionCreator(
             rows: 4,
-            margins: CGPoint(x: 0.15, y: 0.2)))
+            margins: CGPoint(x: 0.15, y: 0.1),
+            origin: CGPoint(x: 0.05, y: -0.4)))
 }

@@ -7,6 +7,9 @@ final class GameViewModel {
     var didPrepareBullet: ((BulletViewModel) -> Void)?
     var didGameOver: ((Bool) -> Void)?
     var didKillEnemy: (() -> Void)?
+    var didUpdateScore: (() -> Void)?
+    
+    private(set) var score: String
     
     private let level: Level
     private var enemyViewModels: [EnemyViewModel]
@@ -14,6 +17,7 @@ final class GameViewModel {
     private var screenSize: CGSize
     
     init(level: Level) {
+        score = String(describing: level.currentScore)
         enemyViewModels = []
         bulletViewModels = []
         screenSize = .zero
@@ -24,6 +28,7 @@ final class GameViewModel {
     func startLevel(withScreen size: CGSize) {
         screenSize = size
         level.startLevel()
+        didUpdateScore?()
     }
     
     func startNextWave() {
@@ -130,6 +135,8 @@ extension GameViewModel: LevelDelegate {
                 }
         enemyViewModels[viewModelIndex].removeEnemy()
         enemyViewModels.remove(at: viewModelIndex)
+        score = String(describing: level.currentScore)
+        didUpdateScore?()
     }
     
     func setupUI(forExplodedBullet bullet: Bullet) {

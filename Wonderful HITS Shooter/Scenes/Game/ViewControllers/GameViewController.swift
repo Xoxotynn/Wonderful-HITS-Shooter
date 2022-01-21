@@ -5,6 +5,7 @@ final class GameViewController: BaseViewController {
 
     private let playerSpaceshipView = PlayerSpaceshipView()
     private let backgroundImageView = UIImageView()
+    private let scoreLabel = UILabel()
     private var enemyViews: [EnemyView] = []
     
     private let viewModel: GameViewModel
@@ -53,7 +54,6 @@ final class GameViewController: BaseViewController {
     }
     
     private func bindToViewModel() {
-        
         viewModel.didPreparePlayer = { [weak self] playerViewModel in
             self?.setupSpaceshipImageView(withViewModel: playerViewModel)
         }
@@ -72,11 +72,16 @@ final class GameViewController: BaseViewController {
 //            sleep(1)
 //            self?.showAlert(text: "You are dodik")
         }
+        
+        viewModel.didUpdateScore = { [weak self] in
+            self?.scoreLabel.text = self?.viewModel.score
+        }
     }
     
     private func setup() {
         setupView()
         setupBackgroundImageView()
+        setupScoreLabel()
     }
     
     private func setupView() {
@@ -85,6 +90,7 @@ final class GameViewController: BaseViewController {
             action: #selector(didPan(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
         view.addSubview(backgroundImageView)
+        view.addSubview(scoreLabel)
     }
     
     private func animateSpaceshipExplosion() {
@@ -113,10 +119,19 @@ final class GameViewController: BaseViewController {
     }
     
     private func setupBackgroundImageView() {
-        backgroundImageView.image = UIImage(named: "background")
+        backgroundImageView.backgroundColor = .white
+//        backgroundImageView.image = UIImage(named: "background")
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    private func setupScoreLabel() {
+        scoreLabel.font = .pressStart2p(.regular,
+                                        size: CGFloat(Dimensions.standart))
+        scoreLabel.snp.makeConstraints { make in
+            make.leading.top.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
     }
     

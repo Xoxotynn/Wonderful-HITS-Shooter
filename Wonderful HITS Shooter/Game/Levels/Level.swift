@@ -13,6 +13,7 @@ class Level {
     
     weak var delegate: LevelDelegate?
     
+    private(set) var currentScore: Int
     private var player: Player
     private var waves: [Wave]
     private var enemyGroups: [EnemyGroup]
@@ -20,6 +21,7 @@ class Level {
     
     init(player: Player, waves: [Wave]) {
         isGameFinished = false
+        currentScore = 0
         self.player = player
         self.waves = waves
         self.enemyGroups = []
@@ -75,6 +77,7 @@ extension Level: PlayerDelegate {
 
 extension Level: EnemyGroupDelegate {
     func didDie(enemyGroup: EnemyGroup, enemy: Enemy) {
+        currentScore += 100
         delegate?.setupUI(forDeadEnemy: enemy)
     }
 }
