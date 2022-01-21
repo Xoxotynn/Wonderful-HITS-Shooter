@@ -80,7 +80,7 @@ extension LevelsViewController: UICollectionViewDelegate & UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        viewModel.startLevel(number: indexPath.row)
     }
 }
 

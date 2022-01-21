@@ -334,7 +334,6 @@
 				CE7D54212799AA96005BD8A1 /* Levels */,
 				CE7D54232799AAA9005BD8A1 /* Upgrading */,
 				CE7D54222799AA9E005BD8A1 /* Records */,
-				CEF4333C2799A3AD002EC368 /* TabBar */,
 				CEF4332E2799444F002EC368 /* Menu */,
 				CE5E101C278E097400AA3397 /* Auth */,
 				CE5E10622793864600AA3397 /* Settings */,
@@ -704,13 +703,6 @@
 				CEF43335279946CB002EC368 /* MenuViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CEF4333C2799A3AD002EC368 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

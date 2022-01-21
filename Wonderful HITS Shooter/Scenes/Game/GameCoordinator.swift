@@ -17,7 +17,7 @@ final class GameCoordinator: Coordinator {
         rootNavigationController.navigationBar.isHidden = true
         let viewModel = GameViewModel(level: FirstLevel())
         let viewController = GameViewController(viewModel: viewModel)
-        rootNavigationController.setViewControllers([viewController], animated: true)
+        rootNavigationController.pushViewController(viewController, animated: true)
     
         dependencies.audioManager.play(audio: Strings.levelTheme, needToLoop: true)
     }

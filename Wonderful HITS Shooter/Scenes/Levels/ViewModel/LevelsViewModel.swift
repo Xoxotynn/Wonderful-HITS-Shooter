@@ -1,6 +1,10 @@
 import CoreGraphics
 import UIKit
 
+protocol LevelsViewModelDelegate: AnyObject {
+    func startFirstLevel()
+}
+
 final class LevelsViewModel {
     // MARK: - Properties
     var cellSize: CGSize = CGSize(width: (UIScreen.main.bounds.width - 64) / 3,
@@ -12,6 +16,7 @@ final class LevelsViewModel {
     var didReceiveError: ((Error) -> Void)?
     var didUpdateData: (() -> Void)?
     
+    weak var levelsDelegate: LevelsViewModelDelegate?
     weak var delegate: TabBarItemViewModelDelegate?
     
     private let dependencies: Dependencies
@@ -35,6 +40,17 @@ final class LevelsViewModel {
         }
         
         return cellViewModels[index]
+    }
+    
+    func startLevel(number: Int) {
+        switch number {
+        case 0:
+            levelsDelegate?.startFirstLevel()
+            break
+            
+        default:
+            break
+        }
     }
     
     // MARK: - Private Methods
