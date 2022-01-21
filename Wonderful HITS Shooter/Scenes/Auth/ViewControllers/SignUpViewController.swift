@@ -64,11 +64,11 @@ class SignUpViewController: BaseViewController {
             make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
         }
         
-        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
-        titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 1
-        titleLabel.text = Strings.registration
+        titleLabel.attributedText = NSAttributedString(
+            string: Strings.registration,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.medium))
     }
     
     private func setupScrollView() {

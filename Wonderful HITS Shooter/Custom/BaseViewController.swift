@@ -57,10 +57,14 @@ class BaseViewController: UIViewController {
                                                 style: .plain,
                                                 target: nil,
                                                 action: nil)
-        backBarButtonItem.tintColor = .black
+        backBarButtonItem.tintColor = .white
         navigationItem.backBarButtonItem = backBarButtonItem
         
         view.addSubview(backgroundImageView)
+        setupBackgroundImageView()
+    }
+    
+    private func setupBackgroundImageView() {
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

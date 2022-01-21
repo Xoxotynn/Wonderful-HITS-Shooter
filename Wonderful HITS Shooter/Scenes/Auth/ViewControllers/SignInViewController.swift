@@ -56,11 +56,11 @@ class SignInViewController: BaseViewController {
             make.leading.trailing.equalToSuperview().inset(Dimensions.standart)
         }
         
-        titleLabel.font = UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.medium))
-        titleLabel.textColor = .black
+        titleLabel.attributedText = NSAttributedString(
+            string: Strings.authorization,
+            attributes: StringAttributes.getStringAttributes(fontSize: Dimensions.medium))
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 1
-        titleLabel.text = Strings.authorization
     }
     
     private func setupScrollView() {

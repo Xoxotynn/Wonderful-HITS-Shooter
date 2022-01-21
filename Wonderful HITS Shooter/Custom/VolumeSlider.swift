@@ -5,8 +5,7 @@ class VolumeSlider: UISlider {
     init() {
         super.init(frame: .zero)
         
-        tintColor = .black
-        
+        tintColor = .white
         let largeConfig = UIImage.SymbolConfiguration(pointSize: CGFloat(Dimensions.medium), weight: .bold, scale: .large)
         minimumValueImage = UIImage.init(systemName: Images.minValueSpeaker, withConfiguration: largeConfig)
         maximumValueImage = UIImage.init(systemName: Images.maxValueSpeaker, withConfiguration: largeConfig)
