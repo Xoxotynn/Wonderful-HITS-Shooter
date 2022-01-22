@@ -27,7 +27,7 @@ extension LevelsCoordinator: LevelsViewModelDelegate {
     
     func showVideoScene() {
         rootNavigationController.tabBarController?.tabBar.isHidden = true
-        let videoPlayerViewModel = VideoPlayerViewModel(dependencies: dependencies, url: URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"))
+        let videoPlayerViewModel = VideoPlayerViewModel(dependencies: dependencies)
         videoPlayerViewModel.delegate = self
         let videoPlayerVC = VideoPlayerViewController(viewModel: videoPlayerViewModel)
         rootNavigationController.pushViewController(videoPlayerVC, animated: true)

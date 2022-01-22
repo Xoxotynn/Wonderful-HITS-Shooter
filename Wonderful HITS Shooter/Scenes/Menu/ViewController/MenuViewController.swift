@@ -11,9 +11,8 @@ class MenuViewController: BaseViewController {
     private let viewModel: MenuViewModel
     
     // MARK: - Actions
-    @objc private func showLevelsScene() {
+    @objc private func showTabBarScene() {
         viewModel.showTabBarScene()
-//        viewModel.showVideo()
     }
     
     @objc private func showSettings() {
@@ -76,7 +75,7 @@ class MenuViewController: BaseViewController {
         }
         
         playButton.configure(withTitle: Strings.play, withFontSize: Dimensions.large)
-        playButton.addTarget(self, action: #selector(showLevelsScene), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(showTabBarScene), for: .touchUpInside)
     }
     
     private func setupSettingsButton() {

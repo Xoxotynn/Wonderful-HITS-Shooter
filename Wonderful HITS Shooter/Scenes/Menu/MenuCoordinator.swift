@@ -43,15 +43,6 @@ extension MenuCoordinator: MenuViewModelDelegate {
         let settingsVC = SettingsViewController(viewModel: settingsViewModel)
         rootNavigationController.pushViewController(settingsVC, animated: true)
     }
-    
-    #warning("Убери")
-    func showVideoScene() {
-        guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") else { return }
-        
-        let videoPlayerViewModel = VideoPlayerViewModel(dependencies: dependencies, url: url)
-        let videoPlayerVC = VideoPlayerViewController(viewModel: videoPlayerViewModel)
-        rootNavigationController.pushViewController(videoPlayerVC, animated: true)
-    }
 }
 
 extension MenuCoordinator: SettingsViewModelDelegate {

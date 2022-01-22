@@ -4,7 +4,6 @@ import Darwin
 protocol MenuViewModelDelegate: AnyObject {
     func showTabBarScene()
     func showSettings()
-    func showVideoScene()
 }
 
 final class MenuViewModel {
@@ -22,9 +21,5 @@ final class MenuViewModel {
     
     func exit() {
         Darwin.exit(0)
-    }
-    
-    func showVideo() {
-        delegate?.showVideoScene()
     }
 }

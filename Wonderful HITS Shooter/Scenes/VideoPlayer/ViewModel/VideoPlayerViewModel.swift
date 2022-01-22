@@ -22,25 +22,19 @@ final class VideoPlayerViewModel: NSObject {
     var didUpdateSliderValues: ((Float, Float) -> Void)?
     
     private let dependencies: Dependencies
-    private let videoURL: URL?
     private var videoPlayerItem: AVPlayerItem?
     private var wasBackgroundMusicPlaying: Bool = false
     
     // MARK: - Init
-    init(dependencies: Dependencies, url: URL?) {
+    init(dependencies: Dependencies) {
         self.dependencies = dependencies
-        self.videoURL = url
     }
     
     // MARK: - Public Methods
     func start() {
-        guard let videoURL = videoURL else {
-            return
-        }
-
         stopMusicIfItsPlaying()
         
-        dependencies.videoManager.setupPlayer(withURL: videoURL) { [weak self] playerLayer, videoPlayerItem in
+        dependencies.videoManager.setupPlayer() { [weak self] playerLayer, videoPlayerItem in
             self?.addTimeObserver()
             self?.videoPlayerItem = videoPlayerItem
             self?.didUpdateVideoLayer?(playerLayer)

@@ -14,19 +14,13 @@ final class VideoManager {
     }
     
     // MARK: - Public Methods
-    func setupPlayer(withURL url: URL,
+    func setupPlayer(withURL url: URL = URL.init(fileURLWithPath: Bundle.main.path(forResource: Strings.videoName, ofType: Strings.videoType) ?? ""),
                      _ complition: @escaping (AVPlayerLayer, AVPlayerItem?) -> Void) {
         videoPlayer = AVPlayer(url: url)
         videoLayer = AVPlayerLayer(player: videoPlayer)
+        videoLayer.videoGravity = .resizeAspectFill
         
         complition(videoLayer, videoPlayer.currentItem)
-    }
-    
-    func getPlayerLayer(withURL url: URL)  -> AVPlayerLayer {
-        videoPlayer = AVPlayer(url: url)
-        videoLayer = AVPlayerLayer(player: videoPlayer)
-        
-        return videoLayer
     }
     
     func playOrPause() {
@@ -42,4 +36,9 @@ final class VideoManager {
     func rewindVideo(toValue value: Float) {
         videoPlayer.seek(to: CMTimeMake(value: Int64(value * 1000), timescale: 1000))
     }
+}
+
+private extension Strings {
+    static let videoName = "SuperMoovik"
+    static let videoType = "mov"
 }
