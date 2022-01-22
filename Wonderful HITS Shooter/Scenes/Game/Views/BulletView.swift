@@ -30,6 +30,10 @@ final class BulletView: UIImageView {
             delay: 0,
             options: .curveLinear) {
                 self.frame.origin = viewModel.endPoint
+            } completion: { finished in
+                if finished {
+                    self.viewModel?.removeBullet()
+                }
             }
     }
     
