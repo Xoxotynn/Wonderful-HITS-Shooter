@@ -9,32 +9,6 @@ final class GameViewController: BaseViewController {
     
     private let viewModel: GameViewModel
     
-    private lazy var emitterCell: CAEmitterCell = {
-        var cell = CAEmitterCell()
-        cell.contents = UIImage(named: "spaceship")?.cgImage
-        cell.lifetime = 100
-        cell.birthRate = 200
-        cell.velocity = 200
-        cell.scale = 0.1
-        cell.spin = 1
-        cell.alphaSpeed = -1
-        cell.scaleSpeed = -0.1
-        cell.duration = 0.05
-        cell.emissionRange = CGFloat.pi * 2
-        cell.yAcceleration = -80
-        return cell
-    }()
-    
-    private lazy var layer: CAEmitterLayer = {
-        let layer = CAEmitterLayer()
-        layer.emitterPosition = playerSpaceshipView.center
-        layer.emitterSize = CGSize(width: 20, height: 20)
-        layer.emitterShape = .circle
-        layer.emitterCells = [emitterCell]
-        layer.lifetime = 0.1
-        return layer
-    }()
-    
     init(viewModel: GameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -48,7 +22,6 @@ final class GameViewController: BaseViewController {
         super.viewDidLoad()
         setup()
         viewModel.startLevel(withScreen: view.frame.size)
-        view.layer.addSublayer(layer)
     }
     
     private func showGameOverScene(isSuccess: Bool) {
@@ -75,11 +48,8 @@ final class GameViewController: BaseViewController {
         }
         
         viewModel.didGameOver = { [weak self] in
-            self?.animateSpaceshipExplosion()
             self?.playerSpaceshipView.removeFromSuperview()
             self?.showGameOverScene(isSuccess: false)
-//            sleep(1)
-//            self?.showAlert(text: "You are dodik")
         }
         
         viewModel.didLevelFinished = { [weak self] in
@@ -97,12 +67,6 @@ final class GameViewController: BaseViewController {
             action: #selector(didPan(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
         view.addSubview(scoreLabel)
-    }
-    
-    private func animateSpaceshipExplosion() {
-        layer.emitterPosition = playerSpaceshipView.center
-        emitterCell.beginTime = CACurrentMediaTime()
-        layer.beginTime = CACurrentMediaTime()
     }
     
     private func setupSpaceshipImageView(
