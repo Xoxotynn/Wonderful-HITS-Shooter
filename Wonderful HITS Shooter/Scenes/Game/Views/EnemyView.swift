@@ -25,12 +25,16 @@ final class EnemyView: UIImageView {
     private func setupView(with viewModel: EnemyViewModel) {
         image = UIImage(named: Images.enemySpaceship)
         frame = viewModel.frame
-        UIView.animateKeyframes(withDuration: 4, delay: 0, options: []) {
+        var timeOffset: CGFloat = 0
+        UIView.animateKeyframes(withDuration: 5,
+                                delay: 0,
+                                options: [.autoreverse, .repeat]) {
             viewModel.route.forEach { point in
-                UIView.addKeyframe(withRelativeStartTime: 0,
-                                   relativeDuration: 1) {
+                UIView.addKeyframe(withRelativeStartTime: timeOffset,
+                                   relativeDuration: viewModel.timeDelta) {
                     self.frame.origin = point
                 }
+                timeOffset += viewModel.timeDelta
             }
         }
     }

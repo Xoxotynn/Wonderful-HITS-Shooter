@@ -27,6 +27,11 @@
 		A9DBC516279B07E90017112F /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC515279B07E90017112F /* GameOverViewController.swift */; };
 		A9DBC51E279B0A080017112F /* GameOverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC51D279B0A080017112F /* GameOverViewModel.swift */; };
 		A9DBC525279B2E780017112F /* LevelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC524279B2E780017112F /* LevelResult.swift */; };
+		A9DBC527279B6FD20017112F /* DiagonalRouteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC526279B6FD10017112F /* DiagonalRouteCreator.swift */; };
+		A9DBC529279B80880017112F /* CirclePositionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC528279B80880017112F /* CirclePositionCreator.swift */; };
+		A9DBC52B279B8C610017112F /* EnemyGroupFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC52A279B8C610017112F /* EnemyGroupFactory.swift */; };
+		A9DBC52D279B94340017112F /* SecondLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC52C279B94340017112F /* SecondLevel.swift */; };
+		A9DBC52F279B943D0017112F /* ThirdLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DBC52E279B943D0017112F /* ThirdLevel.swift */; };
 		A9FD8DCE2797485A00128654 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DC52797485A00128654 /* Entity.swift */; };
 		A9FD8DCF2797485A00128654 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DC62797485A00128654 /* Enemy.swift */; };
 		A9FD8DD02797485A00128654 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD8DC72797485A00128654 /* Spaceship.swift */; };
@@ -145,6 +150,11 @@
 		A9DBC515279B07E90017112F /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		A9DBC51D279B0A080017112F /* GameOverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewModel.swift; sourceTree = "<group>"; };
 		A9DBC524279B2E780017112F /* LevelResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResult.swift; sourceTree = "<group>"; };
+		A9DBC526279B6FD10017112F /* DiagonalRouteCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagonalRouteCreator.swift; sourceTree = "<group>"; };
+		A9DBC528279B80880017112F /* CirclePositionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePositionCreator.swift; sourceTree = "<group>"; };
+		A9DBC52A279B8C610017112F /* EnemyGroupFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyGroupFactory.swift; sourceTree = "<group>"; };
+		A9DBC52C279B94340017112F /* SecondLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondLevel.swift; sourceTree = "<group>"; };
+		A9DBC52E279B943D0017112F /* ThirdLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdLevel.swift; sourceTree = "<group>"; };
 		A9FD8DC52797485A00128654 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		A9FD8DC62797485A00128654 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		A9FD8DC72797485A00128654 /* Spaceship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
@@ -284,6 +294,8 @@
 			children = (
 				A987746B2777C93500A62B47 /* Level.swift */,
 				A987746D2777C95000A62B47 /* FirstLevel.swift */,
+				A9DBC52C279B94340017112F /* SecondLevel.swift */,
+				A9DBC52E279B943D0017112F /* ThirdLevel.swift */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -301,6 +313,7 @@
 			children = (
 				A98FC5FC278C99B500F0850E /* EnemyGroup.swift */,
 				A9DBC513279AFADC0017112F /* DefaultEnemyGroup.swift */,
+				A9DBC52A279B8C610017112F /* EnemyGroupFactory.swift */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -463,6 +476,7 @@
 			children = (
 				A9FD8DD82797497D00128654 /* FilledRectPositionCreator.swift */,
 				A9FD8DD92797497D00128654 /* PositionCreator.swift */,
+				A9DBC528279B80880017112F /* CirclePositionCreator.swift */,
 			);
 			path = "Position Creators";
 			sourceTree = "<group>";
@@ -472,6 +486,7 @@
 			children = (
 				A9FD8DDB2797497D00128654 /* LineRouteCreator.swift */,
 				A9FD8DDC2797497D00128654 /* RouteCreator.swift */,
+				A9DBC526279B6FD10017112F /* DiagonalRouteCreator.swift */,
 			);
 			path = "Route Creators";
 			sourceTree = "<group>";
@@ -970,6 +985,8 @@
 				CE7D54362799F729005BD8A1 /* LevelsCoordinator.swift in Sources */,
 				CEF4333E2799A4A0002EC368 /* TabBarCoordinator.swift in Sources */,
 				CE7D5456279B0D80005BD8A1 /* VideoManager.swift in Sources */,
+				A9DBC52B279B8C610017112F /* EnemyGroupFactory.swift in Sources */,
+				A9DBC527279B6FD20017112F /* DiagonalRouteCreator.swift in Sources */,
 				CE5E104C278F676C00AA3397 /* Validator.swift in Sources */,
 				CE5E106A27938EBC00AA3397 /* SettingsViewModel.swift in Sources */,
 				CE5E1040278F351E00AA3397 /* Strings.swift in Sources */,
@@ -998,6 +1015,7 @@
 				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
 				CE7D5486279B88B1005BD8A1 /* RecordsViewController.swift in Sources */,
+				A9DBC52F279B943D0017112F /* ThirdLevel.swift in Sources */,
 				CE5E103C278EF46200AA3397 /* OnboardingViewModel.swift in Sources */,
 				CE5E1034278EED8500AA3397 /* SignInViewModel.swift in Sources */,
 				CE7D54342799B637005BD8A1 /* LevelModel.swift in Sources */,
@@ -1015,6 +1033,7 @@
 				CE7D545B279B0E3D005BD8A1 /* VideoPlayerViewModel.swift in Sources */,
 				A9DBC51E279B0A080017112F /* GameOverViewModel.swift in Sources */,
 				CEF433322799448F002EC368 /* MenuCoordinator.swift in Sources */,
+				A9DBC52D279B94340017112F /* SecondLevel.swift in Sources */,
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				A9FD8DCE2797485A00128654 /* Entity.swift in Sources */,
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
@@ -1050,6 +1069,7 @@
 				CE7D542E2799B11E005BD8A1 /* LevelCellViewModel.swift in Sources */,
 				CE7D54312799B528005BD8A1 /* StarView.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
+				A9DBC529279B80880017112F /* CirclePositionCreator.swift in Sources */,
 				A9FD8DED279AB40200128654 /* BulletView.swift in Sources */,
 				CE5E1044278F35EC00AA3397 /* Colors.swift in Sources */,
 				A9CA71D3276F7459009CC78B /* AppDelegate.swift in Sources */,

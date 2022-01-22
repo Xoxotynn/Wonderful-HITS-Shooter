@@ -7,8 +7,8 @@ enum Dimensions {
     static let standartHeight = 54
     
     enum LevelsMaxPoints {
-        static let first = 3000
-        static let second = 5000
-        static let third = 8000
+        static let first = 4500
+        static let second = 7800
+        static let third = 9300
     }
 }

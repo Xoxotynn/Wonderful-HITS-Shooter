@@ -1,10 +1,3 @@
-//
-//  LineRouteCreator.swift
-//  Wonderful HITS Shooter
-//
-//  Created by Эдуард Логинов on 18.01.2022.
-//
-
 import UIKit
 
 final class LineRouteCreator: RouteCreator {

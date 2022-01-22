@@ -10,6 +10,7 @@ final class EnemyViewModel {
     weak var delegate: EnemyViewModelDelegate?
     var frame: CGRect
     var route: [CGPoint]
+    var timeDelta: CGFloat
     
     var didRemoveEnemy: (() -> Void)?
     
@@ -19,6 +20,7 @@ final class EnemyViewModel {
         self.enemy = enemy
         self.frame = frame
         self.route = route
+        self.timeDelta = 1 / CGFloat(route.count)
     }
     
     func sendCurrentFrame(_ frame: CGRect) {

@@ -4,7 +4,7 @@ final class Wave {
     
     let enemyGroups: [EnemyGroup]
     
-    init() {
-        enemyGroups = [DefaultEnemyGroup()]
+    init(enemyGroups: [EnemyGroup]) {
+        self.enemyGroups = enemyGroups
     }
 }

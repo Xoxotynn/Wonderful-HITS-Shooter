@@ -17,7 +17,7 @@ final class Bullet: Entity {
         let screenSize = UIScreen.main.bounds.size
         let gameFieldRatio = screenSize.width / screenSize.height
         self.endPoint = endPoint
-        super.init(hp: 40,
+        super.init(hp: 50,
                    frame: CGRect(
                     origin: position,
                     size: CGSize(width: 0.05,

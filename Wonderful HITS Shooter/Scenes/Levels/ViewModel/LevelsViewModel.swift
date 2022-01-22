@@ -2,7 +2,7 @@ import CoreGraphics
 import UIKit
 
 protocol LevelsViewModelDelegate: AnyObject {
-    func startFirstLevel()
+    func startLevel(withNumber number: LevelNumber)
 }
 
 final class LevelsViewModel {
@@ -45,9 +45,14 @@ final class LevelsViewModel {
     func startLevel(number: Int) {
         switch number {
         case 0:
-            levelsDelegate?.startFirstLevel()
+            levelsDelegate?.startLevel(withNumber: .first)
             break
-            
+        case 1:
+            levelsDelegate?.startLevel(withNumber: .second)
+            break
+        case 2:
+            levelsDelegate?.startLevel(withNumber: .third)
+            break
         default:
             break
         }
