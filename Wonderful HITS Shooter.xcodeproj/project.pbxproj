@@ -96,7 +96,6 @@
 		CE7D545B279B0E3D005BD8A1 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */; };
 		CE7D546E279B682F005BD8A1 /* mainTheme2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D5469279B682E005BD8A1 /* mainTheme2.mp3 */; };
 		CE7D546F279B682F005BD8A1 /* millionMinus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D546A279B682F005BD8A1 /* millionMinus.mp3 */; };
-		CE7D5471279B6846005BD8A1 /* levelTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D5470279B6846005BD8A1 /* levelTheme.mp3 */; };
 		CE7D5477279B752A005BD8A1 /* shotSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D5476279B752A005BD8A1 /* shotSound.wav */; };
 		CE7D547B279B76D6005BD8A1 /* terminator.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D547A279B76D6005BD8A1 /* terminator.wav */; };
 		CE7D547D279B780A005BD8A1 /* bigShotSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D547C279B780A005BD8A1 /* bigShotSound.wav */; };
@@ -106,6 +105,7 @@
 		CE7D5488279B88BA005BD8A1 /* RecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5487279B88BA005BD8A1 /* RecordsViewModel.swift */; };
 		CE7D548B279B8B7A005BD8A1 /* RecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */; };
 		CE7D548D279B8BE6005BD8A1 /* RecordCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */; };
+		CE7D548F279B9F4A005BD8A1 /* levelTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */; };
 		CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970AB8278DE734008B523B /* NetworkManager.swift */; };
 		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
 		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
@@ -214,7 +214,6 @@
 		CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		CE7D5469279B682E005BD8A1 /* mainTheme2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainTheme2.mp3; sourceTree = "<group>"; };
 		CE7D546A279B682F005BD8A1 /* millionMinus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = millionMinus.mp3; sourceTree = "<group>"; };
-		CE7D5470279B6846005BD8A1 /* levelTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = levelTheme.mp3; path = ../../../../../Downloads/GameIcons/levelTheme.mp3; sourceTree = "<group>"; };
 		CE7D5476279B752A005BD8A1 /* shotSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shotSound.wav; sourceTree = "<group>"; };
 		CE7D547A279B76D6005BD8A1 /* terminator.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = terminator.wav; sourceTree = "<group>"; };
 		CE7D547C279B780A005BD8A1 /* bigShotSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bigShotSound.wav; sourceTree = "<group>"; };
@@ -224,6 +223,7 @@
 		CE7D5487279B88BA005BD8A1 /* RecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModel.swift; sourceTree = "<group>"; };
 		CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellView.swift; sourceTree = "<group>"; };
 		CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellViewModel.swift; sourceTree = "<group>"; };
+		CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelTheme.mp3; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -569,8 +569,8 @@
 		CE5E105F27937FA200AA3397 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */,
 				CE7D547C279B780A005BD8A1 /* bigShotSound.wav */,
-				CE7D5470279B6846005BD8A1 /* levelTheme.mp3 */,
 				CE7D5476279B752A005BD8A1 /* shotSound.wav */,
 				CE7D5469279B682E005BD8A1 /* mainTheme2.mp3 */,
 				CE7D547A279B76D6005BD8A1 /* terminator.wav */,
@@ -911,7 +911,7 @@
 				A9CA71DF276F745A009CC78B /* LaunchScreen.storyboard in Resources */,
 				CE5E1055279331C300AA3397 /* PressStart2P-Regular.ttf in Resources */,
 				CE5E1061279385B300AA3397 /* mainTheme.mp3 in Resources */,
-				CE7D5471279B6846005BD8A1 /* levelTheme.mp3 in Resources */,
+				CE7D548F279B9F4A005BD8A1 /* levelTheme.mp3 in Resources */,
 				CE7D546F279B682F005BD8A1 /* millionMinus.mp3 in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
 				A913534627973A880065E758 /* GoogleService-Info.plist in Resources */,
