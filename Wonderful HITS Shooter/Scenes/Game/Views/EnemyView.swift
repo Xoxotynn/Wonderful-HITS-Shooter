@@ -28,7 +28,7 @@ final class EnemyView: UIImageView {
         var timeOffset: CGFloat = 0
         UIView.animateKeyframes(withDuration: 5,
                                 delay: 0,
-                                options: []) {
+                                options: [.autoreverse, .repeat]) {
             viewModel.route.forEach { point in
                 UIView.addKeyframe(withRelativeStartTime: timeOffset,
                                    relativeDuration: viewModel.timeDelta) {

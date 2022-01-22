@@ -17,18 +17,26 @@ final class GameViewModel {
     var didUpdateScore: (() -> Void)?
     
     private(set) var score: String
-    
+    private let levelNumber: LevelNumber
     private var level: Level
     private var enemyViewModels: [EnemyViewModel]
     private var bulletViewModels: [BulletViewModel]
     private var screenSize: CGSize
     
-    init(level: Level) {
-        score = String(describing: level.currentScore)
+    init(levelNumber: LevelNumber) {
         enemyViewModels = []
         bulletViewModels = []
         screenSize = .zero
-        self.level = level
+        self.levelNumber = levelNumber
+        switch levelNumber {
+        case .first:
+            level = FirstLevel()
+        case .second:
+            level = SecondLevel()
+        case .third:
+            level = ThirdLevel()
+        }
+        score = String(describing: level.currentScore)
         self.level.delegate = self
     }
     
@@ -49,7 +57,8 @@ final class GameViewModel {
     
     func showGameOverScene(isSuccess: Bool) {
         delegate?.showGameOverScene(
-            withResult: LevelResult(isSuccess: isSuccess,
+            withResult: LevelResult(levelNumber: levelNumber,
+                                    isSuccess: isSuccess,
                                     score: level.currentScore,
                                     stars: level.getStarsCount()))
     }

@@ -1,24 +1,25 @@
 import UIKit
 
-final class FirstLevel: Level {
+final class SecondLevel: Level {
     
     private let maxScore: Int
     
     init() {
-        maxScore = Dimensions.LevelsMaxPoints.first
+        maxScore = Dimensions.LevelsMaxPoints.second
         super.init(
             player: Player(),
             waves: [Wave(enemyGroups: [
-                        EnemyGroupFactory.createStraightLargeRectGroup()
-                    ]),
-                    Wave(enemyGroups: [
+                        EnemyGroupFactory.createStraightLargeCircleGroup(),
                         EnemyGroupFactory.createDiagonalCenterRectGroup()
                     ]),
                     Wave(enemyGroups: [
                         EnemyGroupFactory
                             .createDiagonalSmallCircleGroup(isMirrored: false),
-                        EnemyGroupFactory
-                            .createDiagonalSmallCircleGroup(isMirrored: true)
+                        EnemyGroupFactory.createDiagonalCenterRectGroup()
+                    ]),
+                    Wave(enemyGroups: [
+                        EnemyGroupFactory.createStraightLargeCircleGroup(),
+                        EnemyGroupFactory.createStraightLargeRectGroup()
                     ])
                    ])
     }

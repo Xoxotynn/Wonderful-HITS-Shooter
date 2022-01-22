@@ -24,9 +24,12 @@ final class DiagonalRouteCreator: RouteCreator {
 
 extension DiagonalRouteCreator {
     static let largeAmplitudeRoute = DiagonalRouteCreator(
-        delta: CGPoint(x: 0.7, y: 0.1),
-        segmentCount: 6)
+        delta: CGPoint(x: 0.7, y: 0.15),
+        segmentCount: 4)
     static let smallAmplitudeRoute = DiagonalRouteCreator(
-        delta: CGPoint(x: 0.3, y: 0.3),
+        delta: CGPoint(x: 0.3, y: 0.4),
+        segmentCount: 2)
+    static let smallMirroredAmplitudeRoute = DiagonalRouteCreator(
+        delta: CGPoint(x: -0.3, y: 0.4),
         segmentCount: 2)
 }

@@ -35,4 +35,10 @@ extension CirclePositionCreator {
     static let largeCenterCircle = CirclePositionCreator(
         center: CGPoint(x: 0.5, y: -0.5),
         radius: 0.4)
+    static let smallLeftCornerCircle = CirclePositionCreator(
+        center: CGPoint(x: 0.3, y: -0.3),
+        radius: 0.2)
+    static let smallRightCornerCircle = CirclePositionCreator(
+        center: CGPoint(x: 0.7, y: -0.3),
+        radius: 0.2)
 }

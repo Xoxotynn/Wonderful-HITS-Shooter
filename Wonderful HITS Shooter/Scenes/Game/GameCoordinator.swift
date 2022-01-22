@@ -12,16 +12,20 @@ final class GameCoordinator: Coordinator {
     
     private var gameViewModel: GameViewModel?
     private let dependencies: Dependencies
+    private let levelNumber: LevelNumber
     
-    init(rootViewController: UINavigationController, dependencies: Dependencies) {
+    init(rootViewController: UINavigationController,
+         dependencies: Dependencies,
+         levelNumber: LevelNumber) {
         self.dependencies = dependencies
+        self.levelNumber = levelNumber
         rootNavigationController = rootViewController
         childCoordinators = []
     }
     
     func start() {
         rootNavigationController.navigationBar.isHidden = true
-        let viewModel = GameViewModel(level: FirstLevel())
+        let viewModel = GameViewModel(levelNumber: levelNumber)
         let viewController = GameViewController(viewModel: viewModel)
         viewModel.delegate = self
         gameViewModel = viewModel

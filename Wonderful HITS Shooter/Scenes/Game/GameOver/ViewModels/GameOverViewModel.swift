@@ -40,7 +40,7 @@ final class GameOverViewModel {
     
     private func saveResultIfNeeded() {
         if result.isSuccess {
-            networkManager.getMaxPoints(forLevel: .first)
+            networkManager.getMaxPoints(forLevel: result.levelNumber)
             { [weak self] maxPoints in
                 self?.saveResult(maxPoints: maxPoints)
             } onError: { error in
@@ -51,7 +51,7 @@ final class GameOverViewModel {
     
     private func saveResult(maxPoints: Int) {
         if result.score > maxPoints {
-            try? networkManager.setLevelMaxPoints(forLevel: .first,
+            try? networkManager.setLevelMaxPoints(forLevel: result.levelNumber,
                                                   points: result.score)
         }
     }

@@ -12,10 +12,13 @@ final class LevelsCoordinator: TabCoordinator {
 }
 
 extension LevelsCoordinator: LevelsViewModelDelegate {
-    func startFirstLevel() {
+    func startLevel(withNumber number: LevelNumber) {
         rootNavigationController.tabBarController?.tabBar.isHidden = true
         rootNavigationController.tabBarController?.navigationController?.navigationBar.isHidden = true
-        let gameCoordinator = GameCoordinator(rootViewController: rootNavigationController, dependencies: dependencies)
+        let gameCoordinator = GameCoordinator(
+            rootViewController: rootNavigationController,
+            dependencies: dependencies,
+            levelNumber: number)
         gameCoordinator.delegate = self
         childCoordinators.append(gameCoordinator)
         gameCoordinator.start()
