@@ -113,7 +113,7 @@
 		CE7D548F279B9F4A005BD8A1 /* levelTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */; };
 		CE7D5496279BCD79005BD8A1 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5495279BCD78005BD8A1 /* SettingsCoordinator.swift */; };
 		CE7D5498279BCDC9005BD8A1 /* UpgradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5497279BCDC9005BD8A1 /* UpgradingViewController.swift */; };
-		CE7D549C279BDD8A005BD8A1 /* SuperMoovik.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7D549B279BDD8A005BD8A1 /* SuperMoovik.mov */; };
+		CE7D549C279BDD8A005BD8A1 /* gameTrailer.mov in Resources */ = {isa = PBXBuildFile; fileRef = CE7D549B279BDD8A005BD8A1 /* gameTrailer.mov */; };
 		CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970AB8278DE734008B523B /* NetworkManager.swift */; };
 		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
 		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
@@ -239,7 +239,7 @@
 		CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelTheme.mp3; sourceTree = "<group>"; };
 		CE7D5495279BCD78005BD8A1 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		CE7D5497279BCDC9005BD8A1 /* UpgradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradingViewController.swift; sourceTree = "<group>"; };
-		CE7D549B279BDD8A005BD8A1 /* SuperMoovik.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = SuperMoovik.mov; sourceTree = "<group>"; };
+		CE7D549B279BDD8A005BD8A1 /* gameTrailer.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameTrailer.mov; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -840,7 +840,7 @@
 		CE7D549A279BDD67005BD8A1 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				CE7D549B279BDD8A005BD8A1 /* SuperMoovik.mov */,
+				CE7D549B279BDD8A005BD8A1 /* gameTrailer.mov */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -955,7 +955,7 @@
 				CE7D546F279B682F005BD8A1 /* millionMinus.mp3 in Resources */,
 				A9CA71DC276F745A009CC78B /* Assets.xcassets in Resources */,
 				A913534627973A880065E758 /* GoogleService-Info.plist in Resources */,
-				CE7D549C279BDD8A005BD8A1 /* SuperMoovik.mov in Resources */,
+				CE7D549C279BDD8A005BD8A1 /* gameTrailer.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

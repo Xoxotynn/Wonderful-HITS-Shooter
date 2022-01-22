@@ -39,6 +39,6 @@ final class VideoManager {
 }
 
 private extension Strings {
-    static let videoName = "SuperMoovik"
+    static let videoName = "gameTrailer"
     static let videoType = "mov"
 }
