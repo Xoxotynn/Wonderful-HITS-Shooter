@@ -67,7 +67,6 @@ final class AppCoordinator: Coordinator {
     
     private func getUserLocation() {
         locationManager.didUpdateCountry = { [weak self] in
-            print(self?.locationManager.country)
             self?.dependencies.networkManager.setCountry(countryName: self?.locationManager.country)
         }
         
