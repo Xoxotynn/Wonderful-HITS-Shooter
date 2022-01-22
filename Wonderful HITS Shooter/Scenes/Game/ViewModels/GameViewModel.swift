@@ -18,19 +18,28 @@ final class GameViewModel {
     
     private(set) var score: String
     
+    private let levelNumber: LevelNumber
     private var level: Level
     private var enemyViewModels: [EnemyViewModel]
     private var bulletViewModels: [BulletViewModel]
     private var screenSize: CGSize
     private let dependencies: Dependencies
     
-    init(level: Level, dependencies: Dependencies) {
+    init(levelNumber: LevelNumber, dependencies: Dependencies) {
         self.dependencies = dependencies
-        score = String(describing: level.currentScore)
         enemyViewModels = []
         bulletViewModels = []
         screenSize = .zero
-        self.level = level
+        self.levelNumber = levelNumber
+        switch levelNumber {
+        case .first:
+            level = FirstLevel()
+        case .second:
+            level = SecondLevel()
+        case .third:
+            level = ThirdLevel()
+        }
+        score = String(describing: level.currentScore)
         self.level.delegate = self
     }
     
@@ -40,18 +49,26 @@ final class GameViewModel {
         didUpdateScore?()
     }
     
-    func restartGame(withLevel level: Level) {
+    func restartGame() {
         clearGameField()
-        self.level = level
-        self.level.delegate = self
-        self.level.startLevel()
-        score = String(describing: self.level.currentScore)
+        switch levelNumber {
+        case .first:
+            level = FirstLevel()
+        case .second:
+            level = SecondLevel()
+        case .third:
+            level = ThirdLevel()
+        }
+        level.delegate = self
+        level.startLevel()
+        score = String(describing: level.currentScore)
         didUpdateScore?()
     }
     
     func showGameOverScene(isSuccess: Bool) {
         delegate?.showGameOverScene(
-            withResult: LevelResult(isSuccess: isSuccess,
+            withResult: LevelResult(levelNumber: levelNumber,
+                                    isSuccess: isSuccess,
                                     score: level.currentScore,
                                     stars: level.getStarsCount()))
     }

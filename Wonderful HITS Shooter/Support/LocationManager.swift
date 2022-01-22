@@ -22,7 +22,7 @@ extension LocationManager: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             
             let geocoder = CLGeocoder()
-            geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            geocoder.reverseGeocodeLocation(location, preferredLocale: Locale(identifier: "ru_RU")) { [weak self] placemarks, error in
                 if let error = error {
                     print(error.localizedDescription)
                 }

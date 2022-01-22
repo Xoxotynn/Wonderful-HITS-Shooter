@@ -29,7 +29,7 @@ class RecordCellView: UITableViewCell {
             make.edges.equalToSuperview()
         }
         
-        infoLabel.textAlignment = .center
+        infoLabel.textAlignment = .left
         infoLabel.numberOfLines = 0
     }
     
