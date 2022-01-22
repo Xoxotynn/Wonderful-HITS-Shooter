@@ -100,6 +100,12 @@
 		CE7D5477279B752A005BD8A1 /* shotSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D5476279B752A005BD8A1 /* shotSound.wav */; };
 		CE7D547B279B76D6005BD8A1 /* terminator.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D547A279B76D6005BD8A1 /* terminator.wav */; };
 		CE7D547D279B780A005BD8A1 /* bigShotSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7D547C279B780A005BD8A1 /* bigShotSound.wav */; };
+		CE7D547F279B7E25005BD8A1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D547E279B7E25005BD8A1 /* LocationManager.swift */; };
+		CE7D5484279B887F005BD8A1 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5483279B887F005BD8A1 /* RecordModel.swift */; };
+		CE7D5486279B88B1005BD8A1 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5485279B88B1005BD8A1 /* RecordsViewController.swift */; };
+		CE7D5488279B88BA005BD8A1 /* RecordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5487279B88BA005BD8A1 /* RecordsViewModel.swift */; };
+		CE7D548B279B8B7A005BD8A1 /* RecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */; };
+		CE7D548D279B8BE6005BD8A1 /* RecordCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */; };
 		CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970AB8278DE734008B523B /* NetworkManager.swift */; };
 		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
 		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
@@ -212,6 +218,12 @@
 		CE7D5476279B752A005BD8A1 /* shotSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shotSound.wav; sourceTree = "<group>"; };
 		CE7D547A279B76D6005BD8A1 /* terminator.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = terminator.wav; sourceTree = "<group>"; };
 		CE7D547C279B780A005BD8A1 /* bigShotSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bigShotSound.wav; sourceTree = "<group>"; };
+		CE7D547E279B7E25005BD8A1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CE7D5483279B887F005BD8A1 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		CE7D5485279B88B1005BD8A1 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		CE7D5487279B88BA005BD8A1 /* RecordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewModel.swift; sourceTree = "<group>"; };
+		CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellView.swift; sourceTree = "<group>"; };
+		CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellViewModel.swift; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -387,6 +399,7 @@
 				CE7D544D279AE6FA005BD8A1 /* TabCoordinator.swift */,
 				CE7D544F279AED95005BD8A1 /* TabBarController.swift */,
 				A9DBC524279B2E780017112F /* LevelResult.swift */,
+				CE7D547E279B7E25005BD8A1 /* LocationManager.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -623,6 +636,10 @@
 		CE7D54222799AA9E005BD8A1 /* Records */ = {
 			isa = PBXGroup;
 			children = (
+				CE7D5482279B8874005BD8A1 /* Model */,
+				CE7D5489279B8B61005BD8A1 /* View */,
+				CE7D5481279B8869005BD8A1 /* ViewModels */,
+				CE7D5480279B8863005BD8A1 /* ViewController */,
 				CE7D5439279A8890005BD8A1 /* RecordsCoordinator.swift */,
 			);
 			path = Records;
@@ -753,6 +770,39 @@
 				CE7D545A279B0E3D005BD8A1 /* VideoPlayerViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE7D5480279B8863005BD8A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D5485279B88B1005BD8A1 /* RecordsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE7D5481279B8869005BD8A1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D5487279B88BA005BD8A1 /* RecordsViewModel.swift */,
+				CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE7D5482279B8874005BD8A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D5483279B887F005BD8A1 /* RecordModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE7D5489279B8B61005BD8A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CEF4332E2799444F002EC368 /* Menu */ = {
@@ -934,6 +984,7 @@
 				A9FD8DDD2797497D00128654 /* FilledRectPositionCreator.swift in Sources */,
 				CE7D544A279AD816005BD8A1 /* TabBarItemDelegate.swift in Sources */,
 				A9A1443A276FE32E00E33C79 /* Coordinator.swift in Sources */,
+				CE7D548B279B8B7A005BD8A1 /* RecordCellView.swift in Sources */,
 				CE7D5450279AED95005BD8A1 /* TabBarController.swift in Sources */,
 				CE5E104A278F58B900AA3397 /* CustomTextField.swift in Sources */,
 				A9DBC514279AFADC0017112F /* DefaultEnemyGroup.swift in Sources */,
@@ -943,8 +994,10 @@
 				A9FD8DE727995E1800128654 /* EnemyViewModel.swift in Sources */,
 				A9A1443E276FE4A600E33C79 /* GameCoordinator.swift in Sources */,
 				CE7D5459279B0E10005BD8A1 /* VideoPlayerViewController.swift in Sources */,
+				CE7D5484279B887F005BD8A1 /* RecordModel.swift in Sources */,
 				CE5E10642793865700AA3397 /* SettingsViewController.swift in Sources */,
 				CE5E103E278F33CB00AA3397 /* BaseViewController.swift in Sources */,
+				CE7D5486279B88B1005BD8A1 /* RecordsViewController.swift in Sources */,
 				CE5E103C278EF46200AA3397 /* OnboardingViewModel.swift in Sources */,
 				CE5E1034278EED8500AA3397 /* SignInViewModel.swift in Sources */,
 				CE7D54342799B637005BD8A1 /* LevelModel.swift in Sources */,
@@ -953,6 +1006,8 @@
 				A9FD8DEB27995EA600128654 /* PlayerSpaceshipViewModel.swift in Sources */,
 				A9CA71D7276F7459009CC78B /* GameViewController.swift in Sources */,
 				CE7D5441279AA76B005BD8A1 /* TitleViewModel.swift in Sources */,
+				CE7D5488279B88BA005BD8A1 /* RecordsViewModel.swift in Sources */,
+				CE7D547F279B7E25005BD8A1 /* LocationManager.swift in Sources */,
 				A9FD8DD22797485A00128654 /* Weapon.swift in Sources */,
 				CE5E1046278F369500AA3397 /* CustomActivityIndicator.swift in Sources */,
 				CE7D543C279AA6D9005BD8A1 /* TitleView.swift in Sources */,
@@ -963,6 +1018,7 @@
 				CE7405332777736F00E386BF /* Player.swift in Sources */,
 				A9FD8DCE2797485A00128654 /* Entity.swift in Sources */,
 				CE5E102B278EE5A200AA3397 /* SignInViewController.swift in Sources */,
+				CE7D548D279B8BE6005BD8A1 /* RecordCellViewModel.swift in Sources */,
 				CE5E1071279454D500AA3397 /* VolumeSlider.swift in Sources */,
 				CE5E101B278DE87800AA3397 /* UserDefaultsManager.swift in Sources */,
 				A9FD8DE927995E8400128654 /* PlayerSpaceshipView.swift in Sources */,

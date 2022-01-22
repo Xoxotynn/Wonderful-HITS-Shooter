@@ -124,6 +124,7 @@ final class TabBarCoordinator: Coordinator {
 extension TabBarCoordinator: TabBarItemDelegate {
     func configureTitleView(withPoints points: Int) {
         self.points = points
+        self.dependencies.networkManager.setCountryRecord(points: points)
     }
     
     func configureTitleView(withMoney money: Int) {

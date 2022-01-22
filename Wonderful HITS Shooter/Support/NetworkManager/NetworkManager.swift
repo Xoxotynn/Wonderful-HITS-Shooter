@@ -3,6 +3,8 @@ import Firebase
 final class NetworkManager {
     
     // MARK: - Properties
+    var country: String?
+    
     private let ref: DatabaseReference = Database.database().reference()
     private var uid: String?
     
@@ -180,6 +182,55 @@ final class NetworkManager {
             }
         }
     }
+    
+    func setCountry(countryName: String?) {
+        guard let countryName = countryName else {
+            return
+        }
+
+        country = countryName
+        
+        ref.child(Strings.records).child(countryName).getData { [weak self] error, snapshot in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if snapshot.value as? Int == nil {
+                self?.ref.child(Strings.records).child(countryName).setValue(0)
+            }
+        }
+    }
+    
+    func setCountryRecord(points: Int) {
+        guard let country = country else {
+            return
+        }
+        
+        let ref = ref.child(Strings.records).child(country)
+        ref.getData { error, snapshot in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let recordValue = snapshot.value as? Int, recordValue < points {
+                ref.setValue(points)
+            }
+        }
+    }
+    
+    func getRecordList(_ onComplete: @escaping ([RecordModel]) -> Void,
+                       onError: @escaping (Error) -> Void) {
+        ref.child(Strings.records).getData { error, snapshot in
+            if let error = error {
+                onError(error)
+            } else {
+                var recordModels: [RecordModel] = []
+                let records = snapshot.value as? [String : Int]
+                records?.forEach { record in
+                    recordModels.append(RecordModel(country: record.key,
+                                                    points: record.value))
+                }
+                
+                onComplete(recordModels)
+            }
+        }
+    }
 }
 
 // MARK: - Strings
@@ -193,4 +244,5 @@ private extension Strings {
     static let money = "money"
     static let levels = "levels"
     static let points = "points"
+    static let records = "records"
 }

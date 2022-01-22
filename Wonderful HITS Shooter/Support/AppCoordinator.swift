@@ -9,6 +9,7 @@ final class AppCoordinator: Coordinator {
     
     private let window: UIWindow?
     private let dependencies: Dependencies
+    private let locationManager: LocationManager
     
     // MARK: - Init
     init(window: UIWindow?) {
@@ -19,6 +20,8 @@ final class AppCoordinator: Coordinator {
                                     videoManager: VideoManager())
         rootNavigationController = UINavigationController()
         childCoordinators = []
+        locationManager = LocationManager()
+        
         UINavigationBar.appearance().backIndicatorImage = UIImage()
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage()
     }
@@ -29,6 +32,7 @@ final class AppCoordinator: Coordinator {
         
         window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
+        
         
         var startCoordinator: Coordinator
         setMusicVolume()
@@ -48,7 +52,9 @@ final class AppCoordinator: Coordinator {
         childCoordinators.append(startCoordinator)
         startCoordinator.start()
         
+        
         dependencies.audioManager.play(audio: Strings.mainTheme, needToLoop: true)
+        getUserLocation()
     }
     
     // MARK: - Private Methods
@@ -57,6 +63,15 @@ final class AppCoordinator: Coordinator {
         let soundEffectsVolume = dependencies.userDefaultsManager.getSoundEffectsVolume() ?? 1.0
         dependencies.audioManager.setMusicVolume(toValue: musicVolume)
         dependencies.audioManager.setSoundEffectsVolume(toValue: soundEffectsVolume)
+    }
+    
+    private func getUserLocation() {
+        locationManager.didUpdateCountry = { [weak self] in
+            print(self?.locationManager.country)
+            self?.dependencies.networkManager.setCountry(countryName: self?.locationManager.country)
+        }
+        
+        locationManager.getLocation()
     }
 }
 
