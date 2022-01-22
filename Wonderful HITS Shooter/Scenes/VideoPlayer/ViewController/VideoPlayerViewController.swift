@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class VideoPlayerViewController: BaseViewController {
+final class VideoPlayerViewController: BaseViewController {
 
     // MARK: - Properties
     private let videoContainerView = UIView()
@@ -9,9 +9,14 @@ class VideoPlayerViewController: BaseViewController {
     private let videoSlider = UISlider()
     private let currentVideoDurationLabel = UILabel()
     private let fullVideoDurationTimeLabel = UILabel()
+    private let backButton = CustomButton()
     private let viewModel: VideoPlayerViewModel
     
     // MARK: - Actions
+    @objc private func goBack() {
+        viewModel.goBack()
+    }
+    
     @objc private func playOrPauseVideo() {
         viewModel.playOrPauseVideo()
     }
@@ -40,20 +45,22 @@ class VideoPlayerViewController: BaseViewController {
         viewModel.start()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         viewModel.setBackgroundMusicAndStopVideo()
     }
     
     // MARK: - Private Methods
     private func setup() {
+        view.addSubview(backButton)
         view.addSubview(videoContainerView)
         view.addSubview(playButton)
         view.addSubview(videoSlider)
         view.addSubview(currentVideoDurationLabel)
         view.addSubview(fullVideoDurationTimeLabel)
         
+        setupBackButton()
         setupVideoContainerView()
         setupPlayButton()
         setupVideoSlider()
@@ -61,10 +68,21 @@ class VideoPlayerViewController: BaseViewController {
         setupFullVideoDurationLabel()
     }
     
+    private func setupBackButton() {
+        backButton.snp.makeConstraints { make in
+            make.size.equalTo(Dimensions.standartHeight)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
+        }
+        
+        backButton.setImage(UIImage(named: Images.back), for: .normal)
+        backButton.configure()
+        backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+    }
+    
     private func setupVideoContainerView() {
         videoContainerView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.center.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.5)
         }
         
@@ -86,6 +104,7 @@ class VideoPlayerViewController: BaseViewController {
     private func setupVideoSlider() {
         videoSlider.snp.makeConstraints { make in
             make.top.equalTo(playButton.snp.bottom).offset(Dimensions.standart)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
         }
         
         videoSlider.tintColor = .white
@@ -162,7 +181,6 @@ class VideoPlayerViewController: BaseViewController {
 
 // MARK: - Images
 private extension Images {
-    static let play = "play"
     static let pause = "pause"
 }
 

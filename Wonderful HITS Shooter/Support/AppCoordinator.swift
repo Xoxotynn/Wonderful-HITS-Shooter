@@ -72,6 +72,13 @@ final class AppCoordinator: Coordinator {
         
         locationManager.getLocation()
     }
+    
+    private func startAuthCoordinator() {
+        let authCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
+        authCoordinator.delegate = self
+        childCoordinators.append(authCoordinator)
+        authCoordinator.start()
+    }
 }
 
 // MARK: - AuthCoordinatorDelegate
@@ -93,21 +100,21 @@ extension AppCoordinator: MenuCoordinatorDelegate {
         
         let tabBarCoordinator = TabBarCoordinator(dependencies: dependencies,
                                                   rootNavigationController: rootNavigationController)
+        tabBarCoordinator.delegate = self
         childCoordinators.append(tabBarCoordinator)
         tabBarCoordinator.start()
     }
     
     func removeMenuCoordinatorAndShowAuthScene(menuCoordinator: MenuCoordinator) {
         removeAllChildCoordinatorsWithType(type(of: menuCoordinator))
-        
-        let authCoordinator = AuthCoordinator(rootNavigationController: rootNavigationController, dependencies: dependencies)
-        authCoordinator.delegate = self
-        childCoordinators.append(authCoordinator)
-        authCoordinator.start()
+        startAuthCoordinator()
     }
 }
 
-// MARK: - Strings
-private extension Strings {
-    static let mainTheme = "mainTheme"
+// MARK: - TabBarCoordinatorDelegate
+extension AppCoordinator: TabBarCoordinatorDelegate {
+    func removeTabBarCoordinatorAndShowAuthScene(tabBarCoordinator: TabBarCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: tabBarCoordinator))
+        startAuthCoordinator()
+    }
 }

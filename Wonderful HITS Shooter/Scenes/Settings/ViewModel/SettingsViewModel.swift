@@ -1,5 +1,11 @@
+protocol SettingsViewModelDelegate: AnyObject {
+    func showAuthScene()
+}
+
 final class SettingsViewModel {
     // MARK: - Properties
+    weak var delegate: SettingsViewModelDelegate?
+    
     var didSetMusicVolume: ((Float) -> Void)?
     var didSetSoundEffectsVolume: ((Float) -> Void)?
     
@@ -29,5 +35,10 @@ final class SettingsViewModel {
         if needToSave {
             dependencies.userDefaultsManager.setSoundEffectsVolume(value: value)
         }
+    }
+    
+    func logOut() {
+        dependencies.networkManager.signOut()
+        delegate?.showAuthScene()
     }
 }

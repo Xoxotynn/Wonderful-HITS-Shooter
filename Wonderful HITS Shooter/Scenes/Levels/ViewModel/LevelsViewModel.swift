@@ -3,6 +3,7 @@ import UIKit
 
 protocol LevelsViewModelDelegate: AnyObject {
     func startLevel(withNumber number: LevelNumber)
+    func showVideoScene()
 }
 
 final class LevelsViewModel {
@@ -58,6 +59,10 @@ final class LevelsViewModel {
         }
     }
     
+    func playVideo() {
+        levelsDelegate?.showVideoScene()
+    }
+    
     // MARK: - Private Methods
     private func getLevelsInfo() {
         dependencies.networkManager.getLevelsInfo { [weak self] levelModels in
@@ -77,7 +82,6 @@ final class LevelsViewModel {
         } onError: { [weak self] error in
             self?.didReceiveError?(error)
         }
-
     }
     
     private func setViewModels(with levels: [LevelModel]) {

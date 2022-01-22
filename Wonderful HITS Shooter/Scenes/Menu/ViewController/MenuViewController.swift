@@ -8,7 +8,6 @@ class MenuViewController: BaseViewController {
     private let playButton = CustomButton()
     private let settingsButton = CustomButton()
     private let exitButton = CustomButton()
-    private let logOutButton = CustomButton()
     private let viewModel: MenuViewModel
     
     // MARK: - Actions
@@ -23,10 +22,6 @@ class MenuViewController: BaseViewController {
     
     @objc private func exit() {
         viewModel.exit()
-    }
-    
-    @objc private func logOut() {
-        viewModel.logOut()
     }
     
     // MARK: - Init
@@ -44,14 +39,12 @@ class MenuViewController: BaseViewController {
         buttonsContainerView.addSubview(playButton)
         buttonsContainerView.addSubview(settingsButton)
         buttonsContainerView.addSubview(exitButton)
-        view.addSubview(logOutButton)
         
         setupTitleLabel()
         setupButtonsContainerView()
         setupPlayButton()
         setupSettingsButton()
         setupQuitButton()
-        setupLogOutButton()
     }
     
     private func setupTitleLabel() {
@@ -107,18 +100,6 @@ class MenuViewController: BaseViewController {
         
         exitButton.configure(withTitle: Strings.quit, withFontSize: Dimensions.large)
         exitButton.addTarget(self, action: #selector(exit), for: .touchUpInside)
-    }
-    
-    private func setupLogOutButton() {
-        logOutButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(Dimensions.standart)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
-            make.size.equalTo(Dimensions.standartHeight)
-        }
-        
-        logOutButton.setImage(UIImage(named: Images.logOut), for: .normal)
-        logOutButton.configure()
-        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

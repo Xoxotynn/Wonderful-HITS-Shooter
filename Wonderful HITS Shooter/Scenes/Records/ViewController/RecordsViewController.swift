@@ -56,7 +56,7 @@ class RecordsViewController: BaseViewController {
         }
         
         recordsTableView.backgroundColor = .clear
-        
+        recordsTableView.separatorColor = .white
         recordsTableView.register(RecordCellView.self, forCellReuseIdentifier: Strings.reuseIdentifier)
         recordsTableView.delegate = self
         recordsTableView.dataSource = self

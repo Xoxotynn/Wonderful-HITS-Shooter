@@ -4,7 +4,6 @@ import Darwin
 protocol MenuViewModelDelegate: AnyObject {
     func showTabBarScene()
     func showSettings()
-    func showAuthScene()
     func showVideoScene()
 }
 
@@ -23,10 +22,6 @@ final class MenuViewModel {
     
     func exit() {
         Darwin.exit(0)
-    }
-    
-    func logOut() {
-        delegate?.showAuthScene()
     }
     
     func showVideo() {

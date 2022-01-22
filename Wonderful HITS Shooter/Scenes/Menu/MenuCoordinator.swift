@@ -39,13 +39,9 @@ extension MenuCoordinator: MenuViewModelDelegate {
     
     func showSettings() {
         let settingsViewModel = SettingsViewModel(dependencies: dependencies)
+        settingsViewModel.delegate = self
         let settingsVC = SettingsViewController(viewModel: settingsViewModel)
         rootNavigationController.pushViewController(settingsVC, animated: true)
-    }
-    
-    func showAuthScene() {
-        dependencies.networkManager.signOut()
-        delegate?.removeMenuCoordinatorAndShowAuthScene(menuCoordinator: self)
     }
     
     #warning("Убери")
@@ -55,5 +51,11 @@ extension MenuCoordinator: MenuViewModelDelegate {
         let videoPlayerViewModel = VideoPlayerViewModel(dependencies: dependencies, url: url)
         let videoPlayerVC = VideoPlayerViewController(viewModel: videoPlayerViewModel)
         rootNavigationController.pushViewController(videoPlayerVC, animated: true)
+    }
+}
+
+extension MenuCoordinator: SettingsViewModelDelegate {
+    func showAuthScene() {
+        delegate?.removeMenuCoordinatorAndShowAuthScene(menuCoordinator: self)
     }
 }

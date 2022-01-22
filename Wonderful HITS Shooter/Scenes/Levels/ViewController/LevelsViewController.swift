@@ -5,7 +5,13 @@ final class LevelsViewController: BaseViewController {
     // MARK: - Properties
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private let flowLayout = UICollectionViewFlowLayout.init()
+    private let playVideoButton = CustomButton()
     private let viewModel: LevelsViewModel
+    
+    // MARK: - Actions
+    @objc private func playVideo() {
+        viewModel.playVideo()
+    }
     
     // MARK: - Init
     init(viewModel: LevelsViewModel) {
@@ -26,8 +32,10 @@ final class LevelsViewController: BaseViewController {
     // MARK: - Private Methods
     private func setup() {
         view.addSubview(collectionView)
+        view.addSubview(playVideoButton)
         
         setupCollectionView()
+        setupPlayVideoButton()
     }
     
     private func setupCollectionView() {
@@ -42,6 +50,18 @@ final class LevelsViewController: BaseViewController {
         collectionView.register(LevelCellView.self, forCellWithReuseIdentifier: Strings.reuseIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func setupPlayVideoButton() {
+        playVideoButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(Dimensions.standart)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
+            make.size.equalTo(Dimensions.standartHeight)
+        }
+        
+        playVideoButton.setImage(UIImage(named: Images.play), for: .normal)
+        playVideoButton.configure()
+        playVideoButton.addTarget(self, action: #selector(playVideo), for: .touchUpInside)
     }
     
     private func bindToViewModel() {

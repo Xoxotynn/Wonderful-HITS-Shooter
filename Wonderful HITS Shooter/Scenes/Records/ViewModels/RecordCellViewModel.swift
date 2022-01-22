@@ -1,7 +1,9 @@
 final class RecordCellViewModel {
     // MARK: - Prioperties
-    var infoString: String?
-    var didpdateData: (() -> Void)?
+    var placeString: String?
+    var countryString: String?
+    var pointsString: String?
+    var didUpdateData: (() -> Void)?
     
     private let record: RecordModel
     private let place: Int
@@ -14,7 +16,10 @@ final class RecordCellViewModel {
     
     // MARK: - Public Methods
     func setup() {
-        infoString = "\(place). \(record.country) : \(record.points)"
-        didpdateData?()
+        placeString = String(describing: place)
+        countryString = String(describing: record.country)
+        pointsString = String(describing: record.points)
+        
+        didUpdateData?()
     }
 }

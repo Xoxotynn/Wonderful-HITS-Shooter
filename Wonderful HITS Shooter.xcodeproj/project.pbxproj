@@ -111,6 +111,8 @@
 		CE7D548B279B8B7A005BD8A1 /* RecordCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */; };
 		CE7D548D279B8BE6005BD8A1 /* RecordCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */; };
 		CE7D548F279B9F4A005BD8A1 /* levelTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */; };
+		CE7D5496279BCD79005BD8A1 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5495279BCD78005BD8A1 /* SettingsCoordinator.swift */; };
+		CE7D5498279BCDC9005BD8A1 /* UpgradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D5497279BCDC9005BD8A1 /* UpgradingViewController.swift */; };
 		CE970AB9278DE734008B523B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE970AB8278DE734008B523B /* NetworkManager.swift */; };
 		CEE042DD278D530100C0B6CE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DC278D530100C0B6CE /* FirebaseAnalytics */; };
 		CEE042DF278D530100C0B6CE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CEE042DE278D530100C0B6CE /* FirebaseAuth */; };
@@ -234,6 +236,8 @@
 		CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellView.swift; sourceTree = "<group>"; };
 		CE7D548C279B8BE6005BD8A1 /* RecordCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCellViewModel.swift; sourceTree = "<group>"; };
 		CE7D548E279B9F4A005BD8A1 /* levelTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelTheme.mp3; sourceTree = "<group>"; };
+		CE7D5495279BCD78005BD8A1 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		CE7D5497279BCDC9005BD8A1 /* UpgradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradingViewController.swift; sourceTree = "<group>"; };
 		CE970AB8278DE734008B523B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CEF4332C27994335002EC368 /* LevelNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelNumber.swift; sourceTree = "<group>"; };
 		CEF433312799448F002EC368 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 		CE5E10622793864600AA3397 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				CE7D5495279BCD78005BD8A1 /* SettingsCoordinator.swift */,
 				CE5E106827938EB000AA3397 /* ViewModel */,
 				CE5E106727938E9C00AA3397 /* ViewController */,
 			);
@@ -663,6 +668,7 @@
 		CE7D54232799AAA9005BD8A1 /* Upgrading */ = {
 			isa = PBXGroup;
 			children = (
+				CE7D5499279BCDCC005BD8A1 /* ViewController */,
 				CE7D5437279A881B005BD8A1 /* UpgradingCoordinator.swift */,
 			);
 			path = Upgrading;
@@ -818,6 +824,14 @@
 				CE7D548A279B8B7A005BD8A1 /* RecordCellView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CE7D5499279BCDCC005BD8A1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D5497279BCDC9005BD8A1 /* UpgradingViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CEF4332E2799444F002EC368 /* Menu */ = {
@@ -982,6 +996,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7D5498279BCDC9005BD8A1 /* UpgradingViewController.swift in Sources */,
 				CE7D54362799F729005BD8A1 /* LevelsCoordinator.swift in Sources */,
 				CEF4333E2799A4A0002EC368 /* TabBarCoordinator.swift in Sources */,
 				CE7D5456279B0D80005BD8A1 /* VideoManager.swift in Sources */,
@@ -1067,6 +1082,7 @@
 				A9DBC525279B2E780017112F /* LevelResult.swift in Sources */,
 				A9DBC516279B07E90017112F /* GameOverViewController.swift in Sources */,
 				CE7D542E2799B11E005BD8A1 /* LevelCellViewModel.swift in Sources */,
+				CE7D5496279BCD79005BD8A1 /* SettingsCoordinator.swift in Sources */,
 				CE7D54312799B528005BD8A1 /* StarView.swift in Sources */,
 				CE5E1038278EF26700AA3397 /* AuthCoordinator.swift in Sources */,
 				A9DBC529279B80880017112F /* CirclePositionCreator.swift in Sources */,

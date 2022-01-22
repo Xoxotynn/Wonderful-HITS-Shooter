@@ -2,9 +2,15 @@ import Foundation
 import AVFoundation
 import UIKit
 
+protocol VideoPlayerViewModelDelegate: AnyObject {
+    func goBack()
+}
+
 final class VideoPlayerViewModel: NSObject {
     
     // MARK: - Properties
+    weak var delegate: VideoPlayerViewModelDelegate?
+    
     var videoDurationString: String?
     var currentVideoDurationString: String?
     
@@ -16,18 +22,22 @@ final class VideoPlayerViewModel: NSObject {
     var didUpdateSliderValues: ((Float, Float) -> Void)?
     
     private let dependencies: Dependencies
-    private let videoURL: URL
+    private let videoURL: URL?
     private var videoPlayerItem: AVPlayerItem?
     private var wasBackgroundMusicPlaying: Bool = false
     
     // MARK: - Init
-    init(dependencies: Dependencies, url: URL) {
+    init(dependencies: Dependencies, url: URL?) {
         self.dependencies = dependencies
         self.videoURL = url
     }
     
     // MARK: - Public Methods
     func start() {
+        guard let videoURL = videoURL else {
+            return
+        }
+
         stopMusicIfItsPlaying()
         
         dependencies.videoManager.setupPlayer(withURL: videoURL) { [weak self] playerLayer, videoPlayerItem in
@@ -39,6 +49,10 @@ final class VideoPlayerViewModel: NSObject {
     
     func rewindVideo(toValue value: Float) {
         dependencies.videoManager.rewindVideo(toValue: value)
+    }
+    
+    func goBack() {
+        delegate?.goBack()
     }
     
     func playOrPauseVideo() {

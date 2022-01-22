@@ -1,22 +1,8 @@
 import UIKit
 
-final class RecordsCoordinator: Coordinator {
-    // MARK: - Properties
-    var childCoordinators: [Coordinator]
-    var rootNavigationController: UINavigationController
-    weak var delegate: TabBarItemDelegate?
-    
-    private let dependencies: Dependencies
-    
-    // MARK: - Init
-    init(dependencies: Dependencies, rootNavigationController: UINavigationController) {
-        self.dependencies = dependencies
-        self.rootNavigationController = rootNavigationController
-        childCoordinators = []
-    }
-    
+final class RecordsCoordinator: TabCoordinator {
     // MARK: - Public Methods
-    func start() {
+    override func start() {
         let recordsViewModel = RecordsViewModel(dependencies: dependencies)
         let recordsVC = RecordsViewController(viewModel: recordsViewModel)
         rootNavigationController.setViewControllers([ recordsVC ], animated: true)

@@ -52,6 +52,7 @@ extension GameCoordinator: GameViewModelDelegate {
 extension GameCoordinator: GameOverViewModelDelegate {
     func backToLevelsScene() {
         delegate?.removeGameCoordinator(gameCoordinator: self)
+        dependencies.audioManager.play(audio: Strings.mainTheme, needToLoop: true)
     }
     
     func restartLevel() {

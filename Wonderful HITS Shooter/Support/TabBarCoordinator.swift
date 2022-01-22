@@ -1,7 +1,12 @@
 import UIKit
 
+protocol TabBarCoordinatorDelegate: AnyObject {
+    func removeTabBarCoordinatorAndShowAuthScene(tabBarCoordinator: TabBarCoordinator)
+}
+
 final class TabBarCoordinator: Coordinator {
     // MARK: - Properties
+    weak var delegate: TabBarCoordinatorDelegate?
     var childCoordinators: [Coordinator]
     var rootNavigationController: UINavigationController
     private let dependencies: Dependencies
@@ -46,10 +51,12 @@ final class TabBarCoordinator: Coordinator {
         let levelsNavigationController = createLevelsNavigationController()
         let upgradingNavigationController = createUpgradingNavigationController()
         let recordsNavigationController = createRecordsNavigationController()
+        let settingsNavigationController = createSettingsNavigationController()
         
         tabBarController.setViewControllers([ levelsNavigationController,
                                               upgradingNavigationController,
-                                              recordsNavigationController ], animated: true)
+                                              recordsNavigationController,
+                                              settingsNavigationController ], animated: true)
         
         rootNavigationController.setViewControllers([ tabBarController ], animated: true)
     }
@@ -91,7 +98,7 @@ final class TabBarCoordinator: Coordinator {
         navController.tabBarItem = item
         
         let upgradingCoordinator = UpgradingCoordinator(dependencies: dependencies,
-                                                        rootNavigationController: navController)
+                                                          rootNavigationController: navController)
         childCoordinators.append(upgradingCoordinator)
         upgradingCoordinator.start()
         
@@ -118,6 +125,37 @@ final class TabBarCoordinator: Coordinator {
         
         return navController
     }
+    
+    private func createSettingsNavigationController() -> UINavigationController {
+        let navController = UINavigationController()
+        navController.isNavigationBarHidden = true
+        
+        let item = UITabBarItem(title: Strings.settings,
+                                image: UIImage(named: Images.settings),
+                                selectedImage: nil)
+        item.setTitleTextAttributes([
+            .font : UIFont.pressStart2p(.regular, size: CGFloat(Dimensions.standart/2))
+        ], for: .normal)
+        
+        navController.tabBarItem = item
+        
+        let settingsCoordinator = SettingsCoordinator(dependencies: dependencies,
+                                                      rootNavigationController: navController)
+        settingsCoordinator.settingsCoordinatorDelegate = self
+        childCoordinators.append(settingsCoordinator)
+        settingsCoordinator.start()
+        
+        return navController
+    }
+}
+
+// MARK: - SettingsCoordinatorDelegate
+extension TabBarCoordinator: SettingsCoordinatorDelegate {
+    func removeSettingsCoordinatorAndShowAuthScene(settingsCoordinator: SettingsCoordinator) {
+        removeAllChildCoordinatorsWithType(type(of: settingsCoordinator))
+        titleView.removeFromSuperview()
+        delegate?.removeTabBarCoordinatorAndShowAuthScene(tabBarCoordinator: self)
+    }
 }
 
 // MARK: - TabBarItemDelegate
@@ -137,6 +175,7 @@ private extension Strings {
     static let levels = "Уровни"
     static let upgrading = "Улучшения"
     static let records = "Рекорды"
+    static let settings = "Настройки"
 }
 
 // MARK: - Images
@@ -144,4 +183,5 @@ private extension Images {
     static let levels = "levelsIcon"
     static let upgrading = "upgradingIcon"
     static let records = "recordsIcon"
+    static let settings = "settingsIcon"
 }

@@ -15,6 +15,7 @@ class SettingsViewController: BaseViewController {
     private let musicVolumeSlider = VolumeSlider()
     private let soundEffectsTitleLabel = UILabel()
     private let soundEffectsVolumeSlider = VolumeSlider()
+    private let logOutButton = CustomButton()
     private let viewModel: SettingsViewModel
     
     // MARK: - Actions
@@ -42,6 +43,10 @@ class SettingsViewController: BaseViewController {
         }
     }
     
+    @objc private func logOut() {
+        viewModel.logOut()
+    }
+    
     // MARK: - Init
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
@@ -65,12 +70,14 @@ class SettingsViewController: BaseViewController {
         view.addSubview(musicVolumeSlider)
         view.addSubview(soundEffectsTitleLabel)
         view.addSubview(soundEffectsVolumeSlider)
+        view.addSubview(logOutButton)
         
         setupTitleLabel()
         setupMusicSliderTitleLabel()
         setupMusicVolumeSlider()
         setupSoundEffectsTitleLabel()
         setupSoundEffectsVolumeSlider()
+        setupLogOutButton()
     }
     
     private func setupTitleLabel() {
@@ -128,6 +135,18 @@ class SettingsViewController: BaseViewController {
         }
         
         soundEffectsVolumeSlider.addTarget(self, action: #selector(soundEffectsVolumeSliderDidChangeValue(slider:event:)), for: .valueChanged)
+    }
+    
+    private func setupLogOutButton() {
+        logOutButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(Dimensions.standart)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Dimensions.standart)
+            make.size.equalTo(Dimensions.standartHeight)
+        }
+        
+        logOutButton.setImage(UIImage(named: Images.logOut), for: .normal)
+        logOutButton.configure()
+        logOutButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
     private func bindToViewModel() {
